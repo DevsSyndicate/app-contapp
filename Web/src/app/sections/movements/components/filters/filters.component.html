@@ -1,0 +1,28 @@
+<form class="form" [formGroup]="movementsFiltersForm" (ngSubmit)="submit()">
+    <div class="row">
+        <!-- Type -->
+        <div class="col-sm-2">
+            <label>Type</label>
+            <select class="form-control mb-2 mr-sm-2" formControlName="type" placeholder="Type">
+                <option value="expense">Expense</option>
+                <option value="entry">Entry</option>
+            </select>
+        </div>
+
+        <!-- Month -->
+        <div class="col-sm-2">
+            <label>Month</label>
+            <select class="form-control mb-2 mr-sm-2" formControlName="month">
+                <option value="{{ i }}" *ngFor="let month of months; let i = index">{{ month }}</option>
+            </select>
+        </div>
+
+        <div class="col-sm-5">
+            <button type="submit" class="btn btn-primary m-t-31">Filter</button>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="btn btn-info float-right m-t-31" (click)="clean()">Clean filters</div>
+        </div>
+    </div>
+</form>
