@@ -1,10 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { AuthLayoutComponent } from '@layout/layouts/auth/auth-layout.component';
+import { MainLayoutComponent } from '@layout/layouts/main/main-layout.component';
+
+const routes: Routes = [
+    {
+        path: '',
+        component: MainLayoutComponent,
+        children: [
+            {
+                path: '',
+                loadChildren: () => import('@pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
+            },
+        ],
+    },
+    {
+        path: 'auth',
+        component: AuthLayoutComponent,
+        children: [
+
+        ],
+    },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+
+/**
+ * Main routing module
+ */
+export class AppRoutingModule {}
