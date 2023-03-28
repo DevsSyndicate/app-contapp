@@ -7,6 +7,8 @@ import { SidebarLayoutComponent } from './components/sidebar/sidebar.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main/main-layout.component';
 
+import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
+
 @NgModule({
     declarations: [
         AuthLayoutComponent,
@@ -17,6 +19,7 @@ import { MainLayoutComponent } from './layouts/main/main-layout.component';
     imports: [
         CommonModule,
         RouterModule,
+        SharedBreadcrumbsComponent,
     ],
     exports: [
         AuthLayoutComponent,

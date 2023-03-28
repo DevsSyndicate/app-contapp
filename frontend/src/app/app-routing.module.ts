@@ -13,6 +13,18 @@ const routes: Routes = [
                 path: '',
                 loadChildren: () => import('@pages/dashboard/dashboard.module').then((m) => m.DashboardModule),
             },
+            {
+                path: 'movements',
+                loadChildren: () => import('@pages/movements/movements.module').then((m) => m.MovementsPageModule),
+            },
+            {
+                path: 'categories',
+                loadChildren: () => import('@pages/categories/categories.module').then((m) => m.CategoriesPageModule),
+            },
+            {
+                path: 'accounts',
+                loadChildren: () => import('@pages/accounts/accounts.module').then((m) => m.AccountsPageModule),
+            },
         ],
     },
     {
