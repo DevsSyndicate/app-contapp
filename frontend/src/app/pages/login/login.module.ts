@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { LoginFormLayoutComponent } from './layouts/form/form.component';
 import { LoginPageRoutingModule } from './login-routing.module';
 
+import { AuthenticationUiFeatureModule } from '@features/authentication/authentication-ui-feature.module';
 import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/bread
         LoginFormLayoutComponent,
     ],
     imports: [
+        AuthenticationUiFeatureModule,
         CommonModule,
         LoginPageRoutingModule,
         SharedBreadcrumbsComponent,
