@@ -5,6 +5,8 @@ import { AccountsPageRoutingModule } from './accounts-routing.module';
 import { AccountsPageFormLayoutComponent } from './layouts/form/form.component';
 import { AccountsPageListLayoutComponent } from './layouts/list/list.component';
 
+import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
+
 @NgModule({
     declarations: [
         AccountsPageFormLayoutComponent,
@@ -13,6 +15,7 @@ import { AccountsPageListLayoutComponent } from './layouts/list/list.component';
     imports: [
         AccountsPageRoutingModule,
         CommonModule,
+        SharedBreadcrumbsComponent,
     ],
 })
 

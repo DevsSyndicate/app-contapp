@@ -5,6 +5,8 @@ import { CategoriesPageRoutingModule } from './categories-routing.module';
 import { CategoriesPageFormLayoutComponent } from './layouts/form/form.component';
 import { CategoriesPageListLayoutComponent } from './layouts/list/list.component';
 
+import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
+
 @NgModule({
     declarations: [
         CategoriesPageFormLayoutComponent,
@@ -13,6 +15,7 @@ import { CategoriesPageListLayoutComponent } from './layouts/list/list.component
     imports: [
         CategoriesPageRoutingModule,
         CommonModule,
+        SharedBreadcrumbsComponent,
     ],
 })
 

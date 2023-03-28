@@ -1,13 +1,22 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterModule],
     selector: 'app-shared-breadcrumbs',
     templateUrl: './breadcrumbs.component.html',
 })
 
 export class SharedBreadcrumbsComponent {
-    // component logic
+    @Input() public title: string;
+
+    @Input() public linkUrl: string;
+
+    @Input() public linkText: string;
+
+    @Input() public buttonUrl: string;
+
+    @Input() public buttonText: string;
 }
