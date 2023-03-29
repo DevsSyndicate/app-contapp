@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    ApiUrl: 'https://contapp-api.mcfdez87.com/api',
+    baseUrl: 'http://localhost:4200/proxy',
+    ApiUrl: 'http://localhost:4200/proxy/api',
 };

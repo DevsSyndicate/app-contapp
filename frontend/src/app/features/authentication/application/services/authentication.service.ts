@@ -15,7 +15,13 @@ import { environment } from '@env/environment';
 export class AuthenticationService implements AuthenticationServiceInterface {
     public ApiUrl: string = environment.ApiUrl;
 
+    public baseUrl: string = environment.baseUrl;
+
     constructor(protected apiService: ApiService) {}
+
+    public csrfCookie(): Observable<any> {
+        return this.apiService.get<any>(`${this.baseUrl}/sanctum/csrf-cookie`, null, true);
+    }
 
     public login(data: AuthenticationData): Observable<JwtResponse> {
         return this.apiService.post<JwtResponse>(`${this.ApiUrl}/login`, data);

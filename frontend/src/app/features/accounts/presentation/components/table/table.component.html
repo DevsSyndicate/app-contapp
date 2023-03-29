@@ -1,0 +1,35 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<div class="table-responsive">
+					<table class="table text-nowrap">
+						<thead>
+							<tr>
+								<th class="border-top-0">#</th>
+								<th class="border-top-0">Name</th>
+								<th class="border-top-0"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let account of accounts$ | async">
+								<td>{{ account.id }}</td>
+								<td>{{ account.name }}</td>
+								<td class="text-end">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-light" routerLink="/accounts/edit/{{ account.id }}">
+											<i class="fa fa-edit"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-light" (click)="delete(account.id)">
+											<i class="fa fa-trash"></i>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

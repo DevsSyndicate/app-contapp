@@ -7,6 +7,11 @@ import { AuthenticationData, JwtResponse } from '../models/authentication.models
  */
 export interface AuthenticationServiceInterface {
     /**
+     * Get CSRF cookie protection
+     */
+    csrfCookie: () => Observable<any>;
+
+    /**
 	 * Login
 	 */
     login: (data: AuthenticationData) => Observable<JwtResponse>;

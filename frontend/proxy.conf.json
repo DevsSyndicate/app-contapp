@@ -1,0 +1,9 @@
+{
+    "/proxy": {
+      "target": "https://contapp-api.mcfdez87.com",
+      "secure": false,
+      "pathRewrite": {"^/proxy" : ""},
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }

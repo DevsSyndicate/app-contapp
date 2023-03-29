@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, concatMap, map, switchMap, tap } from 'rxjs/operators';
 
 import { AuthenticationEffectsInterface } from '../../domain/interfaces/authentication-effects.interface';
 import { Login, LoginError, LoginSuccess, LogoutError, LogoutSuccess } from '../../domain/state/authentication.actions';
@@ -21,11 +21,17 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
     public login$ = createEffect(() =>
         this.actions$.pipe(
             ofType(Login),
-            switchMap(({ data }) =>
-                this.authenticationService.login(data).pipe(
-                    map(() => LoginSuccess()),
-                    catchError(() => of(LoginError()))
-                ))
+            switchMap(({ data }) => {
+                return this.authenticationService.csrfCookie().pipe(
+                    concatMap(() => {
+                        return this.authenticationService.login(data).pipe(
+                            map(() => LoginSuccess()),
+                            catchError(() => of(LoginError()))
+                        );
+                    })
+
+                );
+            })
         ));
 
     public redirectToDashboardOnLoginSuccess$ = createEffect(
