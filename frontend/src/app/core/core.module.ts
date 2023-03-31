@@ -5,7 +5,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { AuthInterceptor } from './application/interceptors/auth.interceptor';
-import { XsrfInterceptor } from './application/interceptors/xsrf.interceptor';
+import { DatesService } from './application/services/dates.service';
 import { CoreEffects } from './application/state/core..effects';
 import { coreReducer } from './application/state/core.reducers';
 import { ApiService } from './infrastructure/api/api.service';
@@ -27,12 +27,8 @@ import { ApiService } from './infrastructure/api/api.service';
             useClass: AuthInterceptor,
             multi: true,
         },
-        /* {
-            provide: HTTP_INTERCEPTORS,
-            useClass: XsrfInterceptor,
-            multi: true,
-        }, */
         ApiService,
+        DatesService,
     ],
 })
 

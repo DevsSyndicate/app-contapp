@@ -5,6 +5,7 @@ import { MovementsPageFormLayoutComponent } from './layouts/form/form.component'
 import { MovementsPageListLayoutComponent } from './layouts/list/list.component';
 import { MovementsPageRoutingModule } from './movements-routing.module';
 
+import { MovementsUiFeatureModule } from '@features/movements/movements-ui-feature.module';
 import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/bread
     imports: [
         CommonModule,
         MovementsPageRoutingModule,
+        MovementsUiFeatureModule,
         SharedBreadcrumbsComponent,
     ],
 })

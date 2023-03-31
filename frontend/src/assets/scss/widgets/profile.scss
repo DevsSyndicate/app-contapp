@@ -36,7 +36,8 @@
         label {
             font-weight: 500;
         }
-        .form-control, .form-select {
+        .form-control, 
+        .form-select {
             background-color: rgba(0,0,0,0);
             background-position: center bottom,center calc(99%);
             background-repeat: no-repeat;
@@ -55,6 +56,29 @@
             }
             &::placeholder {
                 font-weight: 300;
+            }
+        }
+
+        select2 {
+            .select2-container--default {
+                &:not(.select2-container--open) {
+                    .select2-focused {
+                        .select2-selection--single {
+                            border: none!important;
+                        }
+                    }
+                }
+                .select2-selection--single {
+                    border: none;
+                }
+            }
+
+            .select2-results {
+                background-color: #edf1f5;
+            }
+
+            .select2-dropdown {
+                border: none;
             }
         }
     }

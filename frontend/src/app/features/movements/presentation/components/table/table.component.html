@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<div class="table-responsive">
+					<table class="table text-nowrap">
+						<thead>
+							<tr>
+								<th class="border-top-0">#</th>
+								<th class="border-top-0">Type</th>
+								<th class="border-top-0">Name</th>
+								<th class="border-top-0">Quantity</th>
+								<th class="border-top-0">Date</th>
+								<th class="border-top-0">Category</th>
+								<th class="border-top-0">Account</th>
+								<th class="border-top-0"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								*ngFor="let movement of movements$ | async"
+								[ngClass]="{ expense: movement.type === 'expense', incoming: movement.type === 'incoming' }"
+							>
+								<td>{{ movement.id }}</td>
+								<td>{{ movement.type }}</td>
+								<td>{{ movement.name }}</td>
+								<td>{{ movement.amount }}</td>
+								<td>{{ movement.date }}</td>
+								<td>{{ movement.category?.name }}</td>
+								<td>{{ movement.account?.name }}</td>
+								<td class="text-end">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-light" routerLink="/movements/edit/{{ movement.id }}">
+											<i class="fa fa-edit"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-light" (click)="delete(movement.id)">
+											<i class="fa fa-trash"></i>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

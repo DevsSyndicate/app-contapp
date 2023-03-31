@@ -20,7 +20,7 @@ export class AuthenticationService implements AuthenticationServiceInterface {
     constructor(protected apiService: ApiService) {}
 
     public csrfCookie(): Observable<any> {
-        return this.apiService.get<any>(`${this.baseUrl}/sanctum/csrf-cookie`, null, true);
+        return this.apiService.get<any>(`${this.baseUrl}/sanctum/csrf-cookie`, null);
     }
 
     public login(data: AuthenticationData): Observable<JwtResponse> {
