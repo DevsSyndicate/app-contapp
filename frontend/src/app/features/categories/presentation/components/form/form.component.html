@@ -1,0 +1,81 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title" *ngIf="(isEditing$ | async) === false">Add category</h4>
+					<h4 class="card-title" *ngIf="(isEditing$ | async) === true && editingCategory$ | async">Edit category</h4>
+
+					<form class="form-horizontal form-material" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+						<div class="row">
+							<!-- Name -->
+							<div class="col-md-4">
+								<div class="form-group mb-4">
+									<label class="col-md-12 p-0">Name</label>
+									<div class="col-md-12 border-bottom p-0">
+										<input
+											type="text"
+											placeholder="Category name"
+											class="form-control p-0 border-0"
+											formControlName="name"
+											[ngClass]="{ 'is-invalid': (submitted$ | async) && form.name.errors }"
+										/>
+									</div>
+									<div *ngIf="(submitted$ | async) && form.name.errors" class="invalid-feedback">
+										<div *ngIf="form.name.errors.required">Name is required</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Icon -->
+							<div class="col-md-4">
+								<div class="form-group mb-4">
+									<label class="col-md-12 p-0">Icon</label>
+									<div class="col-md-12 border-bottom p-0">
+										<input
+											type="text"
+											placeholder="Category icon"
+											class="form-control p-0 border-0"
+											formControlName="icon"
+											[ngClass]="{ 'is-invalid': (submitted$ | async) && form.icon.errors }"
+										/>
+									</div>
+									<div *ngIf="(submitted$ | async) && form.icon.errors" class="invalid-feedback">
+										<div *ngIf="form.icon.errors.required">Icon is required</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Color -->
+							<div class="col-md-4">
+								<div class="form-group mb-4">
+									<label class="col-md-12 p-0">Color</label>
+									<div class="col-md-12 border-bottom p-0">
+										<input
+											type="text"
+											class="form-control p-0 border-0"
+											formControlName="color"
+											[ngClass]="{ 'is-invalid': (submitted$ | async) && form.color.errors }"
+											[colorPicker]=""
+											(colorPickerChange)="onColorChange($event)"
+										/>
+									</div>
+									<div *ngIf="(submitted$ | async) && form.color.errors" class="invalid-feedback">
+										<div *ngIf="form.color.errors.required">Color is required</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group mb-4">
+									<button type="submit" class="btn btn-success">Save</button>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

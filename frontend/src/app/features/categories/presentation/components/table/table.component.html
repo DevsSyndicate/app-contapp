@@ -1,0 +1,41 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<div class="table-responsive">
+					<table class="table text-nowrap">
+						<thead>
+							<tr>
+								<th class="border-top-0">#</th>
+								<th class="border-top-0">Name</th>
+								<th class="border-top-0">Icon</th>
+								<th class="border-top-0">Color</th>
+								<th class="border-top-0"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let category of categories$ | async">
+								<td>{{ category.id }}</td>
+								<td>{{ category.name }}</td>
+								<td><i [class]="'fa ' + category.icon"></i></td>
+								<td class="category-color">
+									<span [style.background-color]="category.color"></span>
+								</td>
+								<td class="text-end">
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-light" routerLink="/categories/edit/{{ category.id }}">
+											<i class="fa fa-edit"></i>
+										</button>
+										<button type="button" class="btn btn-sm btn-light" (click)="delete(category.id)">
+											<i class="fa fa-trash"></i>
+										</button>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

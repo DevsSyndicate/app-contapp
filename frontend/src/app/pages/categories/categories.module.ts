@@ -5,6 +5,7 @@ import { CategoriesPageRoutingModule } from './categories-routing.module';
 import { CategoriesPageFormLayoutComponent } from './layouts/form/form.component';
 import { CategoriesPageListLayoutComponent } from './layouts/list/list.component';
 
+import { CategoriesUiFeatureModule } from '@features/categories/categories-ui-feature.module';
 import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumbs.component';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { SharedBreadcrumbsComponent } from '@shared/components/breadcrumbs/bread
     ],
     imports: [
         CategoriesPageRoutingModule,
+        CategoriesUiFeatureModule,
         CommonModule,
         SharedBreadcrumbsComponent,
     ],
