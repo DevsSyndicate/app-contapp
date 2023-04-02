@@ -18,7 +18,7 @@ class MovementsController extends Controller
         $perPage = $request->input('perPage', 20);
         $page = $request->input('page', 1);
 
-        return Movement::with('category', 'account')->orderBy('date')->paginate($perPage);       
+        return Movement::with('category', 'account')->orderBy('date', 'desc')->paginate($perPage);       
     }
 
 
