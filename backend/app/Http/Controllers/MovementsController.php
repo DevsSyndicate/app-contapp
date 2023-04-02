@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\MovementsRequest;
 use App\Models\Movement;
 use Illuminate\Http\Request;
+use App\Events\MovementCreated;
+use App\Events\MovementDeleted;
 
 class MovementsController extends Controller
 {
@@ -25,7 +27,11 @@ class MovementsController extends Controller
      */
     public function store(MovementsRequest $request)
     {
-        return Movement::create($request->validated());
+        $movement = Movement::create($request->validated());
+
+        MovementCreated::dispatch($movement);
+
+        return $movement;
     }
 
     /**
@@ -51,6 +57,8 @@ class MovementsController extends Controller
      */
     public function destroy(Movement $movement)
     {
+        MovementDeleted::dispatch($movement);
+
         return $movement->delete();
     }
 }

@@ -12,6 +12,7 @@ export enum MovementsActionTypes {
     LOAD_MOVEMENT_ERROR = '[Movements] Load movement error',
 
     DELETE_MOVEMENT = '[Movements] Delete movement',
+    DELETE_MOVEMENT_SUCCESS = '[Movements] Delete movement success',
 
     SUBMIT_MOVEMENT_FORM = '[Movements] Submit movement form',
     SUBMIT_MOVEMENT_FORM_SUCCESS = '[Movements] Submit movement form success',
@@ -35,6 +36,7 @@ export const LoadMovementSuccess = createAction(
 export const LoadMovementError = createAction(MovementsActionTypes.LOAD_MOVEMENT_ERROR);
 
 export const DeleteMovement = createAction(MovementsActionTypes.DELETE_MOVEMENT, props<{ id: string }>());
+export const DeleteMovementSuccess = createAction(MovementsActionTypes.DELETE_MOVEMENT_SUCCESS);
 
 export const SubmitMovementForm = createAction(
     MovementsActionTypes.SUBMIT_MOVEMENT_FORM,

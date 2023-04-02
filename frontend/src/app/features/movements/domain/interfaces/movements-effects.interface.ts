@@ -11,6 +11,11 @@ export interface MovementsEffectsInterface {
     loadMovementsOnRouteEnter$: Observable<Action>;
 
     /**
+	 * Dispatch action to load accounts when enter to the section
+	 */
+    loadAccountsOnRouteEnter$: Observable<Action>;
+
+    /**
 	 * Dispatch action to load categories when enter to the add or add form
 	 */
     loadCategoriesOnAddOrEditFormEnter$: Observable<Action>;
@@ -39,6 +44,16 @@ export interface MovementsEffectsInterface {
 	 * Delete movement
 	 */
     deleteMovement$: Observable<Action>;
+
+    /**
+     * Refresh movements on movement delete
+     */
+    refreshMovementsOnMovementDelete$: Observable<Action>;
+
+    /**
+     * Refresh accounts on movement delete
+     */
+    refreshAccountsOnMovementDelete$: Observable<Action>;
 
     /**
 	 * Add new movement on submit form

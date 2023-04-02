@@ -10,6 +10,7 @@ import { ApiMovements } from '../../domain/models/movement-api.model';
 import { Movement, MovementFormData, Movements } from '../../domain/models/movement.model';
 import {
     DeleteMovement,
+    DeleteMovementSuccess,
     LoadMovement,
     LoadMovementError,
     LoadMovements,
@@ -43,6 +44,13 @@ export class MovementsEffects implements MovementsEffectsInterface {
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) => /\/movements$/.exec(action.payload.routerState.url) !== null),
             map(() => LoadMovements({ page: '1', perPage: '20' }))
+        ));
+
+    public loadAccountsOnRouteEnter$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(ROUTER_NAVIGATED),
+            filter((action: RouterNavigationAction) => /\/movements$/.exec(action.payload.routerState.url) !== null),
+            map(() => LoadAccounts())
         ));
 
     public loadCategoriesOnAddOrEditFormEnter$ = createEffect(() =>
@@ -97,8 +105,21 @@ export class MovementsEffects implements MovementsEffectsInterface {
     public deleteMovement$ = createEffect(() =>
         this.actions$.pipe(
             ofType(DeleteMovement),
-            mergeMap(({ id }) => this.movementsService.delete(id)),
+            mergeMap(({ id }) => this.movementsService.delete(id).pipe(
+                map(() => DeleteMovementSuccess())
+            ))
+        ));
+
+    public refreshMovementsOnMovementDelete$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(DeleteMovementSuccess),
             map(() => LoadMovements({ page: '1', perPage: '20' }))
+        ));
+
+    public refreshAccountsOnMovementDelete$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(DeleteMovementSuccess),
+            map(() => LoadAccounts())
         ));
 
     public submitMovementFormForAddNewMovement$ = createEffect(() =>

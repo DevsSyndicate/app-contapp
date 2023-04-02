@@ -10,6 +10,7 @@ import { MovementsState } from '../../../domain/state/movements.state';
 @Component({
     selector: 'app-movements-table',
     templateUrl: './table.component.html',
+    styleUrls: ['./table.component.scss'],
 })
 
 /**
