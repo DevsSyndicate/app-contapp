@@ -14,16 +14,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>dsdsd</td>
-							<td>25</td>
-							<td>dsds</td>
+						<tr
+							*ngFor="let movement of monthyMovements$ | async"
+							[ngClass]="{ expense: movement.type === 'expense', income: movement.type === 'income' }"
+						>
+							<td>{{ movement.id }}</td>
+							<td>{{ movement.name }}</td>
+							<td>{{ movement.amount | currency }}</td>
+							<td>{{ movement.date }}</td>
 							<td class="category">
-								<i class="fa sdsd"></i>
-								sdsd
+								<i class="fa {{ movement.category?.icon }}"></i>
+								{{ movement.category?.name }}
 							</td>
-							<td>dsdsd</td>
+							<td>{{ movement.account?.name }}</td>
 						</tr>
 					</tbody>
 				</table>

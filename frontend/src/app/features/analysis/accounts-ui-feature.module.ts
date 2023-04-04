@@ -7,6 +7,8 @@ import { AnalysisMonthlyComponent } from './presentation/components/monthly/mont
 import { AnalysisMonthlyBalancesComponent } from './presentation/components/monthly-balances/monthly-balances.component';
 import { AnalysisMonthlyMovementsComponent } from './presentation/components/monthly-movements/monthly-movements.component';
 
+import { CurrencyPipe } from '@shared/pipes/currency.pipe';
+
 @NgModule({
     declarations: [
         AnalysisMenuComponent,
@@ -21,6 +23,7 @@ import { AnalysisMonthlyMovementsComponent } from './presentation/components/mon
     imports: [
         AnalysisFeatureModule,
         CommonModule,
+        CurrencyPipe,
     ],
 })
 

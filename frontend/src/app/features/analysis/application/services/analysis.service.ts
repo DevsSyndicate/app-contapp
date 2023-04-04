@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -13,11 +14,14 @@ import { environment } from '@env/environment';
  * Analysis service
  */
 export class AnalysisService implements AnalysisServiceInterface {
-    public ApiUrl = `${environment.ApiUrl}/movements`;
+    public ApiUrl = `${environment.ApiUrl}/analysis/monthly`;
 
     constructor(protected apiService: ApiService) {}
 
     public getMonthlyAccountBalances(): Observable<AnalysisMonthly> {
-        return this.apiService.get<AnalysisMonthly>(this.ApiUrl);
+        // TODO: hardocded account. Change this
+        const params = new HttpParams().set('account', '2');
+
+        return this.apiService.get<AnalysisMonthly>(this.ApiUrl, params);
     }
 }
