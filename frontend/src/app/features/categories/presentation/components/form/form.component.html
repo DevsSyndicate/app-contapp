@@ -27,8 +27,27 @@
 								</div>
 							</div>
 
+							<!-- Forecast -->
+							<div class="col-md-3">
+								<div class="form-group mb-4">
+									<label class="col-md-12 p-0">Forecast</label>
+									<div class="col-md-12 border-bottom p-0">
+										<input
+											type="text"
+											placeholder="Category forecast"
+											class="form-control p-0 border-0"
+											formControlName="forecast"
+											[ngClass]="{ 'is-invalid': (submitted$ | async) && form.forecast.errors }"
+										/>
+									</div>
+									<div *ngIf="(submitted$ | async) && form.forecast.errors" class="invalid-feedback">
+										<div *ngIf="form.forecast.errors.required">Forecast is required</div>
+									</div>
+								</div>
+							</div>
+
 							<!-- Icon -->
-							<div class="col-md-4">
+							<div class="col-md-3">
 								<div class="form-group mb-4">
 									<label class="col-md-12 p-0">Icon</label>
 									<div class="col-md-12 border-bottom p-0">
@@ -47,7 +66,7 @@
 							</div>
 
 							<!-- Color -->
-							<div class="col-md-4">
+							<div class="col-md-2">
 								<div class="form-group mb-4">
 									<label class="col-md-12 p-0">Color</label>
 									<div class="col-md-12 border-bottom p-0">

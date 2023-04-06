@@ -1,7 +1,13 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="white-box">
-			<div class="table-responsive">
+			<h3 class="box-title">
+				Movements
+				<div class="float-end" role="button" (click)="movementsCollapsed = !movementsCollapsed">
+					<i [class]="movementsCollapsed ? 'fa fa-chevron-down' : 'fa fa-chevron-up'"></i>
+				</div>
+			</h3>
+			<div class="table-responsive" #collapse="ngbCollapse" [(ngbCollapse)]="movementsCollapsed">
 				<table class="table text-nowrap table-striped">
 					<thead>
 						<tr>

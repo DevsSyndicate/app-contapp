@@ -54,6 +54,7 @@ export class CategoriesFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
+        debugger;
         this.store.dispatch(SubmitCategoryForm({ formValues: this.categoryForm.value }));
     }
 
@@ -65,6 +66,7 @@ export class CategoriesFormComponent {
             name: new FormControl('', { nonNullable: true }),
             color: new FormControl('', { nonNullable: true }),
             icon: new FormControl('', { nonNullable: true }),
+            forecast: new FormControl('', { nonNullable: true }),
         });
     }
 }

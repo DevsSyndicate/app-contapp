@@ -6,5 +6,8 @@ export const getAnalysisState = createFeatureSelector<AnalysisState>('analysis')
 
 export const getAccountBalances = createSelector(getAnalysisState, (state: AnalysisState) => state.values?.monthly);
 
-export const getAccountBalanceMovements = createSelector(getAnalysisState, (state: AnalysisState) =>
+export const getMonthlyAccountBalanceMovements = createSelector(getAnalysisState, (state: AnalysisState) =>
     state.values?.monthly?.movements);
+
+export const getMonthlyForecastExpenses = createSelector(getAnalysisState, (state: AnalysisState) =>
+    state.values?.monthly?.forecastExpenses);

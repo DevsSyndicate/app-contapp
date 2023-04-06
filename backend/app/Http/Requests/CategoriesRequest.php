@@ -27,6 +27,7 @@ class CategoriesRequest extends FormRequest
             'name' => 'required',
             'color' => 'required',
             'icon' => 'required',
+            'forecast' => 'required',
         ];
     }
 }

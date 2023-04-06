@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="white-box">
+			<h3 class="box-title">
+				Forecasts
+				<div class="float-end" role="button" (click)="forecastsCollapsed = !forecastsCollapsed">
+					<i [class]="forecastsCollapsed ? 'fa fa-chevron-down' : 'fa fa-chevron-up'"></i>
+				</div>
+			</h3>
+
+			<div class="table-responsive" #collapse="ngbCollapse" [(ngbCollapse)]="forecastsCollapsed">
+				<table class="table text-nowrap table-striped">
+					<thead>
+						<tr>
+							<th class="border-top-0">Type</th>
+							<th class="border-top-0">Spent</th>
+							<th class="border-top-0">Forecast</th>
+							<th class="border-top-0">Remaining</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let forecastExpense of monthlyForecastExpenses$ | async">
+							<td>
+								<i class="fa {{ forecastExpense.icon }}" [ngStyle]="{ color: forecastExpense.color }"></i>
+								{{ forecastExpense.name }}
+							</td>
+							<td>{{ forecastExpense.spent | currency }}</td>
+							<td>{{ forecastExpense.forecast | currency }}</td>
+							<td>
+								<span
+									[ngClass]="{
+										'text-success': forecastExpense.remaining > 0,
+										'text-danger': forecastExpense.remaining < 0,
+										'text-info': forecastExpense.remaining === 0
+									}"
+								>
+									{{ forecastExpense.remaining | currency }}
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

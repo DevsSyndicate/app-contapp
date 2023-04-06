@@ -7,7 +7,6 @@
 #main-wrapper {
     width: 100%;
     overflow: hidden;
-    height: 100vh;
 }
 
 .page-wrapper {
@@ -45,7 +44,6 @@
     &[data-sidebartype="full"] {
         .page-wrapper {
             margin-left: $sidebar-width-full;
-            height: 100vh;
         }
     }
 }

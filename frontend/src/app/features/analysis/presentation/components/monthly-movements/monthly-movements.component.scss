@@ -1,0 +1,22 @@
+table {
+    tbody {
+        tr {
+            &.expense {
+                border-left: 2px solid red;
+            }
+
+            &.income {
+                border-left: 2px solid green;
+            }
+
+            td {
+                &.category {
+                    i {
+                        opacity: .5;
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

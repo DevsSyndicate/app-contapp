@@ -1,7 +1,7 @@
 <div class="row" *ngIf="accountBalances$ | async as accountBalances">
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 		<div class="white-box analytics-info">
-			<h3 class="box-title">Gastos del mes</h3>
+			<h3 class="box-title">Expenses of the month</h3>
 			<ul class="list-inline two-part d-flex align-items-center mb-0">
 				<li>
 					<span class="counter text-danger">{{ accountBalances.expenses | currency }}</span>
@@ -10,23 +10,34 @@
 		</div>
 	</div>
 
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 		<div class="white-box analytics-info">
-			<h3 class="box-title">Balance restante</h3>
+			<h3 class="box-title">Total in account</h3>
 			<ul class="list-inline two-part d-flex align-items-center mb-0">
 				<li>
-					<span class="counter text-success">{{ accountBalances.balance | currency }}</span>
+					<span class="counter text-success">{{ accountBalances.amount | currency }}</span>
 				</li>
 			</ul>
 		</div>
 	</div>
 
-	<div class="col-lg-4">
+	<div class="col-lg-3">
 		<div class="white-box analytics-info">
-			<h3 class="box-title">Total en cuenta</h3>
+			<h3 class="box-title">Expense forecast</h3>
 			<ul class="list-inline two-part d-flex align-items-center mb-0">
 				<li>
-					<span class="counter text-success">{{ accountBalances.amount | currency }}</span>
+					<span class="counter text-success">{{ accountBalances.forecast | currency }}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-lg-3">
+		<div class="white-box analytics-info">
+			<h3 class="box-title">Expense percent</h3>
+			<ul class="list-inline two-part d-flex align-items-center mb-0">
+				<li>
+					<span class="counter text-danger">{{ accountBalances.expensePercent }}%</span>
 				</li>
 			</ul>
 		</div>

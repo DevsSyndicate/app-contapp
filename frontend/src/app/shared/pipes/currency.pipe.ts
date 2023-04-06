@@ -10,6 +10,6 @@ import { Pipe, PipeTransform } from '@angular/core';
  */
 export class CurrencyPipe implements PipeTransform {
     public transform(value: number): string {
-        return value.toFixed(2) + ' €';
+        return value.toFixed(2) + '€';
     }
 }
