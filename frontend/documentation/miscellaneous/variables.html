@@ -1,0 +1,2120 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@contapp/frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@contapp/frontend documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#accountsInitialState" title="src/app/features/accounts/domain/state/accounts.state.ts" ><b>accountsInitialState</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#accountsReducer" title="src/app/features/accounts/application/state/accounts.reducers.ts" ><b>accountsReducer</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#analysisInitialState" title="src/app/features/analysis/domain/state/analysis.state.ts" ><b>analysisInitialState</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#analysisReducer" title="src/app/features/analysis/application/state/analysis.reducers.ts" ><b>analysisReducer</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BYPASS_INTERCEPTOR" title="src/app/core/domain/constants/configurations.const.ts" ><b>BYPASS_INTERCEPTOR</b>&nbsp;&nbsp;&nbsp;(src/.../configurations.const.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#categoriesInitialState" title="src/app/features/categories/domain/state/categories.state.ts" ><b>categoriesInitialState</b>&nbsp;&nbsp;&nbsp;(src/.../categories.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#categoriesReducer" title="src/app/features/categories/application/state/categories.reducers.ts" ><b>categoriesReducer</b>&nbsp;&nbsp;&nbsp;(src/.../categories.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#coreInitialState" title="src/app/core/domain/state/core.state.ts" ><b>coreInitialState</b>&nbsp;&nbsp;&nbsp;(src/.../core.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#coreReducer" title="src/app/core/application/state/core.reducers.ts" ><b>coreReducer</b>&nbsp;&nbsp;&nbsp;(src/.../core.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteAccount" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>DeleteAccount</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteCategory" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>DeleteCategory</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteMovement" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>DeleteMovement</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeleteMovementSuccess" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>DeleteMovementSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAccountBalances" title="src/app/features/analysis/application/state/analysis.selectors.ts" ><b>getAccountBalances</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAccounts" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getAccounts</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAccountsForSelect" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getAccountsForSelect</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAccountsState" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getAccountsState</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAnalysisState" title="src/app/features/analysis/application/state/analysis.selectors.ts" ><b>getAnalysisState</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCategories" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getCategories</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCategoriesForSelect" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getCategoriesForSelect</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCategoriesState" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getCategoriesState</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getEditingAccount" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getEditingAccount</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getEditingCategory" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getEditingCategory</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getEditingMovement" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getEditingMovement</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getIsEditingAccount" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getIsEditingAccount</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getIsEditingCategory" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getIsEditingCategory</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getIsEditingMovement" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getIsEditingMovement</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMonthlyAccountBalanceMovements" title="src/app/features/analysis/application/state/analysis.selectors.ts" ><b>getMonthlyAccountBalanceMovements</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMonthlyForecastExpenses" title="src/app/features/analysis/application/state/analysis.selectors.ts" ><b>getMonthlyForecastExpenses</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMovements" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getMovements</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMovementsCurrentPage" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getMovementsCurrentPage</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMovementsState" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getMovementsState</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSubmittedFormStatus" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getSubmittedFormStatus</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSubmittedFormStatus" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getSubmittedFormStatus</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getSubmittedFormStatus" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getSubmittedFormStatus</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getTotalMovementsValue" title="src/app/features/movements/application/state/momenents.selectors.ts" ><b>getTotalMovementsValue</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccount" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccount</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccountError" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountError</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccounts" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccounts</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccountsError" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountsError</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccountsSuccess" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountsSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadAccountSuccess" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategories" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategories</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategoriesError" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategoriesError</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategoriesSuccess" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategoriesSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategory" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategory</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategoryError" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategoryError</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategorySuccess" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategorySuccess</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMonthlyAnalysisAccountBalances" title="src/app/features/analysis/domain/state/analysis.actions.ts" ><b>LoadMonthlyAnalysisAccountBalances</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMonthlyAnalysisAccountBalancesError" title="src/app/features/analysis/domain/state/analysis.actions.ts" ><b>LoadMonthlyAnalysisAccountBalancesError</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMonthlyAnalysisAccountBalancesSuccess" title="src/app/features/analysis/domain/state/analysis.actions.ts" ><b>LoadMonthlyAnalysisAccountBalancesSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../analysis.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovement" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovement</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovementError" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovementError</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovements" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovements</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovementsError" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovementsError</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovementsSuccess" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovementsSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadMovementSuccess" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>LoadMovementSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Login" title="src/app/features/authentication/domain/state/authentication.actions.ts" ><b>Login</b>&nbsp;&nbsp;&nbsp;(src/.../authentication.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoginError" title="src/app/features/authentication/domain/state/authentication.actions.ts" ><b>LoginError</b>&nbsp;&nbsp;&nbsp;(src/.../authentication.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoginSuccess" title="src/app/features/authentication/domain/state/authentication.actions.ts" ><b>LoginSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../authentication.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Logout" title="src/app/features/authentication/domain/state/authentication-public.actions.ts" ><b>Logout</b>&nbsp;&nbsp;&nbsp;(src/.../authentication-public.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LogoutError" title="src/app/features/authentication/domain/state/authentication.actions.ts" ><b>LogoutError</b>&nbsp;&nbsp;&nbsp;(src/.../authentication.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LogoutSuccess" title="src/app/features/authentication/domain/state/authentication.actions.ts" ><b>LogoutSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../authentication.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#movementsInitialState" title="src/app/features/movements/domain/state/movements.state.ts" ><b>movementsInitialState</b>&nbsp;&nbsp;&nbsp;(src/.../movements.state.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#movementsReducer" title="src/app/features/movements/application/state/momenents.reducers.ts" ><b>movementsReducer</b>&nbsp;&nbsp;&nbsp;(src/.../momenents.reducers.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitAccountForm" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>SubmitAccountForm</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitAccountFormSuccess" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>SubmitAccountFormSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitCategoryForm" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>SubmitCategoryForm</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitCategoryFormSuccess" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>SubmitCategoryFormSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitMovementForm" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>SubmitMovementForm</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SubmitMovementFormSuccess" title="src/app/features/movements/domain/state/movements.actions.ts" ><b>SubmitMovementFormSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../movements.actions.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/features/accounts/domain/state/accounts.state.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accountsInitialState"></a>
+                    <span class="name">
+                        <span ><b>accountsInitialState</b></span>
+                        <a href="#accountsInitialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AccountsState.html" target="_self" >AccountsState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    loaded: false,
+    loading: false,
+    values: {
+        data: null,
+    },
+    edition: {
+        formIsSubmitted: false,
+        isEditing: false,
+        editingAccount: null,
+    },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/accounts/application/state/accounts.reducers.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="accountsReducer"></a>
+                    <span class="name">
+                        <span ><b>accountsReducer</b></span>
+                        <a href="#accountsReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+    accountsInitialState,
+
+    on(LoadAccounts, (state) &#x3D;&gt; ({
+        ...state,
+        loading: true,
+        loaded: false,
+        edition: {
+            formIsSubmitted: false,
+            isEditing: false,
+            editingAccount: null,
+        },
+    })),
+
+    on(LoadAccountsSuccess, (state, { accounts }) &#x3D;&gt; ({
+        ...state,
+        loading: false,
+        loaded: true,
+        values: {
+            data: accounts,
+        },
+    })),
+
+    on(SubmitAccountForm, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, formIsSubmitted: true } })),
+
+    on(LoadAccount, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, isEditing: true } })),
+
+    on(LoadAccountSuccess, (state, { account }) &#x3D;&gt; (
+        { ...state, edition: { ...state.edition, editingAccount: account } }
+    ))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/analysis/domain/state/analysis.state.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analysisInitialState"></a>
+                    <span class="name">
+                        <span ><b>analysisInitialState</b></span>
+                        <a href="#analysisInitialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AnalysisState.html" target="_self" >AnalysisState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    loaded: false,
+    loading: false,
+    values: {
+        monthly: null,
+    },
+
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/analysis/application/state/analysis.reducers.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analysisReducer"></a>
+                    <span class="name">
+                        <span ><b>analysisReducer</b></span>
+                        <a href="#analysisReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+    analysisInitialState,
+
+    on(LoadMonthlyAnalysisAccountBalancesSuccess, (state, { monthlyAccountBalances }) &#x3D;&gt; ({
+        ...state,
+        values: {
+            ...state.values, monthly: monthlyAccountBalances,
+        },
+    })),
+
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/domain/constants/configurations.const.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BYPASS_INTERCEPTOR"></a>
+                    <span class="name">
+                        <span ><b>BYPASS_INTERCEPTOR</b></span>
+                        <a href="#BYPASS_INTERCEPTOR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new HttpContextToken(() &#x3D;&gt; false)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/domain/state/categories.state.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoriesInitialState"></a>
+                    <span class="name">
+                        <span ><b>categoriesInitialState</b></span>
+                        <a href="#categoriesInitialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CategoriesState.html" target="_self" >CategoriesState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    loaded: false,
+    loading: false,
+    values: {
+        data: null,
+    },
+    edition: {
+        formIsSubmitted: false,
+        isEditing: false,
+        editingCategory: null,
+    },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/application/state/categories.reducers.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="categoriesReducer"></a>
+                    <span class="name">
+                        <span ><b>categoriesReducer</b></span>
+                        <a href="#categoriesReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+    categoriesInitialState,
+
+    on(LoadCategories, (state) &#x3D;&gt; ({
+        ...state,
+        loading: true,
+        loaded: false,
+        edition: {
+            formIsSubmitted: false,
+            isEditing: false,
+            editingCategory: null,
+        },
+    })),
+
+    on(LoadCategoriesSuccess, (state, { categories }) &#x3D;&gt; ({
+        ...state,
+        loading: false,
+        loaded: true,
+        values: {
+            data: categories,
+        },
+    })),
+
+    on(SubmitCategoryForm, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, formIsSubmitted: true } })),
+
+    on(LoadCategory, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, isEditing: true } })),
+
+    on(LoadCategorySuccess, (state, { category }) &#x3D;&gt; (
+        { ...state, edition: { ...state.edition, editingCategory: category } }
+    ))
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/domain/state/core.state.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coreInitialState"></a>
+                    <span class="name">
+                        <span ><b>coreInitialState</b></span>
+                        <a href="#coreInitialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CoreState.html" target="_self" >CoreState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    prueba: true,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/application/state/core.reducers.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coreReducer"></a>
+                    <span class="name">
+                        <span ><b>coreReducer</b></span>
+                        <a href="#coreReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(coreInitialState)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/accounts/domain/state/accounts.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteAccount"></a>
+                    <span class="name">
+                        <span ><b>DeleteAccount</b></span>
+                        <a href="#DeleteAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.DELETE_ACCOUNT, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccount"></a>
+                    <span class="name">
+                        <span ><b>LoadAccount</b></span>
+                        <a href="#LoadAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.LOAD_ACCOUNT, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccountError"></a>
+                    <span class="name">
+                        <span ><b>LoadAccountError</b></span>
+                        <a href="#LoadAccountError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.LOAD_ACCOUNT_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccounts"></a>
+                    <span class="name">
+                        <span ><b>LoadAccounts</b></span>
+                        <a href="#LoadAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.LOAD_ACCOUNTS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccountsError"></a>
+                    <span class="name">
+                        <span ><b>LoadAccountsError</b></span>
+                        <a href="#LoadAccountsError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.LOAD_ACCOUNTS_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccountsSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadAccountsSuccess</b></span>
+                        <a href="#LoadAccountsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    AccountsActionTypes.LOAD_ACCOUNTS_SUCCESS,
+    props&lt;{ accounts: Account[] }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccountSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadAccountSuccess</b></span>
+                        <a href="#LoadAccountSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.LOAD_ACCOUNT_SUCCESS, props&lt;{ account: Account }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitAccountForm"></a>
+                    <span class="name">
+                        <span ><b>SubmitAccountForm</b></span>
+                        <a href="#SubmitAccountForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.SUBMIT_ACCOUNT_FORM, props&lt;{ formValues: Account }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitAccountFormSuccess"></a>
+                    <span class="name">
+                        <span ><b>SubmitAccountFormSuccess</b></span>
+                        <a href="#SubmitAccountFormSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsActionTypes.SUBMIT_ACCOUNT_FORM_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/domain/state/categories.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteCategory"></a>
+                    <span class="name">
+                        <span ><b>DeleteCategory</b></span>
+                        <a href="#DeleteCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.DELETE_CATEGORY, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategories"></a>
+                    <span class="name">
+                        <span ><b>LoadCategories</b></span>
+                        <a href="#LoadCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.LOAD_CATEGORIES)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategoriesError"></a>
+                    <span class="name">
+                        <span ><b>LoadCategoriesError</b></span>
+                        <a href="#LoadCategoriesError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.LOAD_CATEGORIES_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategoriesSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadCategoriesSuccess</b></span>
+                        <a href="#LoadCategoriesSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS,
+    props&lt;{ categories: Category[] }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategory"></a>
+                    <span class="name">
+                        <span ><b>LoadCategory</b></span>
+                        <a href="#LoadCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.LOAD_CATEGORY, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategoryError"></a>
+                    <span class="name">
+                        <span ><b>LoadCategoryError</b></span>
+                        <a href="#LoadCategoryError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.LOAD_CATEGORY_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategorySuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadCategorySuccess</b></span>
+                        <a href="#LoadCategorySuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    CategoriesActionTypes.LOAD_CATEGORY_SUCCESS,
+    props&lt;{ category: Category }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitCategoryForm"></a>
+                    <span class="name">
+                        <span ><b>SubmitCategoryForm</b></span>
+                        <a href="#SubmitCategoryForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    CategoriesActionTypes.SUBMIT_CATEGORY_FORM,
+    props&lt;{ formValues: Category }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitCategoryFormSuccess"></a>
+                    <span class="name">
+                        <span ><b>SubmitCategoryFormSuccess</b></span>
+                        <a href="#SubmitCategoryFormSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesActionTypes.SUBMIT_CATEGORY_FORM_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/movements/domain/state/movements.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteMovement"></a>
+                    <span class="name">
+                        <span ><b>DeleteMovement</b></span>
+                        <a href="#DeleteMovement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.DELETE_MOVEMENT, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DeleteMovementSuccess"></a>
+                    <span class="name">
+                        <span ><b>DeleteMovementSuccess</b></span>
+                        <a href="#DeleteMovementSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.DELETE_MOVEMENT_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovement"></a>
+                    <span class="name">
+                        <span ><b>LoadMovement</b></span>
+                        <a href="#LoadMovement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.LOAD_MOVEMENT, props&lt;{ id: string }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovementError"></a>
+                    <span class="name">
+                        <span ><b>LoadMovementError</b></span>
+                        <a href="#LoadMovementError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.LOAD_MOVEMENT_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovements"></a>
+                    <span class="name">
+                        <span ><b>LoadMovements</b></span>
+                        <a href="#LoadMovements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    MovementsActionTypes.LOAD_MOVEMENTS,
+    props&lt;{ page: string; perPage: string }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovementsError"></a>
+                    <span class="name">
+                        <span ><b>LoadMovementsError</b></span>
+                        <a href="#LoadMovementsError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.LOAD_MOVEMENTS_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovementsSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadMovementsSuccess</b></span>
+                        <a href="#LoadMovementsSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    MovementsActionTypes.LOAD_MOVEMENTS_SUCCESS,
+    props&lt;{ movements: Movement[]; total: number; currentPage: number }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMovementSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadMovementSuccess</b></span>
+                        <a href="#LoadMovementSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    MovementsActionTypes.LOAD_MOVEMENT_SUCCESS,
+    props&lt;{ movement: MovementFormData }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitMovementForm"></a>
+                    <span class="name">
+                        <span ><b>SubmitMovementForm</b></span>
+                        <a href="#SubmitMovementForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    MovementsActionTypes.SUBMIT_MOVEMENT_FORM,
+    props&lt;{ formValues: MovementFormData }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SubmitMovementFormSuccess"></a>
+                    <span class="name">
+                        <span ><b>SubmitMovementFormSuccess</b></span>
+                        <a href="#SubmitMovementFormSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(MovementsActionTypes.SUBMIT_MOVEMENT_FORM_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    production: true,
+    baseUrl: &#x27;https://contapp-api.mcfdez87.com&#x27;,
+    ApiUrl: &#x27;https://contapp-api.mcfdez87.com/api&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    production: false,
+    baseUrl: &#x27;http://localhost:4200/proxy&#x27;,
+    ApiUrl: &#x27;http://localhost:4200/proxy/api&#x27;,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/analysis/application/state/analysis.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountBalances"></a>
+                    <span class="name">
+                        <span ><b>getAccountBalances</b></span>
+                        <a href="#getAccountBalances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAnalysisState, (state: AnalysisState) &#x3D;&gt; state.values?.monthly)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAnalysisState"></a>
+                    <span class="name">
+                        <span ><b>getAnalysisState</b></span>
+                        <a href="#getAnalysisState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;AnalysisState&gt;(&#x27;analysis&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMonthlyAccountBalanceMovements"></a>
+                    <span class="name">
+                        <span ><b>getMonthlyAccountBalanceMovements</b></span>
+                        <a href="#getMonthlyAccountBalanceMovements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAnalysisState, (state: AnalysisState) &#x3D;&gt;
+    state.values?.monthly?.movements)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMonthlyForecastExpenses"></a>
+                    <span class="name">
+                        <span ><b>getMonthlyForecastExpenses</b></span>
+                        <a href="#getMonthlyForecastExpenses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAnalysisState, (state: AnalysisState) &#x3D;&gt;
+    state.values?.monthly?.forecastExpenses)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/accounts/application/state/accounts.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccounts"></a>
+                    <span class="name">
+                        <span ><b>getAccounts</b></span>
+                        <a href="#getAccounts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt; state.values?.data)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountsForSelect"></a>
+                    <span class="name">
+                        <span ><b>getAccountsForSelect</b></span>
+                        <a href="#getAccountsForSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt;
+    state.values?.data?.map((account: Account) &#x3D;&gt; ({ label: account.name, value: account.id })))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountsState"></a>
+                    <span class="name">
+                        <span ><b>getAccountsState</b></span>
+                        <a href="#getAccountsState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;AccountsState&gt;(&#x27;accounts&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEditingAccount"></a>
+                    <span class="name">
+                        <span ><b>getEditingAccount</b></span>
+                        <a href="#getEditingAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt;
+    state.edition?.editingAccount)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIsEditingAccount"></a>
+                    <span class="name">
+                        <span ><b>getIsEditingAccount</b></span>
+                        <a href="#getIsEditingAccount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt; state.edition?.isEditing)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubmittedFormStatus"></a>
+                    <span class="name">
+                        <span ><b>getSubmittedFormStatus</b></span>
+                        <a href="#getSubmittedFormStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt;
+    state.edition?.formIsSubmitted)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/application/state/categories.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategories"></a>
+                    <span class="name">
+                        <span ><b>getCategories</b></span>
+                        <a href="#getCategories"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt; state.values?.data)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoriesForSelect"></a>
+                    <span class="name">
+                        <span ><b>getCategoriesForSelect</b></span>
+                        <a href="#getCategoriesForSelect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt;
+    state.values?.data?.map((categegory: Category) &#x3D;&gt; ({ label: categegory.name, value: categegory.id })))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoriesState"></a>
+                    <span class="name">
+                        <span ><b>getCategoriesState</b></span>
+                        <a href="#getCategoriesState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;CategoriesState&gt;(&#x27;categories&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEditingCategory"></a>
+                    <span class="name">
+                        <span ><b>getEditingCategory</b></span>
+                        <a href="#getEditingCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt;
+    state.edition?.editingCategory)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIsEditingCategory"></a>
+                    <span class="name">
+                        <span ><b>getIsEditingCategory</b></span>
+                        <a href="#getIsEditingCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt; state.edition?.isEditing)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubmittedFormStatus"></a>
+                    <span class="name">
+                        <span ><b>getSubmittedFormStatus</b></span>
+                        <a href="#getSubmittedFormStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt;
+    state.edition?.formIsSubmitted)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/movements/application/state/momenents.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getEditingMovement"></a>
+                    <span class="name">
+                        <span ><b>getEditingMovement</b></span>
+                        <a href="#getEditingMovement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+    getMovementsState,
+    (state: MovementsState) &#x3D;&gt; state.edition?.editingMovement
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getIsEditingMovement"></a>
+                    <span class="name">
+                        <span ><b>getIsEditingMovement</b></span>
+                        <a href="#getIsEditingMovement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getMovementsState, (state: MovementsState) &#x3D;&gt; state.edition?.isEditing)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMovements"></a>
+                    <span class="name">
+                        <span ><b>getMovements</b></span>
+                        <a href="#getMovements"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getMovementsState, (state: MovementsState) &#x3D;&gt; state.values?.data)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMovementsCurrentPage"></a>
+                    <span class="name">
+                        <span ><b>getMovementsCurrentPage</b></span>
+                        <a href="#getMovementsCurrentPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+    getMovementsState,
+    (state: MovementsState) &#x3D;&gt; state.values?.currentPage
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMovementsState"></a>
+                    <span class="name">
+                        <span ><b>getMovementsState</b></span>
+                        <a href="#getMovementsState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createFeatureSelector&lt;MovementsState&gt;(&#x27;movements&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubmittedFormStatus"></a>
+                    <span class="name">
+                        <span ><b>getSubmittedFormStatus</b></span>
+                        <a href="#getSubmittedFormStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(
+    getMovementsState,
+    (state: MovementsState) &#x3D;&gt; state.edition?.formIsSubmitted
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTotalMovementsValue"></a>
+                    <span class="name">
+                        <span ><b>getTotalMovementsValue</b></span>
+                        <a href="#getTotalMovementsValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getMovementsState, (state: MovementsState) &#x3D;&gt; state.values.total)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/analysis/domain/state/analysis.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMonthlyAnalysisAccountBalances"></a>
+                    <span class="name">
+                        <span ><b>LoadMonthlyAnalysisAccountBalances</b></span>
+                        <a href="#LoadMonthlyAnalysisAccountBalances"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AnalysisActionTypes.LOAD_ACCONT_BALANCES,)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMonthlyAnalysisAccountBalancesError"></a>
+                    <span class="name">
+                        <span ><b>LoadMonthlyAnalysisAccountBalancesError</b></span>
+                        <a href="#LoadMonthlyAnalysisAccountBalancesError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AnalysisActionTypes.LOAD_ACCONT_BALANCES_ERROR,)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadMonthlyAnalysisAccountBalancesSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoadMonthlyAnalysisAccountBalancesSuccess</b></span>
+                        <a href="#LoadMonthlyAnalysisAccountBalancesSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(
+    AnalysisActionTypes.LOAD_ACCONT_BALANCES_SUCCESS,
+    props&lt;{ monthlyAccountBalances: AnalysisMonthly }&gt;()
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/authentication/domain/state/authentication.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Login"></a>
+                    <span class="name">
+                        <span ><b>Login</b></span>
+                        <a href="#Login"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGIN, props&lt;{ data: AuthenticationData }&gt;())</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoginError"></a>
+                    <span class="name">
+                        <span ><b>LoginError</b></span>
+                        <a href="#LoginError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGIN_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoginSuccess"></a>
+                    <span class="name">
+                        <span ><b>LoginSuccess</b></span>
+                        <a href="#LoginSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGIN_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LogoutError"></a>
+                    <span class="name">
+                        <span ><b>LogoutError</b></span>
+                        <a href="#LogoutError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGOUT_ERROR)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LogoutSuccess"></a>
+                    <span class="name">
+                        <span ><b>LogoutSuccess</b></span>
+                        <a href="#LogoutSuccess"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGOUT_SUCCESS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/authentication/domain/state/authentication-public.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Logout"></a>
+                    <span class="name">
+                        <span ><b>Logout</b></span>
+                        <a href="#Logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AuthenticationPublicActionTypes.LOGOUT)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/movements/domain/state/movements.state.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="movementsInitialState"></a>
+                    <span class="name">
+                        <span ><b>movementsInitialState</b></span>
+                        <a href="#movementsInitialState"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MovementsState.html" target="_self" >MovementsState</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    loaded: false,
+    loading: false,
+    values: {
+        data: null,
+        total: null,
+        currentPage: null,
+    },
+    edition: {
+        formIsSubmitted: false,
+        isEditing: false,
+        editingMovement: null,
+    },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/movements/application/state/momenents.reducers.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="movementsReducer"></a>
+                    <span class="name">
+                        <span ><b>movementsReducer</b></span>
+                        <a href="#movementsReducer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createReducer(
+    movementsInitialState,
+
+    on(LoadMovements, (state) &#x3D;&gt; ({
+        ...state,
+        loading: true,
+        loaded: false,
+        edition: {
+            formIsSubmitted: false,
+            isEditing: false,
+            editingMovement: null,
+        },
+    })),
+
+    on(LoadMovementsSuccess, (state, { movements, total }) &#x3D;&gt; ({
+        ...state,
+        loading: false,
+        loaded: true,
+        values: {
+            data: movements,
+            total,
+        },
+    })),
+
+    on(SubmitMovementForm, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, formIsSubmitted: true } })),
+
+    on(LoadMovement, (state) &#x3D;&gt; ({ ...state, edition: { ...state.edition, isEditing: true } })),
+
+    on(LoadMovementSuccess, (state, { movement }) &#x3D;&gt; ({
+        ...state,
+        edition: { ...state.edition, editingMovement: movement },
+    })),
+
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
