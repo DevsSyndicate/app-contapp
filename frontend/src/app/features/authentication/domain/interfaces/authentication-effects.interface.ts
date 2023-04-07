@@ -8,7 +8,12 @@ export interface AuthenticationEffectsInterface {
     login$: Observable<Action>;
 
     /**
-	 * Redirecto to dashboard on login success
+	 * Set authentication token in LocalStorage
+	 */
+    setAuthenticationTokenInLocalStorage$: Observable<Action>;
+
+    /**
+	 * Redirect to dashboard on login success
 	 */
     redirectToDashboardOnLoginSuccess$: Observable<Action>;
 

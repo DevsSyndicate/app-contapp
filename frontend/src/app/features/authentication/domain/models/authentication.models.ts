@@ -3,6 +3,7 @@ export interface AuthenticationData {
     email: string;
 }
 
-export interface JwtResponse {
-    jwt: string;
+export interface AuthenticationResponse {
+    access_token: string;
+    token_type: string;
 }

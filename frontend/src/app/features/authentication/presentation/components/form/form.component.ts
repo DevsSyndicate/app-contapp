@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, UntypedFormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
@@ -7,6 +7,7 @@ import { Login } from '../../../domain/state/authentication.actions';
 @Component({
     selector: 'app-authentication-form',
     templateUrl: './form.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 /**

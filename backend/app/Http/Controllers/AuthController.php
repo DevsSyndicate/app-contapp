@@ -23,13 +23,12 @@ class AuthController extends Controller
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        // If works, return token and cookie
-        $token = $request->user()->createToken('token')->plainTextToken;
-        $cookie = cookie('jwt', $token, 60 * 24);
+        $token = $request->user()->createToken('auth_token')->plainTextToken;
 
-        return response([
-            'jwt' => $token
-        ])->withCookie($cookie);
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+        ]);
     }
 
     /**

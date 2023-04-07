@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { BYPASS_INTERCEPTOR } from '../../domain/constants/configurations.const';
+import { TokenService } from '../services/token.service';
 
 @Injectable()
 
@@ -12,28 +12,29 @@ import { BYPASS_INTERCEPTOR } from '../../domain/constants/configurations.const'
  * Authentication interceptor
  */
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private readonly router: Router) {}
+    constructor(
+        private readonly router: Router,
+        private readonly tokenService: TokenService
+    ) {}
 
     public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        // Bypass some routes
-        /* if (request.context.get(BYPASS_INTERCEPTOR)) {
-            return next.handle(request);
-        } */
+        const accessToken = this.tokenService.getToken();
 
         const clonedRequest = request.clone({
-            withCredentials: true,
+            setHeaders: {
+                Authorization: `Bearer ${accessToken}`,
+            },
         });
 
         return next.handle(clonedRequest).pipe(
 
             catchError((error: any) => {
                 if (error.status !== 401) {
-                    // eslint-disable-next-line deprecation/deprecation
-                    return throwError(error);
+                    return throwError(() => new Error(error));
                 }
-                // this.router.navigate(['/auth/login']);
-                // eslint-disable-next-line deprecation/deprecation
-                return throwError(error);
+                this.router.navigate(['/auth/login']);
+
+                return throwError(() => new Error(error));
             })
         );
     }

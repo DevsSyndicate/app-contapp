@@ -5,17 +5,20 @@ import { of } from 'rxjs';
 import { catchError, concatMap, map, switchMap, tap } from 'rxjs/operators';
 
 import { AuthenticationEffectsInterface } from '../../domain/interfaces/authentication-effects.interface';
+import { AuthenticationResponse } from '../../domain/models/authentication.models';
+import { Logout } from '../../domain/state/authentication-public.actions';
 import { Login, LoginError, LoginSuccess, LogoutError, LogoutSuccess } from '../../domain/state/authentication.actions';
 import { AuthenticationService } from '../services/authentication.service';
 
-import { Logout } from '@features/authentication/domain/state/authentication-public.actions';
+import { TokenService } from '@core/application/services/token.service';
 
 @Injectable()
 export class AuthenticationEffects implements AuthenticationEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly authenticationService: AuthenticationService
+        private readonly authenticationService: AuthenticationService,
+        private readonly tokenService: TokenService
     ) {}
 
     public login$ = createEffect(() =>
@@ -25,7 +28,8 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
                 return this.authenticationService.csrfCookie().pipe(
                     concatMap(() => {
                         return this.authenticationService.login(data).pipe(
-                            map(() => LoginSuccess()),
+                            map((authResponse: AuthenticationResponse) =>
+                                LoginSuccess({ authToken: authResponse.access_token })),
                             catchError(() => of(LoginError()))
                         );
                     })
@@ -33,6 +37,17 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
                 );
             })
         ));
+
+    public setAuthenticationTokenInLocalStorage$ = createEffect(
+        () =>
+            this.actions$.pipe(
+                ofType(LoginSuccess),
+                tap(({ authToken }) => {
+                    this.tokenService.setToken(authToken);
+                })
+            ),
+        { dispatch: false }
+    );
 
     public redirectToDashboardOnLoginSuccess$ = createEffect(
         () =>

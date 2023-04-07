@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AuthenticationServiceInterface } from '../../domain/interfaces/authentication-service.interface';
-import { AuthenticationData, JwtResponse } from '../../domain/models/authentication.models';
+import { AuthenticationData, AuthenticationResponse } from '../../domain/models/authentication.models';
 
 import { ApiService } from '@core/infrastructure/api/api.service';
 import { environment } from '@env/environment';
@@ -23,8 +23,8 @@ export class AuthenticationService implements AuthenticationServiceInterface {
         return this.apiService.get<any>(`${this.baseUrl}/sanctum/csrf-cookie`, null);
     }
 
-    public login(data: AuthenticationData): Observable<JwtResponse> {
-        return this.apiService.post<JwtResponse>(`${this.ApiUrl}/login`, data);
+    public login(data: AuthenticationData): Observable<AuthenticationResponse> {
+        return this.apiService.post<AuthenticationResponse>(`${this.ApiUrl}/login`, data);
     }
 
     public logout(): Observable<void> {

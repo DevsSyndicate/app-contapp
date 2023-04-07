@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
     imports: [CommonModule, RouterModule],
     selector: 'app-shared-breadcrumbs',
     templateUrl: './breadcrumbs.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class SharedBreadcrumbsComponent {

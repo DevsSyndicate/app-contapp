@@ -12,7 +12,7 @@ export enum AuthenticationActionTypes {
 }
 
 export const Login = createAction(AuthenticationActionTypes.LOGIN, props<{ data: AuthenticationData }>());
-export const LoginSuccess = createAction(AuthenticationActionTypes.LOGIN_SUCCESS);
+export const LoginSuccess = createAction(AuthenticationActionTypes.LOGIN_SUCCESS, props<{ authToken: string }>());
 export const LoginError = createAction(AuthenticationActionTypes.LOGIN_ERROR);
 
 export const LogoutSuccess = createAction(AuthenticationActionTypes.LOGOUT_SUCCESS);

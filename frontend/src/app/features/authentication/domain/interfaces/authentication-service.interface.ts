@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 
-import { AuthenticationData, JwtResponse } from '../models/authentication.models';
+import { AuthenticationData, AuthenticationResponse } from '../models/authentication.models';
 
 /**
  * Authentication service interface
@@ -14,7 +14,7 @@ export interface AuthenticationServiceInterface {
     /**
 	 * Login
 	 */
-    login: (data: AuthenticationData) => Observable<JwtResponse>;
+    login: (data: AuthenticationData) => Observable<AuthenticationResponse>;
 
     /**
 	 * Logout

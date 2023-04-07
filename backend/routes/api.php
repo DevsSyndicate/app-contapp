@@ -28,12 +28,9 @@ Route::post('login', [AuthController::class, 'login']);
 
 // Authenticated routes
 Route::middleware('auth:sanctum')->group(function () {
-    
+    Route::apiResource('accounts', AccountsController::class);
+    Route::apiResource('categories', CategoriesController::class);
+    Route::apiResource('movements', MovementsController::class);
+    Route::get('analysis/monthly', [AnalysisController::class, 'getMonthlyAnalysis']);
     Route::post('logout', [AuthController::class, 'logout']);
 });
-
-// TODO: move this to authenticated routes
-Route::apiResource('accounts', AccountsController::class);
-Route::apiResource('categories', CategoriesController::class);
-Route::apiResource('movements', MovementsController::class);
-Route::get('analysis/monthly', [AnalysisController::class, 'getMonthlyAnalysis']);
