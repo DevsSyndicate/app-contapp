@@ -380,7 +380,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>this.store.select(getAccountsForSelect)</code>
+                        <i>Default value : </i><code>this.store.select(AccountsPublicSelectors.getAccountsForSelectPublic)</code>
                     </td>
                 </tr>
                     <tr>
@@ -412,7 +412,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>this.store.select(getCategoriesForSelect)</code>
+                        <i>Default value : </i><code>this.store.select(CategoriesPublicSelectors.getCategoriesForSelectPublic)</code>
                     </td>
                 </tr>
                     <tr>
@@ -704,8 +704,8 @@ import { SubmitMovementForm } from &#x27;../../../domain/state/movements.actions
 import { MovementsState } from &#x27;../../../domain/state/movements.state&#x27;;
 
 import { DatesService } from &#x27;@core/application/services/dates.service&#x27;;
-import { getAccountsForSelect } from &#x27;@features/accounts/application/state/accounts.selectors&#x27;;
-import { getCategoriesForSelect } from &#x27;@features/categories/application/state/categories.selectors&#x27;;
+import { AccountsPublicSelectors } from &#x27;@features/accounts/public.api&#x27;;
+import { CategoriesPublicSelectors } from &#x27;@features/categories/public.api&#x27;;
 import { ValidationError } from &#x27;@shared/components/validation-errors/validation.model&#x27;;
 
 @Component({
@@ -728,9 +728,9 @@ export class MovementsFormComponent {
         })
     );
 
-    public categories$: Observable&lt;any[]&gt; &#x3D; this.store.select(getCategoriesForSelect);
+    public categories$: Observable&lt;any[]&gt; &#x3D; this.store.select(CategoriesPublicSelectors.getCategoriesForSelectPublic);
 
-    public accounts$: Observable&lt;any[]&gt; &#x3D; this.store.select(getAccountsForSelect);
+    public accounts$: Observable&lt;any[]&gt; &#x3D; this.store.select(AccountsPublicSelectors.getAccountsForSelectPublic);
 
     public movementForm: FormGroup &#x3D; this.createForm();
 

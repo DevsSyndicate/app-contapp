@@ -1,5 +1,5 @@
-import { Account } from '@features/accounts/domain/models/account.model';
-import { Category } from '@features/categories/domain/models/category.model';
+import { AccountsPublicModels } from '@features/accounts/public.api';
+import { CategoriesPublicModels } from '@features/categories/public.api';
 
 export interface Movement {
     id: string;
@@ -7,8 +7,8 @@ export interface Movement {
     date: string;
     type: string;
     amount: number;
-    category: Category;
-    account: Account;
+    category: CategoriesPublicModels.CategoryPublic;
+    account: AccountsPublicModels.AccountPublic;
 }
 
 export interface Movements {

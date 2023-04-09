@@ -1,5 +1,5 @@
-import { Account } from '@features/accounts/domain/models/account.model';
-import { Category } from '@features/categories/domain/models/category.model';
+import { AccountsPublicModels } from '@features/accounts/public.api';
+import { CategoriesPublicModels } from '@features/categories/public.api';
 
 export enum MovementType {
     'expense',
@@ -12,8 +12,8 @@ export interface ApiMovement {
     date: string;
     type: MovementType;
     amount: number;
-    category: Category;
-    account: Account;
+    category: CategoriesPublicModels.CategoryPublic;
+    account: AccountsPublicModels.AccountPublic;
     created_at: string;
     updated_at: string;
 }

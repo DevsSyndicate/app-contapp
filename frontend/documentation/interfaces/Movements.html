@@ -216,8 +216,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Account } from &#x27;@features/accounts/domain/models/account.model&#x27;;
-import { Category } from &#x27;@features/categories/domain/models/category.model&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AccountsPublicModels } from &#x27;@features/accounts/public.api&#x27;;
+import { CategoriesPublicModels } from &#x27;@features/categories/public.api&#x27;;
 
 export interface Movement {
     id: string;
@@ -225,8 +225,8 @@ export interface Movement {
     date: string;
     type: string;
     amount: number;
-    category: Category;
-    account: Account;
+    category: CategoriesPublicModels.CategoryPublic;
+    account: AccountsPublicModels.AccountPublic;
 }
 
 export interface Movements {

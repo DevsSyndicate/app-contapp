@@ -1,9 +1,9 @@
-import { Movement } from '@features/movements/domain/models/movement.model';
+import { MovementsPublicModels } from '@features/movements/public.api';
 
 export interface AnalysisMonthly {
     expenses: number;
     amount: number;
-    movements: Movement[];
+    movements: MovementsPublicModels.MovementPublic[];
     forecast: number;
     expensePercent: number;
     forecastExpenses: AnalysisMonthlyForecastCategory[];

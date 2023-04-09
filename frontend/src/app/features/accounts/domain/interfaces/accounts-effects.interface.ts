@@ -6,6 +6,11 @@ import { Observable } from 'rxjs';
  */
 export interface AccountsEffectsInterface {
     /**
+	 * Load accounts from Public Api
+	 */
+    loadAccountsFromPublicApi$: Observable<Action>;
+
+    /**
 	 * Dispatch action to load accounts when enter to the section
 	 */
     loadAccountsOnRouteEnter$: Observable<Action>;

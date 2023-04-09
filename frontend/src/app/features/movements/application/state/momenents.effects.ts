@@ -23,8 +23,8 @@ import {
 import { MovementsService } from '../services/movements.service';
 import { MovementsTranformer } from '../transformers/movements.transformer';
 
-import { LoadAccounts } from '@features/accounts/domain/state/accounts.actions';
-import { LoadCategories } from '@features/categories/domain/state/categories.actions';
+import { AccountsPublicActions } from '@features/accounts/public.api';
+import { CategoriesPublicActions } from '@features/categories/public.api';
 
 @Injectable()
 
@@ -50,21 +50,21 @@ export class MovementsEffects implements MovementsEffectsInterface {
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) => /\/movements$/.exec(action.payload.routerState.url) !== null),
-            map(() => LoadAccounts())
+            map(() => AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public loadCategoriesOnAddOrEditFormEnter$ = createEffect(() =>
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) => /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !== null),
-            map(() => LoadCategories())
+            map(() => CategoriesPublicActions.LoadCategoriesPublic())
         ));
 
     public loadAccountsOnAddOrEditFormEnter$ = createEffect(() =>
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) => /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !== null),
-            map(() => LoadAccounts())
+            map(() => AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public loadMovementOnEditingFormEnter$ = createEffect(() =>
@@ -119,7 +119,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
     public refreshAccountsOnMovementDelete$ = createEffect(() =>
         this.actions$.pipe(
             ofType(DeleteMovementSuccess),
-            map(() => LoadAccounts())
+            map(() => AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public submitMovementFormForAddNewMovement$ = createEffect(() =>

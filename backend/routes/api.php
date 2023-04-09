@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccountsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\MovementsController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AnalysisController;
 
 /*
@@ -32,5 +33,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('categories', CategoriesController::class);
     Route::apiResource('movements', MovementsController::class);
     Route::get('analysis/monthly', [AnalysisController::class, 'getMonthlyAnalysis']);
+    Route::get('user', [UserController::class, 'get']);
     Route::post('logout', [AuthController::class, 'logout']);
 });

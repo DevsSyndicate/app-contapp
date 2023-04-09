@@ -275,7 +275,7 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/JwtResponse.html" target="_self" >Observable&lt;JwtResponse&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="../interfaces/AuthenticationResponse.html" target="_self" >Observable&lt;AuthenticationResponse&gt;</a></code>
 
                     </div>
                     <div class="io-description">
@@ -404,7 +404,7 @@
 import { Observable } from &#x27;rxjs&#x27;;
 
 import { AuthenticationServiceInterface } from &#x27;../../domain/interfaces/authentication-service.interface&#x27;;
-import { AuthenticationData, JwtResponse } from &#x27;../../domain/models/authentication.models&#x27;;
+import { AuthenticationData, AuthenticationResponse } from &#x27;../../domain/models/authentication.models&#x27;;
 
 import { ApiService } from &#x27;@core/infrastructure/api/api.service&#x27;;
 import { environment } from &#x27;@env/environment&#x27;;
@@ -425,8 +425,8 @@ export class AuthenticationService implements AuthenticationServiceInterface {
         return this.apiService.get&lt;any&gt;(&#x60;${this.baseUrl}/sanctum/csrf-cookie&#x60;, null);
     }
 
-    public login(data: AuthenticationData): Observable&lt;JwtResponse&gt; {
-        return this.apiService.post&lt;JwtResponse&gt;(&#x60;${this.ApiUrl}/login&#x60;, data);
+    public login(data: AuthenticationData): Observable&lt;AuthenticationResponse&gt; {
+        return this.apiService.post&lt;AuthenticationResponse&gt;(&#x60;${this.ApiUrl}/login&#x60;, data);
     }
 
     public logout(): Observable&lt;void&gt; {

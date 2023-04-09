@@ -100,7 +100,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, tokenService: <a href="../injectables/TokenService.html" target="_self">TokenService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -127,6 +127,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tokenService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TokenService.html" target="_self" >TokenService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -170,8 +182,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/core/application/interceptors/auth.interceptor.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">src/app/core/application/interceptors/auth.interceptor.ts:20</a></div>
                 </td>
             </tr>
 
@@ -243,7 +255,7 @@ import { Router } from &#x27;@angular/router&#x27;;
 import { Observable, throwError } from &#x27;rxjs&#x27;;
 import { catchError } from &#x27;rxjs/operators&#x27;;
 
-import { BYPASS_INTERCEPTOR } from &#x27;../../domain/constants/configurations.const&#x27;;
+import { TokenService } from &#x27;../services/token.service&#x27;;
 
 @Injectable()
 
@@ -251,28 +263,29 @@ import { BYPASS_INTERCEPTOR } from &#x27;../../domain/constants/configurations.c
  * Authentication interceptor
  */
 export class AuthInterceptor implements HttpInterceptor {
-    constructor(private readonly router: Router) {}
+    constructor(
+        private readonly router: Router,
+        private readonly tokenService: TokenService
+    ) {}
 
     public intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
-        // Bypass some routes
-        /* if (request.context.get(BYPASS_INTERCEPTOR)) {
-            return next.handle(request);
-        } */
+        const accessToken &#x3D; this.tokenService.getToken();
 
         const clonedRequest &#x3D; request.clone({
-            withCredentials: true,
+            setHeaders: {
+                Authorization: &#x60;Bearer ${accessToken}&#x60;,
+            },
         });
 
         return next.handle(clonedRequest).pipe(
 
             catchError((error: any) &#x3D;&gt; {
                 if (error.status !&#x3D;&#x3D; 401) {
-                    // eslint-disable-next-line deprecation/deprecation
-                    return throwError(error);
+                    return throwError(() &#x3D;&gt; new Error(error));
                 }
-                // this.router.navigate([&#x27;/auth/login&#x27;]);
-                // eslint-disable-next-line deprecation/deprecation
-                return throwError(error);
+                this.router.navigate([&#x27;/auth/login&#x27;]);
+
+                return throwError(() &#x3D;&gt; new Error(error));
             })
         );
     }

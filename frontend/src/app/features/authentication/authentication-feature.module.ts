@@ -5,8 +5,12 @@ import { AuthenticationService } from './application/services/authentication.ser
 import { AuthenticationEffects } from './application/state/authentication.effects';
 
 @NgModule({
-    imports: [EffectsModule.forFeature([AuthenticationEffects])],
-    providers: [AuthenticationService],
+    imports: [
+        EffectsModule.forFeature([AuthenticationEffects]),
+    ],
+    providers: [
+        AuthenticationService,
+    ],
 })
 
 /**

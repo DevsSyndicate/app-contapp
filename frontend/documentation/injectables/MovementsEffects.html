@@ -283,7 +283,7 @@
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ))</code>
                     </td>
                 </tr>
@@ -314,7 +314,7 @@
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ))</code>
                     </td>
                 </tr>
@@ -345,7 +345,7 @@
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadCategories())
+            map(() &#x3D;&gt; CategoriesPublicActions.LoadCategoriesPublic())
         ))</code>
                     </td>
                 </tr>
@@ -548,7 +548,7 @@
                         <i>Default value : </i><code>createEffect(() &#x3D;&gt;
         this.actions$.pipe(
             ofType(DeleteMovementSuccess),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ))</code>
                     </td>
                 </tr>
@@ -687,8 +687,8 @@ import {
 import { MovementsService } from &#x27;../services/movements.service&#x27;;
 import { MovementsTranformer } from &#x27;../transformers/movements.transformer&#x27;;
 
-import { LoadAccounts } from &#x27;@features/accounts/domain/state/accounts.actions&#x27;;
-import { LoadCategories } from &#x27;@features/categories/domain/state/categories.actions&#x27;;
+import { AccountsPublicActions } from &#x27;@features/accounts/public.api&#x27;;
+import { CategoriesPublicActions } from &#x27;@features/categories/public.api&#x27;;
 
 @Injectable()
 
@@ -714,21 +714,21 @@ export class MovementsEffects implements MovementsEffectsInterface {
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public loadCategoriesOnAddOrEditFormEnter$ &#x3D; createEffect(() &#x3D;&gt;
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadCategories())
+            map(() &#x3D;&gt; CategoriesPublicActions.LoadCategoriesPublic())
         ));
 
     public loadAccountsOnAddOrEditFormEnter$ &#x3D; createEffect(() &#x3D;&gt;
         this.actions$.pipe(
             ofType(ROUTER_NAVIGATED),
             filter((action: RouterNavigationAction) &#x3D;&gt; /\/movements\/(add|edit\/\d+)$/.exec(action.payload.routerState.url) !&#x3D;&#x3D; null),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public loadMovementOnEditingFormEnter$ &#x3D; createEffect(() &#x3D;&gt;
@@ -783,7 +783,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
     public refreshAccountsOnMovementDelete$ &#x3D; createEffect(() &#x3D;&gt;
         this.actions$.pipe(
             ofType(DeleteMovementSuccess),
-            map(() &#x3D;&gt; LoadAccounts())
+            map(() &#x3D;&gt; AccountsPublicActions.LoadAccountsPublic())
         ));
 
     public submitMovementFormForAddNewMovement$ &#x3D; createEffect(() &#x3D;&gt;

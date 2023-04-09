@@ -74,6 +74,10 @@
     <table class="table table-sm table-hover metadata">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -120,11 +124,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
 
 @Component({
     selector: &#x27;app-header-layout&#x27;,
     templateUrl: &#x27;./header.component.html&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 /**
@@ -140,41 +145,22 @@ export class HeaderLayoutComponent {
         <pre class="line-numbers"><code class="language-html">&lt;header class&#x3D;&quot;topbar&quot; data-navbarbg&#x3D;&quot;skin5&quot;&gt;
 	&lt;nav class&#x3D;&quot;navbar top-navbar navbar-expand-md navbar-dark&quot;&gt;
 		&lt;div class&#x3D;&quot;navbar-header&quot; data-logobg&#x3D;&quot;skin6&quot;&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 			&lt;!-- Logo --&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 			&lt;a class&#x3D;&quot;navbar-brand&quot; href&#x3D;&quot;dashboard.html&quot;&gt;
-				&lt;!-- Logo icon --&gt;
 				&lt;b class&#x3D;&quot;logo-icon&quot;&gt;
-					&lt;!-- Dark Logo icon --&gt;
 					&lt;img src&#x3D;&quot;assets/images/logo-icon.png&quot; alt&#x3D;&quot;homepage&quot; /&gt;
 				&lt;/b&gt;
-				&lt;!--End Logo icon --&gt;
-				&lt;!-- Logo text --&gt;
 				&lt;span class&#x3D;&quot;logo-text&quot;&gt;
-					&lt;!-- dark Logo text --&gt;
 					&lt;img src&#x3D;&quot;assets/images/logo-text.png&quot; alt&#x3D;&quot;homepage&quot; /&gt;
 				&lt;/span&gt;
 			&lt;/a&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-			&lt;!-- End Logo --&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-			&lt;!-- toggle and nav items --&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+
 			&lt;a class&#x3D;&quot;nav-toggler waves-effect waves-light text-dark d-block d-md-none&quot; href&#x3D;&quot;javascript:void(0)&quot;&gt;&lt;i class&#x3D;&quot;ti-menu ti-close&quot;&gt;&lt;/i&gt;&lt;/a&gt;
 		&lt;/div&gt;
-		&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-		&lt;!-- End Logo --&gt;
-		&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+
 		&lt;div class&#x3D;&quot;navbar-collapse collapse&quot; id&#x3D;&quot;navbarSupportedContent&quot; data-navbarbg&#x3D;&quot;skin5&quot;&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-			&lt;!-- Right side toggle and nav items --&gt;
-			&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 			&lt;ul class&#x3D;&quot;navbar-nav ms-auto d-flex align-items-center&quot;&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 				&lt;!-- Search --&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 				&lt;li class&#x3D;&quot;in&quot;&gt;
 					&lt;form role&#x3D;&quot;search&quot; class&#x3D;&quot;app-search d-none d-md-block me-3&quot;&gt;
 						&lt;input type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Search...&quot; class&#x3D;&quot;form-control mt-0&quot; /&gt;
@@ -183,9 +169,7 @@ export class HeaderLayoutComponent {
 						&lt;/a&gt;
 					&lt;/form&gt;
 				&lt;/li&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-				&lt;!-- User profile and search --&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
+				&lt;!-- User profile --&gt;
 				&lt;li&gt;
 					&lt;a class&#x3D;&quot;profile-pic&quot; href&#x3D;&quot;#&quot;&gt;
 						&lt;img src&#x3D;&quot;assets/images/users/varun.jpg&quot; alt&#x3D;&quot;user-img&quot; width&#x3D;&quot;36&quot; class&#x3D;&quot;img-circle&quot; /&gt;&lt;span class&#x3D;&quot;text-white font-medium&quot;
@@ -193,9 +177,6 @@ export class HeaderLayoutComponent {
 						&gt;&lt;/a
 					&gt;
 				&lt;/li&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
-				&lt;!-- User profile and search --&gt;
-				&lt;!-- &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; --&gt;
 			&lt;/ul&gt;
 		&lt;/div&gt;
 	&lt;/nav&gt;
@@ -229,7 +210,7 @@ export class HeaderLayoutComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><header class="topbar" data-navbarbg="skin5">	<nav class="navbar top-navbar navbar-expand-md navbar-dark">		<div class="navbar-header" data-logobg="skin6">			<!-- ============================================================== -->			<!-- Logo -->			<!-- ============================================================== -->			<a class="navbar-brand" href="dashboard.html">				<!-- Logo icon -->				<b class="logo-icon">					<!-- Dark Logo icon -->					<img src="assets/images/logo-icon.png" alt="homepage" />				</b>				<!--End Logo icon -->				<!-- Logo text -->				<span class="logo-text">					<!-- dark Logo text -->					<img src="assets/images/logo-text.png" alt="homepage" />				</span>			</a>			<!-- ============================================================== -->			<!-- End Logo -->			<!-- ============================================================== -->			<!-- ============================================================== -->			<!-- toggle and nav items -->			<!-- ============================================================== -->			<a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>		</div>		<!-- ============================================================== -->		<!-- End Logo -->		<!-- ============================================================== -->		<div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">			<!-- ============================================================== -->			<!-- Right side toggle and nav items -->			<!-- ============================================================== -->			<ul class="navbar-nav ms-auto d-flex align-items-center">				<!-- ============================================================== -->				<!-- Search -->				<!-- ============================================================== -->				<li class="in">					<form role="search" class="app-search d-none d-md-block me-3">						<input type="text" placeholder="Search..." class="form-control mt-0" />						<a href="" class="active">							<i class="fa fa-search"></i>						</a>					</form>				</li>				<!-- ============================================================== -->				<!-- User profile and search -->				<!-- ============================================================== -->				<li>					<a class="profile-pic" href="#">						<img src="assets/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" /><span class="text-white font-medium"							>Steave</span						></a					>				</li>				<!-- ============================================================== -->				<!-- User profile and search -->				<!-- ============================================================== -->			</ul>		</div>	</nav></header></div>'
+        var COMPONENT_TEMPLATE = '<div><header class="topbar" data-navbarbg="skin5">	<nav class="navbar top-navbar navbar-expand-md navbar-dark">		<div class="navbar-header" data-logobg="skin6">			<!-- Logo -->			<a class="navbar-brand" href="dashboard.html">				<b class="logo-icon">					<img src="assets/images/logo-icon.png" alt="homepage" />				</b>				<span class="logo-text">					<img src="assets/images/logo-text.png" alt="homepage" />				</span>			</a>			<a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>		</div>		<div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">			<ul class="navbar-nav ms-auto d-flex align-items-center">				<!-- Search -->				<li class="in">					<form role="search" class="app-search d-none d-md-block me-3">						<input type="text" placeholder="Search..." class="form-control mt-0" />						<a href="" class="active">							<i class="fa fa-search"></i>						</a>					</form>				</li>				<!-- User profile -->				<li>					<a class="profile-pic" href="#">						<img src="assets/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" /><span class="text-white font-medium"							>Steave</span						></a					>				</li>			</ul>		</div>	</nav></header></div>'
     var COMPONENTS = [{'name': 'AccountsFormComponent', 'selector': 'app-accounts-form'},{'name': 'AccountsPageFormLayoutComponent', 'selector': 'app-accounts-page-form-layout'},{'name': 'AccountsPageListLayoutComponent', 'selector': 'app-accounts-page-list-layout'},{'name': 'AccountsTableComponent', 'selector': 'app-accounts-table'},{'name': 'AnalysisMenuComponent', 'selector': 'app-analysis-menu'},{'name': 'AnalysisMonthlyBalancesComponent', 'selector': 'app-analysis-monthly-balances'},{'name': 'AnalysisMonthlyComponent', 'selector': 'app-analysis-monthly'},{'name': 'AnalysisMonthlyForecastsComponent', 'selector': 'app-analysis-monthly-forecasts'},{'name': 'AnalysisMonthlyMovementsComponent', 'selector': 'app-analysis-monthly-movements'},{'name': 'AnalysisPageMenuLayoutComponent', 'selector': 'app-analysis-page-menu-layout'},{'name': 'AnalysisPageMonthlyLayoutComponent', 'selector': 'app-analysis-page-monthly-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationFormComponent', 'selector': 'app-authentication-form'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'CategoriesFormComponent', 'selector': 'app-categories-form'},{'name': 'CategoriesPageFormLayoutComponent', 'selector': 'app-categories-page-form-layout'},{'name': 'CategoriesPageListLayoutComponent', 'selector': 'app-categories-page-list-layout'},{'name': 'CategoriesTableComponent', 'selector': 'app-categories-table'},{'name': 'DashboardMainLayoutComponent', 'selector': 'app-dashboard-main-layout'},{'name': 'HeaderLayoutComponent', 'selector': 'app-header-layout'},{'name': 'LoginFormLayoutComponent', 'selector': 'app-login-form-layout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MovementsAccountsComponent', 'selector': 'app-movements-accounts-resume'},{'name': 'MovementsFormComponent', 'selector': 'app-movements-form'},{'name': 'MovementsPageFormLayoutComponent', 'selector': 'app-movements-page-form-layout'},{'name': 'MovementsPageListLayoutComponent', 'selector': 'app-movements-page-list-layout'},{'name': 'MovementsTableComponent', 'selector': 'app-movements-table'},{'name': 'SharedBreadcrumbsComponent', 'selector': 'app-shared-breadcrumbs'},{'name': 'SidebarLayoutComponent', 'selector': 'app-sidebar-layout'},{'name': 'ValidationErrorsComponent', 'selector': 'appvalidation-errors'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderLayoutComponent'};

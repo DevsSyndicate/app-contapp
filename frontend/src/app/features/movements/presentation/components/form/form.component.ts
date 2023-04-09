@@ -11,8 +11,8 @@ import { SubmitMovementForm } from '../../../domain/state/movements.actions';
 import { MovementsState } from '../../../domain/state/movements.state';
 
 import { DatesService } from '@core/application/services/dates.service';
-import { getAccountsForSelect } from '@features/accounts/application/state/accounts.selectors';
-import { getCategoriesForSelect } from '@features/categories/application/state/categories.selectors';
+import { AccountsPublicSelectors } from '@features/accounts/public.api';
+import { CategoriesPublicSelectors } from '@features/categories/public.api';
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
 @Component({
@@ -35,9 +35,9 @@ export class MovementsFormComponent {
         })
     );
 
-    public categories$: Observable<any[]> = this.store.select(getCategoriesForSelect);
+    public categories$: Observable<any[]> = this.store.select(CategoriesPublicSelectors.getCategoriesForSelectPublic);
 
-    public accounts$: Observable<any[]> = this.store.select(getAccountsForSelect);
+    public accounts$: Observable<any[]> = this.store.select(AccountsPublicSelectors.getAccountsForSelectPublic);
 
     public movementForm: FormGroup = this.createForm();
 

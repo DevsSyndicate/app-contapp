@@ -1,6 +1,9 @@
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+/**
+ * Authentication effects interface
+ */
 export interface AuthenticationEffectsInterface {
     /**
 	 * Login user to the application

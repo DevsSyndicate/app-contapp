@@ -5,6 +5,12 @@ import { Observable } from 'rxjs';
  * Categories effects interface
  */
 export interface CategoriesEffectsInterface {
+
+    /**
+	 * Load categories from Public Api
+	 */
+    loadCategoriesFromPublicApi$: Observable<Action>;
+
     /**
 	 * Dispatch action to load categories when enter to the section
 	 */

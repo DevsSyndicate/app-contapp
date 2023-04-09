@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { getMonthlyAccountBalanceMovements } from '../../../application/state/analysis.selectors';
 import { AnalysisState } from '../../../domain/state/analysis.state';
 
-import { Movement } from '@features/movements/domain/models/movement.model';
+import { MovementsPublicModels } from '@features/movements/public.api';
 
 @Component({
     selector: 'app-analysis-monthly-movements',
@@ -17,7 +17,9 @@ import { Movement } from '@features/movements/domain/models/movement.model';
  * Analysys monthly movements component
  */
 export class AnalysisMonthlyMovementsComponent {
-    public monthyMovements$: Observable<Movement[]> = this.store.select(getMonthlyAccountBalanceMovements);
+    public monthyMovements$: Observable<MovementsPublicModels.MovementPublic[]> = this.store.select(
+        getMonthlyAccountBalanceMovements
+    );
 
     public movementsCollapsed = false;
 

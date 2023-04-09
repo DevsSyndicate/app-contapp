@@ -115,6 +115,12 @@
                             <a href="#getAccountsForSelect" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getAccountsForSelect</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
                         </li>
                         <li>
+                            <a href="#getAccountsForSelectPublic" title="src/app/features/accounts/application/state/accounts-public.selectors.ts" ><b>getAccountsForSelectPublic</b>&nbsp;&nbsp;&nbsp;(src/.../accounts-public.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getAccountsPublic" title="src/app/features/accounts/application/state/accounts-public.selectors.ts" ><b>getAccountsPublic</b>&nbsp;&nbsp;&nbsp;(src/.../accounts-public.selectors.ts)</a>
+                        </li>
+                        <li>
                             <a href="#getAccountsState" title="src/app/features/accounts/application/state/accounts.selectors.ts" ><b>getAccountsState</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.selectors.ts)</a>
                         </li>
                         <li>
@@ -125,6 +131,9 @@
                         </li>
                         <li>
                             <a href="#getCategoriesForSelect" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getCategoriesForSelect</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getCategoriesForSelectPublic" title="src/app/features/categories/application/state/categories-public.selectors.ts" ><b>getCategoriesForSelectPublic</b>&nbsp;&nbsp;&nbsp;(src/.../categories-public.selectors.ts)</a>
                         </li>
                         <li>
                             <a href="#getCategoriesState" title="src/app/features/categories/application/state/categories.selectors.ts" ><b>getCategoriesState</b>&nbsp;&nbsp;&nbsp;(src/.../categories.selectors.ts)</a>
@@ -187,6 +196,9 @@
                             <a href="#LoadAccountsError" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountsError</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
                         </li>
                         <li>
+                            <a href="#LoadAccountsPublic" title="src/app/features/accounts/domain/state/accounts-public.actions.ts" ><b>LoadAccountsPublic</b>&nbsp;&nbsp;&nbsp;(src/.../accounts-public.actions.ts)</a>
+                        </li>
+                        <li>
                             <a href="#LoadAccountsSuccess" title="src/app/features/accounts/domain/state/accounts.actions.ts" ><b>LoadAccountsSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../accounts.actions.ts)</a>
                         </li>
                         <li>
@@ -197,6 +209,9 @@
                         </li>
                         <li>
                             <a href="#LoadCategoriesError" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategoriesError</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LoadCategoriesPublic" title="src/app/features/categories/domain/state/categories-public.actions.ts" ><b>LoadCategoriesPublic</b>&nbsp;&nbsp;&nbsp;(src/.../categories-public.actions.ts)</a>
                         </li>
                         <li>
                             <a href="#LoadCategoriesSuccess" title="src/app/features/categories/domain/state/categories.actions.ts" ><b>LoadCategoriesSuccess</b>&nbsp;&nbsp;&nbsp;(src/.../categories.actions.ts)</a>
@@ -1488,6 +1503,50 @@
         </tbody>
     </table>
 </section>
+    <h3>src/app/features/accounts/application/state/accounts-public.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountsForSelectPublic"></a>
+                    <span class="name">
+                        <span ><b>getAccountsForSelectPublic</b></span>
+                        <a href="#getAccountsForSelectPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt;
+    state.values?.data?.map((account: Account) &#x3D;&gt; ({ label: account.name, value: account.id })))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAccountsPublic"></a>
+                    <span class="name">
+                        <span ><b>getAccountsPublic</b></span>
+                        <a href="#getAccountsPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getAccountsState, (state: AccountsState) &#x3D;&gt; state.values?.data)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/features/categories/application/state/categories.selectors.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1607,6 +1666,30 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt;
     state.edition?.formIsSubmitted)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/application/state/categories-public.selectors.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCategoriesForSelectPublic"></a>
+                    <span class="name">
+                        <span ><b>getCategoriesForSelectPublic</b></span>
+                        <a href="#getCategoriesForSelectPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createSelector(getCategoriesState, (state: CategoriesState) &#x3D;&gt;
+    state.values?.data?.map((categegory: Category) &#x3D;&gt; ({ label: categegory.name, value: categegory.id })))</code>
                     </td>
                 </tr>
 
@@ -1766,6 +1849,52 @@
         </tbody>
     </table>
 </section>
+    <h3>src/app/features/accounts/domain/state/accounts-public.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadAccountsPublic"></a>
+                    <span class="name">
+                        <span ><b>LoadAccountsPublic</b></span>
+                        <a href="#LoadAccountsPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(AccountsPublicActionTypes.ACCOUNTS_PUBLIC_API_LOAD_ACCOUNTS)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/features/categories/domain/state/categories-public.actions.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoadCategoriesPublic"></a>
+                    <span class="name">
+                        <span ><b>LoadCategoriesPublic</b></span>
+                        <a href="#LoadCategoriesPublic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createAction(CategoriesPublicActionTypes.CATEGORIES_PUBLIC_API_LOAD_CATEGORIES)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
     <h3>src/app/features/analysis/domain/state/analysis.actions.ts</h3>
     <section>
     <h3></h3>    <table class="table table-sm table-bordered">
@@ -1887,7 +2016,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGIN_SUCCESS)</code>
+                        <i>Default value : </i><code>createAction(AuthenticationActionTypes.LOGIN_SUCCESS, props&lt;{ authToken: string }&gt;())</code>
                     </td>
                 </tr>
 

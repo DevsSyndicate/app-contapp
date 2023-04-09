@@ -3,6 +3,9 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { ValidationError } from './validation.model';
 
+/**
+ *
+ */
 @Component({
     standalone: true,
     imports: [CommonModule],

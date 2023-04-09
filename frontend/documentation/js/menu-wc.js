@@ -340,18 +340,21 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/CoreModule.html" data-type="entity-link" >CoreModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-CoreModule-da23d09e44a13fe2232ebc88fd6a2efacfe079a48c1827f9e1e80531edcf982560e408a496ec5ec628ee06fa6ea915b9a458e24ace100ec7af9e85206de94c92"' : 'data-target="#xs-injectables-links-module-CoreModule-da23d09e44a13fe2232ebc88fd6a2efacfe079a48c1827f9e1e80531edcf982560e408a496ec5ec628ee06fa6ea915b9a458e24ace100ec7af9e85206de94c92"' }>
+                                        'data-target="#injectables-links-module-CoreModule-9e1c5647065f1bde8fca57020c851afee0acf527dabfbe18f66c3ac0b22e6495226f7c320a940d3ef267fff980a45bcb45fbe7376edd04ee14c2fd555a249b95"' : 'data-target="#xs-injectables-links-module-CoreModule-9e1c5647065f1bde8fca57020c851afee0acf527dabfbe18f66c3ac0b22e6495226f7c320a940d3ef267fff980a45bcb45fbe7376edd04ee14c2fd555a249b95"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CoreModule-da23d09e44a13fe2232ebc88fd6a2efacfe079a48c1827f9e1e80531edcf982560e408a496ec5ec628ee06fa6ea915b9a458e24ace100ec7af9e85206de94c92"' :
-                                        'id="xs-injectables-links-module-CoreModule-da23d09e44a13fe2232ebc88fd6a2efacfe079a48c1827f9e1e80531edcf982560e408a496ec5ec628ee06fa6ea915b9a458e24ace100ec7af9e85206de94c92"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-CoreModule-9e1c5647065f1bde8fca57020c851afee0acf527dabfbe18f66c3ac0b22e6495226f7c320a940d3ef267fff980a45bcb45fbe7376edd04ee14c2fd555a249b95"' :
+                                        'id="xs-injectables-links-module-CoreModule-9e1c5647065f1bde8fca57020c851afee0acf527dabfbe18f66c3ac0b22e6495226f7c320a940d3ef267fff980a45bcb45fbe7376edd04ee14c2fd555a249b95"' }>
                                         <li class="link">
                                             <a href="injectables/ApiService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ApiService</a>
                                         </li>
                                         <li class="link">
                                             <a href="injectables/DatesService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >DatesService</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/TokenService.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >TokenService</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -585,6 +588,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Account.html" data-type="entity-link" >Account</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/AccountPublic.html" data-type="entity-link" >AccountPublic</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/AccountsEffectsInterface.html" data-type="entity-link" >AccountsEffectsInterface</a>
                             </li>
                             <li class="link">
@@ -621,6 +627,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/AuthenticationEffectsInterface.html" data-type="entity-link" >AuthenticationEffectsInterface</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/AuthenticationResponse.html" data-type="entity-link" >AuthenticationResponse</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/AuthenticationServiceInterface.html" data-type="entity-link" >AuthenticationServiceInterface</a>
                             </li>
                             <li class="link">
@@ -636,6 +645,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/Category.html" data-type="entity-link" >Category</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/CategoryPublic.html" data-type="entity-link" >CategoryPublic</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/CoreEffectsInterface.html" data-type="entity-link" >CoreEffectsInterface</a>
                             </li>
                             <li class="link">
@@ -643,9 +655,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/DatesServiceInterface.html" data-type="entity-link" >DatesServiceInterface</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/JwtResponse.html" data-type="entity-link" >JwtResponse</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/MonthlyAnalysisEffectsInterface.html" data-type="entity-link" >MonthlyAnalysisEffectsInterface</a>
@@ -670,6 +679,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/MovementsTranformerInterface.html" data-type="entity-link" >MovementsTranformerInterface</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/TokenServiceInterface.html" data-type="entity-link" >TokenServiceInterface</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/ValidationError.html" data-type="entity-link" >ValidationError</a>

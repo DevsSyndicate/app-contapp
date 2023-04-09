@@ -143,7 +143,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(store: Store<AccountsState>)</code>
+<code>constructor(store: Store)</code>
                     </td>
                 </tr>
                         <tr>
@@ -169,7 +169,7 @@
                                                         <td>store</td>
                                                   
                                                         <td>
-                                                                    <code>Store&lt;AccountsState&gt;</code>
+                                                                    <code>Store</code>
                                                         </td>
                                                   
                                                     <td>
@@ -210,18 +210,20 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Account.html" target="_self" >Observable&lt;Account[]&gt;</a></code>
+                        <i>Type : </i>    <code>Observable&lt;AccountsPublicModels.AccountPublic[]&gt;</code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>this.store.select(getAccounts)</code>
+                        <i>Default value : </i><code>this.store.select(
+        AccountsPublicSelectors.getAccountsPublic
+    )</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/movements/presentation/components/accounts-resume/accounts-resume.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/movements/presentation/components/accounts-resume/accounts-resume.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -238,9 +240,7 @@
 import { Store } from &#x27;@ngrx/store&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
-import { getAccounts } from &#x27;@features/accounts/application/state/accounts.selectors&#x27;;
-import { Account } from &#x27;@features/accounts/domain/models/account.model&#x27;;
-import { AccountsState } from &#x27;@features/accounts/domain/state/accounts.state&#x27;;
+import { AccountsPublicModels, AccountsPublicSelectors } from &#x27;@features/accounts/public.api&#x27;;
 
 @Component({
     selector: &#x27;app-movements-accounts-resume&#x27;,
@@ -251,9 +251,11 @@ import { AccountsState } from &#x27;@features/accounts/domain/state/accounts.sta
  * Movements accounts resume component
  */
 export class MovementsAccountsComponent {
-    public accounts$: Observable&lt;Account[]&gt; &#x3D; this.store.select(getAccounts);
+    public accounts$: Observable&lt;AccountsPublicModels.AccountPublic[]&gt; &#x3D; this.store.select(
+        AccountsPublicSelectors.getAccountsPublic
+    );
 
-    constructor(private readonly store: Store&lt;AccountsState&gt;) {
+    constructor(private readonly store: Store) {
 
     }
 }

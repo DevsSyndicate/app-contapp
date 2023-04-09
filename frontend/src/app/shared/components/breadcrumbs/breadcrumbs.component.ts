@@ -2,6 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+/**
+ *
+ */
 @Component({
     standalone: true,
     imports: [CommonModule, RouterModule],
@@ -10,6 +13,9 @@ import { RouterModule } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
+/**
+ * Breadcrumbs component
+ */
 export class SharedBreadcrumbsComponent {
     @Input() public title: string;
 

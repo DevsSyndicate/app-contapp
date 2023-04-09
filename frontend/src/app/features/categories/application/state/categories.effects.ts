@@ -7,6 +7,7 @@ import { catchError, filter, map, mergeMap, switchMap, tap } from 'rxjs/operator
 
 import { CategoriesEffectsInterface } from '../../domain/interfaces/categories-effects.interface';
 import { Category } from '../../domain/models/category.model';
+import { LoadCategoriesPublic } from '../../domain/state/categories-public.actions';
 import {
     DeleteCategory,
     LoadCategory,
@@ -31,6 +32,12 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
         private readonly router: Router,
         private readonly categoriesService: CategoriesService
     ) {}
+
+    public loadCategoriesFromPublicApi$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(LoadCategoriesPublic),
+            map(() => LoadCategories())
+        ));
 
     public loadCategoriesOnRouteEnter$ = createEffect(() =>
         this.actions$.pipe(

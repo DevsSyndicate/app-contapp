@@ -7,6 +7,7 @@ import { catchError, filter, map, mergeMap, switchMap, tap } from 'rxjs/operator
 
 import { AccountsEffectsInterface } from '../../domain/interfaces/accounts-effects.interface';
 import { Account } from '../../domain/models/account.model';
+import { LoadAccountsPublic } from '../../domain/state/accounts-public.actions';
 import {
     DeleteAccount,
     LoadAccount,
@@ -31,6 +32,12 @@ export class AccountsEffects implements AccountsEffectsInterface {
         private readonly router: Router,
         private readonly accountsService: AccountsService
     ) {}
+
+    public loadAccountsFromPublicApi$ = createEffect(() =>
+        this.actions$.pipe(
+            ofType(LoadAccountsPublic),
+            map(() => LoadAccounts())
+        ));
 
     public loadAccountsOnRouteEnter$ = createEffect(() =>
         this.actions$.pipe(

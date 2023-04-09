@@ -107,6 +107,12 @@
                                             redirectToLoginOnLogoutSuccess$
                                         </a>
                                 </li>
+                                <li>
+                                        <a href="#setAuthenticationTokenInLocalStorage$" 
+>
+                                            setAuthenticationTokenInLocalStorage$
+                                        </a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -229,7 +235,7 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>Redirecto to dashboard on login success</p>
+                                    <div class="io-description"><p>Redirect to dashboard on login success</p>
 </div>
                                 </td>
                             </tr>
@@ -274,6 +280,45 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="setAuthenticationTokenInLocalStorage$"></a>
+                                        <span class="name "><b>setAuthenticationTokenInLocalStorage$</b>
+                                            <a href="#setAuthenticationTokenInLocalStorage$">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>setAuthenticationTokenInLocalStorage$:     <code>Observable&lt;Action&gt;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Observable&lt;Action&gt;</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Set authentication token in LocalStorage</p>
+</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
 
@@ -289,7 +334,12 @@ export interface AuthenticationEffectsInterface {
     login$: Observable&lt;Action&gt;;
 
     /**
-	 * Redirecto to dashboard on login success
+	 * Set authentication token in LocalStorage
+	 */
+    setAuthenticationTokenInLocalStorage$: Observable&lt;Action&gt;;
+
+    /**
+	 * Redirect to dashboard on login success
 	 */
     redirectToDashboardOnLoginSuccess$: Observable&lt;Action&gt;;
 

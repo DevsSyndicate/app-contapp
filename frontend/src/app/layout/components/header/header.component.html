@@ -26,10 +26,11 @@
 					</form>
 				</li>
 				<!-- User profile -->
-				<li>
+				<li *ngIf="user$ | async as user">
 					<a class="profile-pic" href="#">
-						<img src="assets/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" /><span class="text-white font-medium"
-							>Steave</span
+						<img src="assets/images/users/varun.jpg" alt="user-img" width="36" class="img-circle" /><span
+							class="text-white font-medium"
+							>{{ user.name }}</span
 						></a
 					>
 				</li>

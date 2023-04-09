@@ -243,7 +243,7 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable } from &#x27;rxjs&#x27;;
 
-import { AuthenticationData, JwtResponse } from &#x27;../models/authentication.models&#x27;;
+import { AuthenticationData, AuthenticationResponse } from &#x27;../models/authentication.models&#x27;;
 
 /**
  * Authentication service interface
@@ -257,7 +257,7 @@ export interface AuthenticationServiceInterface {
     /**
 	 * Login
 	 */
-    login: (data: AuthenticationData) &#x3D;&gt; Observable&lt;JwtResponse&gt;;
+    login: (data: AuthenticationData) &#x3D;&gt; Observable&lt;AuthenticationResponse&gt;;
 
     /**
 	 * Logout

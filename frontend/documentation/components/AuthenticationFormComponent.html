@@ -74,6 +74,10 @@
     <table class="table table-sm table-hover metadata">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -185,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -254,8 +258,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:41</a></div>
                 </td>
             </tr>
 
@@ -295,8 +299,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:33</a></div>
                 </td>
             </tr>
 
@@ -345,7 +349,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -377,7 +381,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:19</a></div>
                         </td>
                     </tr>
 
@@ -406,7 +410,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/authentication/presentation/components/form/form.component.ts:26</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -424,7 +428,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
 import { FormControl, FormGroup, UntypedFormGroup } from &#x27;@angular/forms&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 
@@ -433,6 +437,7 @@ import { Login } from &#x27;../../../domain/state/authentication.actions&#x27;;
 @Component({
     selector: &#x27;app-authentication-form&#x27;,
     templateUrl: &#x27;./form.component.html&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 /**

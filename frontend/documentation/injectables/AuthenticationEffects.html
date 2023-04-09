@@ -93,6 +93,10 @@
                                     <span class="modifier">Public</span>
                                 <a href="#redirectToLoginOnLogoutSuccess$" >redirectToLoginOnLogoutSuccess$</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setAuthenticationTokenInLocalStorage$" >setAuthenticationTokenInLocalStorage$</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -112,12 +116,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(actions$: Actions, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>)</code>
+<code>constructor(actions$: Actions, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, authenticationService: <a href="../injectables/AuthenticationService.html" target="_self">AuthenticationService</a>, tokenService: <a href="../injectables/TokenService.html" target="_self">TokenService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -170,6 +174,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>tokenService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TokenService.html" target="_self" >TokenService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -206,7 +222,8 @@
                 return this.authenticationService.csrfCookie().pipe(
                     concatMap(() &#x3D;&gt; {
                         return this.authenticationService.login(data).pipe(
-                            map(() &#x3D;&gt; LoginSuccess()),
+                            map((authResponse: AuthenticationResponse) &#x3D;&gt;
+                                LoginSuccess({ authToken: authResponse.access_token })),
                             catchError(() &#x3D;&gt; of(LoginError()))
                         );
                     })
@@ -218,7 +235,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -252,7 +269,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:48</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:63</a></div>
                         </td>
                     </tr>
 
@@ -287,7 +304,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -322,7 +339,42 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:58</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setAuthenticationTokenInLocalStorage$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setAuthenticationTokenInLocalStorage$</b></span>
+                        <a href="#setAuthenticationTokenInLocalStorage$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createEffect(
+        () &#x3D;&gt;
+            this.actions$.pipe(
+                ofType(LoginSuccess),
+                tap(({ authToken }) &#x3D;&gt; {
+                    this.tokenService.setToken(authToken);
+                })
+            ),
+        { dispatch: false }
+    )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/features/authentication/application/state/authentication.effects.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -342,17 +394,20 @@ import { of } from &#x27;rxjs&#x27;;
 import { catchError, concatMap, map, switchMap, tap } from &#x27;rxjs/operators&#x27;;
 
 import { AuthenticationEffectsInterface } from &#x27;../../domain/interfaces/authentication-effects.interface&#x27;;
+import { AuthenticationResponse } from &#x27;../../domain/models/authentication.models&#x27;;
+import { Logout } from &#x27;../../domain/state/authentication-public.actions&#x27;;
 import { Login, LoginError, LoginSuccess, LogoutError, LogoutSuccess } from &#x27;../../domain/state/authentication.actions&#x27;;
 import { AuthenticationService } from &#x27;../services/authentication.service&#x27;;
 
-import { Logout } from &#x27;@features/authentication/domain/state/authentication-public.actions&#x27;;
+import { TokenService } from &#x27;@core/application/services/token.service&#x27;;
 
 @Injectable()
 export class AuthenticationEffects implements AuthenticationEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly authenticationService: AuthenticationService
+        private readonly authenticationService: AuthenticationService,
+        private readonly tokenService: TokenService
     ) {}
 
     public login$ &#x3D; createEffect(() &#x3D;&gt;
@@ -362,7 +417,8 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
                 return this.authenticationService.csrfCookie().pipe(
                     concatMap(() &#x3D;&gt; {
                         return this.authenticationService.login(data).pipe(
-                            map(() &#x3D;&gt; LoginSuccess()),
+                            map((authResponse: AuthenticationResponse) &#x3D;&gt;
+                                LoginSuccess({ authToken: authResponse.access_token })),
                             catchError(() &#x3D;&gt; of(LoginError()))
                         );
                     })
@@ -370,6 +426,17 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
                 );
             })
         ));
+
+    public setAuthenticationTokenInLocalStorage$ &#x3D; createEffect(
+        () &#x3D;&gt;
+            this.actions$.pipe(
+                ofType(LoginSuccess),
+                tap(({ authToken }) &#x3D;&gt; {
+                    this.tokenService.setToken(authToken);
+                })
+            ),
+        { dispatch: false }
+    );
 
     public redirectToDashboardOnLoginSuccess$ &#x3D; createEffect(
         () &#x3D;&gt;

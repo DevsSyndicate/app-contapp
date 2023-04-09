@@ -74,6 +74,10 @@
     <table class="table table-sm table-hover metadata">
         <tbody>
 
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
 
 
 
@@ -167,7 +171,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:22</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -188,7 +192,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:20</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -209,7 +213,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -230,7 +234,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:16</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -251,7 +255,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/components/breadcrumbs/breadcrumbs.component.ts:14</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -267,7 +271,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { Component, Input } from &#x27;@angular/core&#x27;;
+import { ChangeDetectionStrategy, Component, Input } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 
 @Component({
@@ -275,6 +279,7 @@ import { RouterModule } from &#x27;@angular/router&#x27;;
     imports: [CommonModule, RouterModule],
     selector: &#x27;app-shared-breadcrumbs&#x27;,
     templateUrl: &#x27;./breadcrumbs.component.html&#x27;,
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class SharedBreadcrumbsComponent {
@@ -313,7 +318,6 @@ export class SharedBreadcrumbsComponent {
 			&lt;/div&gt;
 		&lt;/div&gt;
 	&lt;/div&gt;
-	&lt;!-- /.col-lg-12 --&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -344,7 +348,7 @@ export class SharedBreadcrumbsComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="page-breadcrumb bg-white">	<div class="row align-items-center">		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">			<h4 class="page-title">{{ title }}</h4>		</div>		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">			<div class="d-md-flex">				<ol *ngIf="linkUrl && linkText" class="breadcrumb ms-auto">					<li>						<a [routerLink]="linkUrl" class="fw-normal">{{ linkText }}</a>					</li>				</ol>				<a					[routerLink]="buttonUrl"					*ngIf="buttonUrl && buttonText"					class="btn btn-danger d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white"					>{{ buttonText }}</a				>			</div>		</div>	</div>	<!-- /.col-lg-12 --></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="page-breadcrumb bg-white">	<div class="row align-items-center">		<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">			<h4 class="page-title">{{ title }}</h4>		</div>		<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">			<div class="d-md-flex">				<ol *ngIf="linkUrl && linkText" class="breadcrumb ms-auto">					<li>						<a [routerLink]="linkUrl" class="fw-normal">{{ linkText }}</a>					</li>				</ol>				<a					[routerLink]="buttonUrl"					*ngIf="buttonUrl && buttonText"					class="btn btn-danger d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white"					>{{ buttonText }}</a				>			</div>		</div>	</div></div></div>'
     var COMPONENTS = [{'name': 'AccountsFormComponent', 'selector': 'app-accounts-form'},{'name': 'AccountsPageFormLayoutComponent', 'selector': 'app-accounts-page-form-layout'},{'name': 'AccountsPageListLayoutComponent', 'selector': 'app-accounts-page-list-layout'},{'name': 'AccountsTableComponent', 'selector': 'app-accounts-table'},{'name': 'AnalysisMenuComponent', 'selector': 'app-analysis-menu'},{'name': 'AnalysisMonthlyBalancesComponent', 'selector': 'app-analysis-monthly-balances'},{'name': 'AnalysisMonthlyComponent', 'selector': 'app-analysis-monthly'},{'name': 'AnalysisMonthlyForecastsComponent', 'selector': 'app-analysis-monthly-forecasts'},{'name': 'AnalysisMonthlyMovementsComponent', 'selector': 'app-analysis-monthly-movements'},{'name': 'AnalysisPageMenuLayoutComponent', 'selector': 'app-analysis-page-menu-layout'},{'name': 'AnalysisPageMonthlyLayoutComponent', 'selector': 'app-analysis-page-monthly-layout'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthenticationFormComponent', 'selector': 'app-authentication-form'},{'name': 'AuthLayoutComponent', 'selector': 'app-auth-layout'},{'name': 'CategoriesFormComponent', 'selector': 'app-categories-form'},{'name': 'CategoriesPageFormLayoutComponent', 'selector': 'app-categories-page-form-layout'},{'name': 'CategoriesPageListLayoutComponent', 'selector': 'app-categories-page-list-layout'},{'name': 'CategoriesTableComponent', 'selector': 'app-categories-table'},{'name': 'DashboardMainLayoutComponent', 'selector': 'app-dashboard-main-layout'},{'name': 'HeaderLayoutComponent', 'selector': 'app-header-layout'},{'name': 'LoginFormLayoutComponent', 'selector': 'app-login-form-layout'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MovementsAccountsComponent', 'selector': 'app-movements-accounts-resume'},{'name': 'MovementsFormComponent', 'selector': 'app-movements-form'},{'name': 'MovementsPageFormLayoutComponent', 'selector': 'app-movements-page-form-layout'},{'name': 'MovementsPageListLayoutComponent', 'selector': 'app-movements-page-list-layout'},{'name': 'MovementsTableComponent', 'selector': 'app-movements-table'},{'name': 'SharedBreadcrumbsComponent', 'selector': 'app-shared-breadcrumbs'},{'name': 'SidebarLayoutComponent', 'selector': 'app-sidebar-layout'},{'name': 'ValidationErrorsComponent', 'selector': 'appvalidation-errors'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SharedBreadcrumbsComponent'};
