@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AnalysisServiceInterface } from '../../domain/interfaces/analysis-service.interface';
 import { AnalysisMonthly } from '../../domain/models/monthly';
 
-import { ApiService } from '@core/infrastructure/api/api.service';
+import { ApiRepository } from '@core/infrastructure/repositories/api.repository';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -16,7 +16,7 @@ import { environment } from '@env/environment';
 export class AnalysisService implements AnalysisServiceInterface {
     public ApiUrl = `${environment.ApiUrl}/analysis/monthly`;
 
-    constructor(protected apiService: ApiService) {}
+    constructor(protected apiService: ApiRepository) {}
 
     public getMonthlyAccountBalances(): Observable<AnalysisMonthly> {
         // TODO: hardocded account. Change this

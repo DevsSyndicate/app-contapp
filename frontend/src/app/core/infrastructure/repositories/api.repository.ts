@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ApiServiceInterface } from '../../domain/interfaces/api-service.interface';
+import { ApiRepositoryInterface } from '../../domain/interfaces/api-repository.interface';
 
 @Injectable()
 
 /**
- * Service to interact with Api
+ * Repository to interact with Api
  */
-export class ApiService implements ApiServiceInterface {
+export class ApiRepository implements ApiRepositoryInterface {
     constructor(private readonly httpClient: HttpClient) {}
 
     public get<T>(url: string, params?: any): Observable<T> {
@@ -20,7 +20,7 @@ export class ApiService implements ApiServiceInterface {
         return this.httpClient.post<T>(url, body);
     }
 
-    public put(url: string, body: any): Observable<any> {
+    public put(url: string, body: any) {
         return this.httpClient.put(url, body);
     }
 

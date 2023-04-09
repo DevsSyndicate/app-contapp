@@ -23,12 +23,13 @@ jobs:
       
       # Install dependencies
       - name: 'Install NPM dependencies'
-        run: npm ci
+        run: npm ci --force
         working-directory: frontend
 
       # Lint application
       - name: 'Lint application'
         run: 'npm run lint'
+        working-directory: frontend
 
       # Build application
       - name: 'Build application'

@@ -9,7 +9,7 @@ import { DatesService } from './application/services/dates.service';
 import { TokenService } from './application/services/token.service';
 import { CoreEffects } from './application/state/core..effects';
 import { coreReducer } from './application/state/core.reducers';
-import { ApiService } from './infrastructure/api/api.service';
+import { ApiRepository } from './infrastructure/repositories/api.repository';
 
 @NgModule({
     imports: [
@@ -28,7 +28,7 @@ import { ApiService } from './infrastructure/api/api.service';
             useClass: AuthInterceptor,
             multi: true,
         },
-        ApiService,
+        ApiRepository,
         DatesService,
         TokenService,
     ],

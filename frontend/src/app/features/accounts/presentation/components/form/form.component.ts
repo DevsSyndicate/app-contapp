@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { getEditingAccount, getIsEditingAccount, getSubmittedFormStatus } from '../../../application/state/accounts.selectors';
 import { Account } from '../../../domain/models/account.model';
-import { SubmitAccountForm } from '../../../domain/state/accounts.actions';
-import { AccountsState } from '../../../domain/state/accounts.state';
+import { AccountsPresentationFacade } from '../../facades/accounts.facade';
 
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
@@ -20,11 +17,11 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Accounts form component
  */
 export class AccountsFormComponent {
-    public submitted$: Observable<boolean> = this.store.select(getSubmittedFormStatus);
+    public submitted$: Observable<boolean> = this.accountsFacade.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.store.select(getIsEditingAccount);
+    public isEditing$: Observable<boolean> = this.accountsFacade.getIsEditing();
 
-    public editingAccount$: Observable<Account> = this.store.select(getEditingAccount).pipe(
+    public editingAccount$: Observable<Account> = this.accountsFacade.getEditingAccount().pipe(
         tap((account: Account) => {
             this.accountForm.patchValue(account);
         })
@@ -34,7 +31,7 @@ export class AccountsFormComponent {
 
     public formErrors!: ValidationError;
 
-    constructor(private readonly store: Store<AccountsState>) {}
+    constructor(private readonly accountsFacade: AccountsPresentationFacade) {}
 
     /**
 	 * Form getter
@@ -47,7 +44,7 @@ export class AccountsFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        this.store.dispatch(SubmitAccountForm({ formValues: this.accountForm.value }));
+        this.accountsFacade.submitForm(this.accountForm.value);
     }
 
     /**

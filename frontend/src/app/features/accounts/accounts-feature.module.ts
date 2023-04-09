@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { AccountsService } from './application/services/accounts.service';
-import { AccountsEffects } from './application/state/accounts.effects';
 import { accountsReducer } from './application/state/accounts.reducers';
+import { CreateAccountUseCase } from './application/use-cases/create.use-case';
+import { DeleteAccountUseCase } from './application/use-cases/delete.use-case';
+import { GetAccountsUseCase } from './application/use-cases/get.use-case';
+import { UpdateAccountUseCase } from './application/use-cases/update.use-case';
+import { AccountsAdapter } from './infrastructure/adapters/accounts.adapter';
+import { AccountsRepository } from './infrastructure/repositories/accounts.repository';
+import { AccountsEffects } from './infrastructure/state/accounts.effects';
 
 @NgModule({
     imports: [
@@ -12,7 +17,12 @@ import { accountsReducer } from './application/state/accounts.reducers';
         EffectsModule.forFeature([AccountsEffects]),
     ],
     providers: [
-        AccountsService,
+        AccountsAdapter,
+        CreateAccountUseCase,
+        DeleteAccountUseCase,
+        GetAccountsUseCase,
+        UpdateAccountUseCase,
+        { provide: 'AccountsRepositoryInterface', useClass: AccountsRepository },
     ],
 })
 

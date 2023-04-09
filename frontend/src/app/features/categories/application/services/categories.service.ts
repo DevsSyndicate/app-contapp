@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { CategoriesServiceInterface } from '../../domain/interfaces/categories-service.interface';
 import { Category } from '../../domain/models/category.model';
 
-import { ApiService } from '@core/infrastructure/api/api.service';
+import { ApiRepository } from '@core/infrastructure/repositories/api.repository';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -16,7 +16,7 @@ import { environment } from '@env/environment';
 export class CategoriesService implements CategoriesServiceInterface {
     public ApiUrl = `${environment.ApiUrl}/categories`;
 
-    constructor(protected apiService: ApiService) {}
+    constructor(protected apiService: ApiRepository) {}
 
     public getList(): Observable<Category[]> {
         return this.apiService.get<Category[]>(this.ApiUrl);

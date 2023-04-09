@@ -7,7 +7,7 @@ import { MovementsServiceInterface } from '../../domain/interfaces/movements-ser
 import { ApiMovements } from '../../domain/models/movement-api.model';
 import { Movement, MovementFormData } from '../../domain/models/movement.model';
 
-import { ApiService } from '@core/infrastructure/api/api.service';
+import { ApiRepository } from '@core/infrastructure/repositories/api.repository';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -18,7 +18,7 @@ import { environment } from '@env/environment';
 export class MovementsService implements MovementsServiceInterface {
     public ApiUrl = `${environment.ApiUrl}/movements`;
 
-    constructor(protected apiService: ApiService) {}
+    constructor(protected apiService: ApiRepository) {}
 
     public getList(page: string, perPage: string): Observable<ApiMovements> {
         const params = new HttpParams().set('page', page).set('perPage', perPage);

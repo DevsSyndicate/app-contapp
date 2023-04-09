@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationServiceInterface } from '../../domain/interfaces/authentication-service.interface';
 import { AuthenticationData, AuthenticationResponse } from '../../domain/models/authentication.models';
 
-import { ApiService } from '@core/infrastructure/api/api.service';
+import { ApiRepository } from '@core/infrastructure/repositories/api.repository';
 import { environment } from '@env/environment';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class AuthenticationService implements AuthenticationServiceInterface {
 
     public baseUrl: string = environment.baseUrl;
 
-    constructor(protected apiService: ApiService) {}
+    constructor(protected apiService: ApiRepository) {}
 
     public csrfCookie(): Observable<any> {
         return this.apiService.get<any>(`${this.baseUrl}/sanctum/csrf-cookie`, null);

@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getAccounts } from '../../../application/state/accounts.selectors';
 import { Account } from '../../../domain/models/account.model';
-import { DeleteAccount } from '../../../domain/state/accounts.actions';
-import { AccountsState } from '../../../domain/state/accounts.state';
+import { AccountsPresentationFacade } from '../../facades/accounts.facade';
 
 @Component({
     selector: 'app-accounts-table',
@@ -16,14 +13,14 @@ import { AccountsState } from '../../../domain/state/accounts.state';
  * Accounts table component
  */
 export class AccountsTableComponent {
-    public accounts$: Observable<Account[]> = this.store.select(getAccounts);
+    public accounts$: Observable<Account[]> = this.accountsFacade.getAccounts();
 
-    constructor(private readonly store: Store<AccountsState>) {}
+    constructor(private readonly accountsFacade: AccountsPresentationFacade) {}
 
     /**
 	 * Delete account
 	 */
     public delete(id: string): void {
-        this.store.dispatch(DeleteAccount({ id }));
+        this.accountsFacade.deleteAccount(id);
     }
 }

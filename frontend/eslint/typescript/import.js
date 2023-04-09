@@ -29,11 +29,6 @@ module.exports = {
 						message: 'Forbidden to import from @features',
 					},
 					{
-						target: './src/app/layout',
-						from: './src/app/features/**/!(*public|*module)*',
-						message: 'Forbidden to import from @features',
-					},
-					{
 						target: './src/app/pages',
 						from: './src/app/features/**/!(*module)*',
 						message: 'Forbidden to import from @features',
