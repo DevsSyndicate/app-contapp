@@ -2,9 +2,14 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { CategoriesService } from './application/services/categories.service';
-import { CategoriesEffects } from './application/state/categories.effects';
 import { categoriesReducer } from './application/state/categories.reducers';
+import { CreateCategoryUseCase } from './application/use-cases/create.use-case';
+import { DeleteCategoryUseCase } from './application/use-cases/delete.use-case';
+import { GetCategoriesUseCase } from './application/use-cases/get.use-case';
+import { UpdateCategoryUseCase } from './application/use-cases/update.use-case';
+import { CategoriesAdapter } from './infrastructure/adapters/categories.adapter';
+import { CategoriesRepository } from './infrastructure/repositories/categories.repository';
+import { CategoriesEffects } from './infrastructure/state/categories.effects';
 
 @NgModule({
     imports: [
@@ -12,7 +17,12 @@ import { categoriesReducer } from './application/state/categories.reducers';
         EffectsModule.forFeature([CategoriesEffects]),
     ],
     providers: [
-        CategoriesService,
+        CategoriesAdapter,
+        CreateCategoryUseCase,
+        DeleteCategoryUseCase,
+        GetCategoriesUseCase,
+        UpdateCategoryUseCase,
+        { provide: 'CategoriesRepositoryInterface', useClass: CategoriesRepository },
     ],
 })
 

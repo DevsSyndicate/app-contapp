@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getCategories } from '../../../application/state/categories.selectors';
 import { Category } from '../../../domain/models/category.model';
-import { DeleteCategory } from '../../../domain/state/categories.actions';
-import { CategoriesState } from '../../../domain/state/categories.state';
+import { CategoriesPresentationFacade } from '../../facades/categories.facade';
 
 @Component({
     selector: 'app-categories-table',
@@ -17,14 +14,14 @@ import { CategoriesState } from '../../../domain/state/categories.state';
  * Categories table component
  */
 export class CategoriesTableComponent {
-    public categories$: Observable<Category[]> = this.store.select(getCategories);
+    public categories$: Observable<Category[]> = this.categoriesFacade.getCategories();
 
-    constructor(private readonly store: Store<CategoriesState>) {}
+    constructor(private readonly categoriesFacade: CategoriesPresentationFacade) {}
 
     /**
 	 * Delete category
 	 */
     public delete(id: string): void {
-        this.store.dispatch(DeleteCategory({ id }));
+        this.categoriesFacade.deleteCategory(id);
     }
 }

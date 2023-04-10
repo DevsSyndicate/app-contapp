@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
-import { getEditingCategory, getIsEditingCategory, getSubmittedFormStatus } from '../../../application/state/categories.selectors';
 import { Category } from '../../../domain/models/category.model';
-import { SubmitCategoryForm } from '../../../domain/state/categories.actions';
-import { CategoriesState } from '../../../domain/state/categories.state';
+import { CategoriesPresentationFacade } from '../../facades/categories.facade';
 
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
@@ -20,11 +17,11 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Categories form component
  */
 export class CategoriesFormComponent {
-    public submitted$: Observable<boolean> = this.store.select(getSubmittedFormStatus);
+    public submitted$: Observable<boolean> = this.categoriesFacade.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.store.select(getIsEditingCategory);
+    public isEditing$: Observable<boolean> = this.categoriesFacade.getIsEditing();
 
-    public editingCategory$: Observable<Category> = this.store.select(getEditingCategory).pipe(
+    public editingCategory$: Observable<Category> = this.categoriesFacade.getEditingCategory().pipe(
         tap((category: Category) => {
             this.categoryForm.patchValue(category);
         })
@@ -34,7 +31,9 @@ export class CategoriesFormComponent {
 
     public formErrors!: ValidationError;
 
-    constructor(private readonly store: Store<CategoriesState>) {}
+    constructor(
+        private readonly categoriesFacade: CategoriesPresentationFacade,
+    ) {}
 
     /**
 	 * Form getter
@@ -54,8 +53,7 @@ export class CategoriesFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        debugger;
-        this.store.dispatch(SubmitCategoryForm({ formValues: this.categoryForm.value }));
+        this.categoriesFacade.submitForm(this.categoryForm.value);
     }
 
     /**

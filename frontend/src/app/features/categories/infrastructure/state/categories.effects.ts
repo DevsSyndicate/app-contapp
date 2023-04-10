@@ -19,7 +19,7 @@ import {
     SubmitCategoryForm,
     SubmitCategoryFormSuccess,
 } from '../../domain/state/categories.actions';
-import { CategoriesService } from '../services/categories.service';
+import { CategoriesAdapter } from '../adapters/categories.adapter';
 
 @Injectable()
 
@@ -30,7 +30,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly categoriesService: CategoriesService
+        private readonly categoriesAdapter: CategoriesAdapter
     ) {}
 
     public loadCategoriesFromPublicApi$ = createEffect(() =>
@@ -58,7 +58,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
         this.actions$.pipe(
             ofType(LoadCategories),
             switchMap(() =>
-                this.categoriesService.getList().pipe(
+                this.categoriesAdapter.getList().pipe(
                     map((categories: Category[]) => LoadCategoriesSuccess({ categories })),
                     catchError(() => of(LoadCategoriesError()))
                 ))
@@ -68,7 +68,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
         this.actions$.pipe(
             ofType(LoadCategory),
             switchMap(({ id }) =>
-                this.categoriesService.get(id).pipe(
+                this.categoriesAdapter.get(id).pipe(
                     map((category: Category) => LoadCategorySuccess({ category })),
                     catchError(() => of(LoadCategoryError()))
                 ))
@@ -77,7 +77,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
     public deleteCategory$ = createEffect(() =>
         this.actions$.pipe(
             ofType(DeleteCategory),
-            mergeMap(({ id }) => this.categoriesService.delete(id)),
+            mergeMap(({ id }) => this.categoriesAdapter.delete(id)),
             map(() => LoadCategories())
         ));
 
@@ -85,7 +85,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
         this.actions$.pipe(
             ofType(SubmitCategoryForm),
             filter(() => /\/categories\/edit\/\d+/.exec(this.router.url) === null),
-            switchMap(({ formValues }) => this.categoriesService.add(formValues)),
+            switchMap(({ formValues }) => this.categoriesAdapter.create(formValues)),
             map(() => SubmitCategoryFormSuccess())
         ));
 
@@ -94,7 +94,7 @@ export class CategoriesEffects implements CategoriesEffectsInterface {
             ofType(SubmitCategoryForm),
             filter(() => /\/categories\/edit\/\d+/.exec(this.router.url) !== null),
             concatLatestFrom(() => of(this.router.url.split('/')[3])),
-            switchMap(([{ formValues }, id]) => this.categoriesService.update(formValues, id)),
+            switchMap(([{ formValues }, id]) => this.categoriesAdapter.update(formValues, id)),
             map(() => SubmitCategoryFormSuccess())
         ));
 
