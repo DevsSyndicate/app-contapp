@@ -1,8 +1,8 @@
 #### Capa presentacional
 
-- Los componentes pertenecientes a la capa presentacional, consumen información o ejecutan acciones a través de una fachada.
-- Al interactuar con la fachada, los componentes no saben de que forma se obtiene o manda información, es independiente del detalle de implementación. Por lo tanto, la capa presentacional establece una dependencia unidireccional hacia la capa de infraestructura.
-- Por tanto, es responsabilidad de la fachada realizar las acciones pertinentes, ejecutando las operaciones mediante el resto de funciones de la capa de infraestructura.
+- Los componentes pertenecientes a la capa presentacional, consumen información o ejecutan acciones a través de un adaptador.
+- Al interactuar con el adaptador, los componentes no saben de que forma se obtiene o manda información, es independiente del detalle de implementación. Por lo tanto, la capa presentacional establece una dependencia unidireccional hacia la capa de infraestructura.
+- Por tanto, es responsabilidad del adaptador realizar las acciones pertinentes, ejecutando las operaciones mediante el resto de funciones de la capa de infraestructura.
 
 
 #### Capa de infraestructura
@@ -21,25 +21,25 @@
 
 #### Ejemplo
 
-A modo de ejemplo, el componente presentacional "form" necesita enviar varios datos de un formulario para que se almacenen en la base de datos. Para ello, hace uso de la fachada que se encarga de comenzar la petición de envío.
+A modo de ejemplo, el componente presentacional "form" necesita enviar varios datos de un formulario para que se almacenen en la base de datos. Para ello, hace uso del adaptador que se encarga de comenzar la petición de envío.
 
 ```typescript
 // .../presentation/components/list/list.component.ts
 export class AccountsTableComponent {
 
-    constructor(private readonly accountsFacade: AccountsPresentationFacade) {}
+    constructor(private readonly accountsAdapter: AccountsPresentationAdapter) {}
 
     public onSubmit(): void {
-        this.accountsFacade.submitForm(this.accountForm.value);
+        this.accountsAdapter.submitForm(this.accountForm.value);
     }
 }
 ```
 
-La fachada, que se encuentra en la propia capa de presentación, recibe la petición y se encarga de lanzar una acción de Ngrx para enviar la información del formulario. Tanto la definición de la fachada como de las acciones, se encuentran en la capa de dominio. Con esto conseguimos que el componente sea agnóstico al modo en que enviamos la información y que éste dependa exclusivamente de la infraestructura para ello.
+El adaptador, que se encuentra en la propia capa de presentación, recibe la petición y se encarga de lanzar una acción de Ngrx para enviar la información del formulario. Tanto la definición del adaptador como de las acciones, se encuentran en la capa de dominio. Con esto conseguimos que el componente sea agnóstico al modo en que enviamos la información y que éste dependa exclusivamente de la infraestructura para ello.
 
 ```typescript
-// .../presentation/facades/accounts-presentation.facade.ts
-export class AccountsPresentationFacade implements AccountsPresentationFacadeInterface {
+// .../presentation/adapters/accounts-presentation.adapter.ts
+export class AccountsPresentationAdapter implements AccountsPresentationAdapterInterface {
     constructor(private readonly store: Store<AccountsState>) {}
 
     public submitForm(formValues: Account): void {
@@ -47,8 +47,8 @@ export class AccountsPresentationFacade implements AccountsPresentationFacadeInt
     }
 }
 
-// .../domain/interfaces/accounts-presentation.interface.ts
-export interface AccountsPresentationFacadeInterface {
+// .../domain/interfaces/accounts-presentation-adapter.interface.ts
+export interface AccountsPresentationAdapterInterface {
     submitForm: (formValues: Account) => void;
 }
 
@@ -62,7 +62,7 @@ export const SubmitAccountForm = createAction(AccountsActionTypes.SUBMIT_ACCOUNT
 export const SubmitAccountFormSuccess = createAction(AccountsActionTypes.SUBMIT_ACCOUNT_FORM_SUCCESS);
 ```
 
-Cuando la fachada dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un puerto.
+Cuando la fachadael adaptador dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un puerto.
 
 ```typescript
 // .../infrastructure/state/accounts.effects.ts
@@ -91,8 +91,8 @@ export interface AccountsEffectsInterface {
 El puerto, que pertenece todavía a la capa de infraestructura es el encargado de llamar al caso de uso particular, en este caso, a la función de crear una cuenta. De este modo, se esatblece una dependencia hacia la capa de aplicación pero no a la inversa, cumpliendo con las reglas de dependencia de fuera hacia dentro.
 
 ```typescript
-// .../infrastructure/addapters/accounts.adapter.ts
-export class AccountsAdapter implements AccountsAdapterInterface {
+// .../infrastructure/ports/accounts.port.ts
+export class AccountsPort implements AccountsPortInterface {
     constructor(private readonly createAccountUseCase: CreateAccountUseCase) {}
 
     public create(account: Account): Observable<Account> {
@@ -100,8 +100,8 @@ export class AccountsAdapter implements AccountsAdapterInterface {
     }
 }
 
-// .../domain/interfaces/accounts-adapter.interface.ts
-export interface AccountsAdapterInterface {
+// .../domain/interfaces/accounts-port.interface.ts
+export interface AccountsPortInterface {
     create: (accout: Account) => Observable<Account>;
 }
 
