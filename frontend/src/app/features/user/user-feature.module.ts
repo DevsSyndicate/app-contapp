@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { UserService } from './application/services/user.service';
-import { UserEffects } from './application/state/user.effects';
 import { userReducer } from './application/state/user.reducers';
 import { UserTranformer } from './application/transformers/user.transformer';
+import { GetUserUseCase } from './application/use-cases/get.use-case';
+import { UserAdapter } from './infrastructure/adapters/user.adapter';
+import { UserRepository } from './infrastructure/repositories/user.repository';
+import { UserEffects } from './infrastructure/state/user.effects';
 
 @NgModule({
     imports: [
@@ -13,8 +15,10 @@ import { UserTranformer } from './application/transformers/user.transformer';
         StoreModule.forFeature('user', userReducer),
     ],
     providers: [
-        UserService,
+        GetUserUseCase,
+        UserAdapter,
         UserTranformer,
+        { provide: 'UserRepositoryInterface', useClass: UserRepository },
     ],
 })
 

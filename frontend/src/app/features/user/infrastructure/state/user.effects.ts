@@ -5,13 +5,12 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, filter, map, switchMap } from 'rxjs/operators';
 
+import { getUser } from '../../application/state/user.selectors';
+import { UserTranformer } from '../../application/transformers/user.transformer';
 import { UserEffectsInterface } from '../../domain/interfaces/user-effects.interface';
 import { ApiUser, User } from '../../domain/models/user.model';
 import { LoadUser, LoadUserError, LoadUserSuccess } from '../../domain/state/user.actions';
-import { UserService } from '../services/user.service';
-import { UserTranformer } from '../transformers/user.transformer';
-
-import { getUser } from './user.selectors';
+import { UserAdapter } from '../adapters/user.adapter';
 
 @Injectable()
 
@@ -22,7 +21,7 @@ export class UserEffects implements UserEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly store: Store,
-        private readonly userService: UserService,
+        private readonly userAdapter: UserAdapter,
         private readonly userTranformer: UserTranformer
     ) {}
 
@@ -39,7 +38,7 @@ export class UserEffects implements UserEffectsInterface {
         this.actions$.pipe(
             ofType(LoadUser),
             switchMap(() => {
-                return this.userService.getUser().pipe(
+                return this.userAdapter.getUser().pipe(
                     map((apiUser: ApiUser) => this.userTranformer.getUserFromApi(apiUser)),
                     map((user: User) => LoadUserSuccess({ user })),
                     catchError(() => of(LoadUserError()))
