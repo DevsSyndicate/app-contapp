@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthly.facade';
+import { MonthlyAnalysisPresentationAdapter } from '../../adapters/analysis-monthly.adapter';
 
 import { MovementsPublicModels } from '@features/movements/public.api';
 
@@ -15,11 +15,11 @@ import { MovementsPublicModels } from '@features/movements/public.api';
  * Analysys monthly movements component
  */
 export class AnalysisMonthlyMovementsComponent {
-    public monthyMovements$: Observable<MovementsPublicModels.MovementPublic[]> = this.monthlyAnalysisFacade.getMovements();
+    public monthyMovements$: Observable<MovementsPublicModels.MovementPublic[]> = this.monthlyAnalysisAdapter.getMovements();
 
     public movementsCollapsed = false;
 
-    constructor(private readonly monthlyAnalysisFacade: MonthlyAnalysisPresentationFacade) {
+    constructor(private readonly monthlyAnalysisAdapter: MonthlyAnalysisPresentationAdapter) {
 
     }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AnalysisMonthlyForecastCategory } from '../../../domain/models/monthly';
-import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthly.facade';
+import { MonthlyAnalysisPresentationAdapter } from '../../adapters/analysis-monthly.adapter';
 
 @Component({
     selector: 'app-analysis-monthly-forecasts',
@@ -14,11 +14,11 @@ import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthl
  */
 export class AnalysisMonthlyForecastsComponent {
     // eslint-disable-next-line max-len
-    public monthlyForecastExpenses$: Observable<AnalysisMonthlyForecastCategory[]> = this.monthlyAnalysisFacade.getForecastExpenses();
+    public monthlyForecastExpenses$: Observable<AnalysisMonthlyForecastCategory[]> = this.monthlyAnalysisAdapter.getForecastExpenses();
 
     public forecastsCollapsed = false;
 
-    constructor(private readonly monthlyAnalysisFacade: MonthlyAnalysisPresentationFacade) {
+    constructor(private readonly monthlyAnalysisAdapter: MonthlyAnalysisPresentationAdapter) {
 
     }
 }

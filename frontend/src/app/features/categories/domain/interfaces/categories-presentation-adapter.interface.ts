@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { Category } from '../models/category.model';
 
 /**
- * Categories presentation facade interface
+ * Categories presentation adapter interface
  */
-export interface CategoriesPresentationFacadeInterface {
+export interface CategoriesPresentationAdapterInterface {
     /**
      * Get list of catyegories
      */

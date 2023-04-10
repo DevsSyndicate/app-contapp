@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { MovementsPresentationFacade } from '../../facades/movements.facade';
+import { MovementsPresentationAdapter } from '../../adapters/movements.adapter';
 
 import { AccountsPublicModels } from '@features/accounts/public.api';
 
@@ -14,9 +14,9 @@ import { AccountsPublicModels } from '@features/accounts/public.api';
  * Movements accounts resume component
  */
 export class MovementsAccountsComponent {
-    public accounts$: Observable<AccountsPublicModels.AccountPublic[]> = this.movementsFacade.getAccounts();
+    public accounts$: Observable<AccountsPublicModels.AccountPublic[]> = this.movementsAdapter.getAccounts();
 
-    constructor(private readonly movementsFacade: MovementsPresentationFacade) {
+    constructor(private readonly movementsAdapter: MovementsPresentationAdapter) {
 
     }
 }

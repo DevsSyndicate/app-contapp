@@ -62,7 +62,7 @@ export const SubmitAccountForm = createAction(AccountsActionTypes.SUBMIT_ACCOUNT
 export const SubmitAccountFormSuccess = createAction(AccountsActionTypes.SUBMIT_ACCOUNT_FORM_SUCCESS);
 ```
 
-Cuando la fachada dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un servicio adaptador.
+Cuando la fachada dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un puerto.
 
 ```typescript
 // .../infrastructure/state/accounts.effects.ts
@@ -70,14 +70,14 @@ export class AccountsEffects implements AccountsEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly accountsAdapter: AccountsAdapter
+        private readonly accountsPort: AccountsPort
     ) {}
 
     public submitAccountFormForAddNewAccount$ = createEffect(() =>
         this.actions$.pipe(
             ofType(SubmitAccountForm),
             filter(() => /\/accounts\/edit\/\d+/.exec(this.router.url) === null),
-            switchMap(({ formValues }) => this.accountsAdapter.create(formValues)),
+            switchMap(({ formValues }) => this.accountsPort.create(formValues)),
             map(() => SubmitAccountFormSuccess())
         ));
 }
@@ -88,7 +88,7 @@ export interface AccountsEffectsInterface {
 }
 ```
 
-El servicio adaptador, que pertenece todavía a la capa de infraestructura es el encargado de llamar al caso de uso particular, en este caso, a la función de crear una cuenta. De este modo, se esatblece una dependencia hacia la capa de aplicación pero no a la inversa, cumpliendo con las reglas de dependencia de fuera hacia dentro.
+El puerto, que pertenece todavía a la capa de infraestructura es el encargado de llamar al caso de uso particular, en este caso, a la función de crear una cuenta. De este modo, se esatblece una dependencia hacia la capa de aplicación pero no a la inversa, cumpliendo con las reglas de dependencia de fuera hacia dentro.
 
 ```typescript
 // .../infrastructure/addapters/accounts.adapter.ts

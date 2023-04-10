@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { ColorPickerModule } from 'ngx-color-picker';
 
 import { CategoriesFeatureModule } from './categories-feature.module';
+import { CategoriesPresentationAdapter } from './presentation/adapters/categories.adapter';
 import { CategoriesFormComponent } from './presentation/components/form/form.component';
 import { CategoriesTableComponent } from './presentation/components/table/table.component';
-import { CategoriesPresentationFacade } from './presentation/facades/categories.facade';
 
 import { ValidationErrorsComponent } from '@shared/components/validation-errors/validation-errors.component';
 import { CurrencyPipe } from '@shared/pipes/currency.pipe';
@@ -31,7 +31,7 @@ import { CurrencyPipe } from '@shared/pipes/currency.pipe';
         ValidationErrorsComponent,
     ],
     providers: [
-        CategoriesPresentationFacade,
+        CategoriesPresentationAdapter,
     ],
 })
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Account } from '../../../domain/models/account.model';
-import { AccountsPresentationFacade } from '../../facades/accounts.facade';
+import { AccountsPresentationAdapter } from '../../adapters/accounts.adapter';
 
 @Component({
     selector: 'app-accounts-table',
@@ -13,14 +13,14 @@ import { AccountsPresentationFacade } from '../../facades/accounts.facade';
  * Accounts table component
  */
 export class AccountsTableComponent {
-    public accounts$: Observable<Account[]> = this.accountsFacade.getAccounts();
+    public accounts$: Observable<Account[]> = this.accountsAdapter.getAccounts();
 
-    constructor(private readonly accountsFacade: AccountsPresentationFacade) {}
+    constructor(private readonly accountsAdapter: AccountsPresentationAdapter) {}
 
     /**
 	 * Delete account
 	 */
     public delete(id: string): void {
-        this.accountsFacade.deleteAccount(id);
+        this.accountsAdapter.deleteAccount(id);
     }
 }

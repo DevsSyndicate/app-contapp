@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getAccountBalances, getMonthlyAccountBalanceMovements, getMonthlyForecastExpenses } from '../../application/state/analysis.selectors';
-import { MonthlyAnalysisPresentationFacadeInterface } from '../../domain/interfaces/analysis-monthly-presentation-facade.interface';
+import { MonthlyAnalysisPresentationAdapterInterface } from '../../domain/interfaces/analysis-monthly-presentation-adapter.interface';
 import { AnalysisMonthly, AnalysisMonthlyForecastCategory } from '../../domain/models/monthly';
 import { AnalysisState } from '../../domain/state/analysis.state';
 
@@ -12,9 +12,9 @@ import { MovementsPublicModels } from '@features/movements/public.api';
 @Injectable()
 
 /**
- * Monthly analysis presentation facade
+ * Monthly analysis presentation adapter
  */
-export class MonthlyAnalysisPresentationFacade implements MonthlyAnalysisPresentationFacadeInterface {
+export class MonthlyAnalysisPresentationAdapter implements MonthlyAnalysisPresentationAdapterInterface {
     constructor(private readonly store: Store<AnalysisState>) {}
 
     public getAccountBalances(): Observable<AnalysisMonthly> {

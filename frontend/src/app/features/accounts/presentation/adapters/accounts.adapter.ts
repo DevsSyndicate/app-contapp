@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getAccounts, getEditingAccount, getIsEditingAccount, getSubmittedFormStatus } from '../../application/state/accounts.selectors';
-import { AccountsPresentationFacadeInterface } from '../../domain/interfaces/accounts-presentation-facade.interface';
+import { AccountsPresentationAdapterInterface } from '../../domain/interfaces/accounts-presentation-adapter.interface';
 import { Account } from '../../domain/models/account.model';
 import { DeleteAccount, SubmitAccountForm } from '../../domain/state/accounts.actions';
 import { AccountsState } from '../../domain/state/accounts.state';
@@ -11,9 +11,9 @@ import { AccountsState } from '../../domain/state/accounts.state';
 @Injectable()
 
 /**
- * Accounts presentation facade
+ * Accounts presentation adapter
  */
-export class AccountsPresentationFacade implements AccountsPresentationFacadeInterface {
+export class AccountsPresentationAdapter implements AccountsPresentationAdapterInterface {
     constructor(private readonly store: Store<AccountsState>) {}
 
     public getAccounts(): Observable<Account[]> {

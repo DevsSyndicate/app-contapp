@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { getCategories, getEditingCategory, getIsEditingCategory, getSubmittedFormStatus } from '../../application/state/categories.selectors';
-import { CategoriesPresentationFacadeInterface } from '../../domain/interfaces/categories-presentation-facade.interface';
+import { CategoriesPresentationAdapterInterface } from '../../domain/interfaces/categories-presentation-adapter.interface';
 import { Category } from '../../domain/models/category.model';
 import { DeleteCategory, SubmitCategoryForm } from '../../domain/state/categories.actions';
 import { CategoriesState } from '../../domain/state/categories.state';
@@ -11,9 +11,9 @@ import { CategoriesState } from '../../domain/state/categories.state';
 @Injectable()
 
 /**
- * Categories presentation facade
+ * Categories presentation adapter
  */
-export class CategoriesPresentationFacade implements CategoriesPresentationFacadeInterface {
+export class CategoriesPresentationAdapter implements CategoriesPresentationAdapterInterface {
     constructor(private readonly store: Store<CategoriesState>) {}
 
     public getCategories(): Observable<Category[]> {

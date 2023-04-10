@@ -5,9 +5,9 @@ import { AnalysisMonthly, AnalysisMonthlyForecastCategory } from '../models/mont
 import { MovementsPublicModels } from '@features/movements/public.api';
 
 /**
- * Monthly analysis presentation facade interface
+ * Monthly analysis presentation adapter interface
  */
-export interface MonthlyAnalysisPresentationFacadeInterface {
+export interface MonthlyAnalysisPresentationAdapterInterface {
     /**
      * Get monthly account balances
      */

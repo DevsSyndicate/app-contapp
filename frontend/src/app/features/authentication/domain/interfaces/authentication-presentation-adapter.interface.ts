@@ -1,9 +1,9 @@
 import { AuthenticationData } from '../models/authentication.models';
 
 /**
- * Authentication presentation facade interface
+ * Authentication presentation facade adapter
  */
-export interface AuthenticationPresentationFacadeInterface {
+export interface AuthenticationPresentationAdapterInterface {
     /**
      * Dispatch login action
      */

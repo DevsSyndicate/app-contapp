@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AnalysisMonthly } from '../../../domain/models/monthly';
-import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthly.facade';
+import { MonthlyAnalysisPresentationAdapter } from '../../adapters/analysis-monthly.adapter';
 
 @Component({
     selector: 'app-analysis-monthly-balances',
@@ -13,9 +13,9 @@ import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthl
  * Analysys monthly balances component
  */
 export class AnalysisMonthlyBalancesComponent {
-    public accountBalances$: Observable<AnalysisMonthly> = this.monthlyAnalysisFacade.getAccountBalances();
+    public accountBalances$: Observable<AnalysisMonthly> = this.monthlyAnalysisAdapter.getAccountBalances();
 
-    constructor(private readonly monthlyAnalysisFacade: MonthlyAnalysisPresentationFacade) {
+    constructor(private readonly monthlyAnalysisAdapter: MonthlyAnalysisPresentationAdapter) {
 
     }
 }

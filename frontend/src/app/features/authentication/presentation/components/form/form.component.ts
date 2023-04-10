@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormGroup, UntypedFormGroup } from '@angular/forms';
 
-import { AuthenticationPresentationFacade } from '../../facades/authentication.facade';
+import { AuthenticationPresentationAdapter } from '../../adapters/authentication.adapter';
 
 @Component({
     selector: 'app-authentication-form',
@@ -17,7 +17,7 @@ export class AuthenticationFormComponent {
 
     public submitted: boolean = false;
 
-    constructor(private readonly authenticationFacade: AuthenticationPresentationFacade) {}
+    constructor(private readonly authenticationAdapter: AuthenticationPresentationAdapter) {}
 
     /**
 	 * Form getter
@@ -31,7 +31,7 @@ export class AuthenticationFormComponent {
 	 */
     public onSubmit(): void {
         this.submitted = true;
-        this.authenticationFacade.login(this.loginForm.value);
+        this.authenticationAdapter.login(this.loginForm.value);
     }
 
     /**

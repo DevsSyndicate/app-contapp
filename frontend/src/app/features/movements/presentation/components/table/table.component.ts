@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Movement } from '../../../domain/models/movement.model';
-import { MovementsPresentationFacade } from '../../facades/movements.facade';
+import { MovementsPresentationAdapter } from '../../adapters/movements.adapter';
 
 @Component({
     selector: 'app-movements-table',
@@ -14,25 +14,25 @@ import { MovementsPresentationFacade } from '../../facades/movements.facade';
  * Movements table component
  */
 export class MovementsTableComponent {
-    public movements$: Observable<Movement[]> = this.movementsFacade.getMovements();
+    public movements$: Observable<Movement[]> = this.movementsAdapter.getMovements();
 
-    public totalMovementItems$: Observable<number> = this.movementsFacade.getTotalMovementItems();
+    public totalMovementItems$: Observable<number> = this.movementsAdapter.getTotalMovementItems();
 
     public page = 1;
 
-    constructor(private readonly movementsFacade: MovementsPresentationFacade) {}
+    constructor(private readonly movementsAdapter: MovementsPresentationAdapter) {}
 
     /**
 	 * Delete movement
 	 */
     public delete(id: string): void {
-        this.movementsFacade.deleteMovement(id);
+        this.movementsAdapter.deleteMovement(id);
     }
 
     /**
 	 * On page change
 	 */
     public changePage(selectedPage: number): void {
-        this.movementsFacade.changeMovementsPage(selectedPage);
+        this.movementsAdapter.changeMovementsPage(selectedPage);
     }
 }

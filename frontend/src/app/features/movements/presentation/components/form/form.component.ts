@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
 import { MovementFormData } from '../../../domain/models/movement.model';
-import { MovementsPresentationFacade } from '../../facades/movements.facade';
+import { MovementsPresentationAdapter } from '../../adapters/movements.adapter';
 
 import { DatesService } from '@core/application/services/dates.service';
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
@@ -19,22 +19,22 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Movements form component
  */
 export class MovementsFormComponent {
-    public submitted$: Observable<boolean> = this.movementsFacade.getFormSubmitted();
+    public submitted$: Observable<boolean> = this.movementsAdapter.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.movementsFacade.getIsEditing();
+    public isEditing$: Observable<boolean> = this.movementsAdapter.getIsEditing();
 
-    public editingMovement$: Observable<MovementFormData> = this.movementsFacade.getEditingMovement().pipe(
+    public editingMovement$: Observable<MovementFormData> = this.movementsAdapter.getEditingMovement().pipe(
         filter((movement) => !!movement),
         tap((movement: MovementFormData) => {
             this.movementForm.patchValue(movement);
         })
     );
 
-    public categories$: Observable<any[]> = this.movementsFacade.getCategoriesForSelect();
+    public categories$: Observable<any[]> = this.movementsAdapter.getCategoriesForSelect();
 
-    public accounts$: Observable<any[]> = this.movementsFacade.getAcountsForSelect();
+    public accounts$: Observable<any[]> = this.movementsAdapter.getAcountsForSelect();
 
-    public datePickerConfig: IDatePickerConfig = this.movementsFacade.getDatePickerConfig();
+    public datePickerConfig: IDatePickerConfig = this.movementsAdapter.getDatePickerConfig();
 
     public movementForm: FormGroup = this.createForm();
 
@@ -42,7 +42,7 @@ export class MovementsFormComponent {
 
     constructor(
         private readonly datesService: DatesService,
-        private readonly movementsFacade: MovementsPresentationFacade
+        private readonly movementsAdapter: MovementsPresentationAdapter
     ) {}
 
     /**
@@ -56,7 +56,7 @@ export class MovementsFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        this.movementsFacade.submitForm(this.movementForm.value);
+        this.movementsAdapter.submitForm(this.movementForm.value);
     }
 
     /**

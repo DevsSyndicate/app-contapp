@@ -4,7 +4,7 @@ import { IDatePickerConfig } from 'ng2-date-picker';
 import { Observable } from 'rxjs';
 
 import { getEditingMovement, getIsEditingMovement, getMovements, getSubmittedFormStatus, getTotalMovementsValue } from '../../application/state/momenents.selectors';
-import { MovementsPresentationFacadeInterface } from '../../domain/interfaces/movements-presentation-facade.interface';
+import { MovementsPresentationAdapterInterface } from '../../domain/interfaces/movements-presentation-adapter.interface';
 import { Movement, MovementFormData } from '../../domain/models/movement.model';
 import { DeleteMovement, LoadMovements, SubmitMovementForm } from '../../domain/state/movements.actions';
 import { MovementsState } from '../../domain/state/movements.state';
@@ -15,9 +15,9 @@ import { CategoriesPublicSelectors } from '@features/categories/public.api';
 @Injectable()
 
 /**
- * Movements presentation facade
+ * Movements presentation adapter
  */
-export class MovementsPresentationFacade implements MovementsPresentationFacadeInterface {
+export class MovementsPresentationAdapter implements MovementsPresentationAdapterInterface {
     constructor(private readonly store: Store<MovementsState>) {}
 
     public getAccounts(): Observable<AccountsPublicModels.AccountPublic[]> {

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Account } from '../../../domain/models/account.model';
-import { AccountsPresentationFacade } from '../../facades/accounts.facade';
+import { AccountsPresentationAdapter } from '../../adapters/accounts.adapter';
 
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
@@ -17,11 +17,11 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Accounts form component
  */
 export class AccountsFormComponent {
-    public submitted$: Observable<boolean> = this.accountsFacade.getFormSubmitted();
+    public submitted$: Observable<boolean> = this.accountsAdapter.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.accountsFacade.getIsEditing();
+    public isEditing$: Observable<boolean> = this.accountsAdapter.getIsEditing();
 
-    public editingAccount$: Observable<Account> = this.accountsFacade.getEditingAccount().pipe(
+    public editingAccount$: Observable<Account> = this.accountsAdapter.getEditingAccount().pipe(
         tap((account: Account) => {
             this.accountForm.patchValue(account);
         })
@@ -31,7 +31,7 @@ export class AccountsFormComponent {
 
     public formErrors!: ValidationError;
 
-    constructor(private readonly accountsFacade: AccountsPresentationFacade) {}
+    constructor(private readonly accountsAdapter: AccountsPresentationAdapter) {}
 
     /**
 	 * Form getter
@@ -44,7 +44,7 @@ export class AccountsFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        this.accountsFacade.submitForm(this.accountForm.value);
+        this.accountsAdapter.submitForm(this.accountForm.value);
     }
 
     /**

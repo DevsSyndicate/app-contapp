@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { Category } from '../../../domain/models/category.model';
-import { CategoriesPresentationFacade } from '../../facades/categories.facade';
+import { CategoriesPresentationAdapter } from '../../adapters/categories.adapter';
 
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
@@ -17,11 +17,11 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Categories form component
  */
 export class CategoriesFormComponent {
-    public submitted$: Observable<boolean> = this.categoriesFacade.getFormSubmitted();
+    public submitted$: Observable<boolean> = this.categoriesAdapter.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.categoriesFacade.getIsEditing();
+    public isEditing$: Observable<boolean> = this.categoriesAdapter.getIsEditing();
 
-    public editingCategory$: Observable<Category> = this.categoriesFacade.getEditingCategory().pipe(
+    public editingCategory$: Observable<Category> = this.categoriesAdapter.getEditingCategory().pipe(
         tap((category: Category) => {
             this.categoryForm.patchValue(category);
         })
@@ -32,7 +32,7 @@ export class CategoriesFormComponent {
     public formErrors!: ValidationError;
 
     constructor(
-        private readonly categoriesFacade: CategoriesPresentationFacade,
+        private readonly categoriesAdapter: CategoriesPresentationAdapter,
     ) {}
 
     /**
@@ -53,7 +53,7 @@ export class CategoriesFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        this.categoriesFacade.submitForm(this.categoryForm.value);
+        this.categoriesAdapter.submitForm(this.categoryForm.value);
     }
 
     /**

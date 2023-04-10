@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Category } from '../../../domain/models/category.model';
-import { CategoriesPresentationFacade } from '../../facades/categories.facade';
+import { CategoriesPresentationAdapter } from '../../adapters/categories.adapter';
 
 @Component({
     selector: 'app-categories-table',
@@ -14,14 +14,14 @@ import { CategoriesPresentationFacade } from '../../facades/categories.facade';
  * Categories table component
  */
 export class CategoriesTableComponent {
-    public categories$: Observable<Category[]> = this.categoriesFacade.getCategories();
+    public categories$: Observable<Category[]> = this.categoriesAdapter.getCategories();
 
-    constructor(private readonly categoriesFacade: CategoriesPresentationFacade) {}
+    constructor(private readonly categoriesAdapter: CategoriesPresentationAdapter,) {}
 
     /**
 	 * Delete category
 	 */
     public delete(id: string): void {
-        this.categoriesFacade.deleteCategory(id);
+        this.categoriesAdapter.deleteCategory(id);
     }
 }

@@ -6,9 +6,9 @@ import { Movement, MovementFormData } from '../models/movement.model';
 import { AccountsPublicModels } from '@features/accounts/public.api';
 
 /**
- * Movements presentation facade interface
+ * Movements presentation adapter interface
  */
-export interface MovementsPresentationFacadeInterface {
+export interface MovementsPresentationAdapterInterface {
     /**
      * Get list of accounts
      */
