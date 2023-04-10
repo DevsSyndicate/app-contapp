@@ -10,6 +10,7 @@ import { MovementsFeatureModule } from './movements-feature.module';
 import { MovementsAccountsComponent } from './presentation/components/accounts-resume/accounts-resume.component';
 import { MovementsFormComponent } from './presentation/components/form/form.component';
 import { MovementsTableComponent } from './presentation/components/table/table.component';
+import { MovementsPresentationFacade } from './presentation/facades/movements.facade';
 
 import { CurrencyPipe } from '@shared/pipes/currency.pipe';
 
@@ -33,6 +34,9 @@ import { CurrencyPipe } from '@shared/pipes/currency.pipe';
         ReactiveFormsModule,
         RouterModule,
         Select2Module,
+    ],
+    providers: [
+        MovementsPresentationFacade,
     ],
 })
 

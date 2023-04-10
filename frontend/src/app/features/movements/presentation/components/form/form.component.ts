@@ -1,18 +1,13 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { IDatePickerConfig } from 'ng2-date-picker';
 import { Observable } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 
-import { getEditingMovement, getIsEditingMovement, getSubmittedFormStatus } from '../../../application/state/momenents.selectors';
 import { MovementFormData } from '../../../domain/models/movement.model';
-import { SubmitMovementForm } from '../../../domain/state/movements.actions';
-import { MovementsState } from '../../../domain/state/movements.state';
+import { MovementsPresentationFacade } from '../../facades/movements.facade';
 
 import { DatesService } from '@core/application/services/dates.service';
-import { AccountsPublicSelectors } from '@features/accounts/public.api';
-import { CategoriesPublicSelectors } from '@features/categories/public.api';
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
 @Component({
@@ -24,35 +19,30 @@ import { ValidationError } from '@shared/components/validation-errors/validation
  * Movements form component
  */
 export class MovementsFormComponent {
-    public submitted$: Observable<boolean> = this.store.select(getSubmittedFormStatus);
+    public submitted$: Observable<boolean> = this.movementsFacade.getFormSubmitted();
 
-    public isEditing$: Observable<boolean> = this.store.select(getIsEditingMovement);
+    public isEditing$: Observable<boolean> = this.movementsFacade.getIsEditing();
 
-    public editingMovement$: Observable<MovementFormData> = this.store.select(getEditingMovement).pipe(
+    public editingMovement$: Observable<MovementFormData> = this.movementsFacade.getEditingMovement().pipe(
         filter((movement) => !!movement),
         tap((movement: MovementFormData) => {
             this.movementForm.patchValue(movement);
         })
     );
 
-    public categories$: Observable<any[]> = this.store.select(CategoriesPublicSelectors.getCategoriesForSelectPublic);
+    public categories$: Observable<any[]> = this.movementsFacade.getCategoriesForSelect();
 
-    public accounts$: Observable<any[]> = this.store.select(AccountsPublicSelectors.getAccountsForSelectPublic);
+    public accounts$: Observable<any[]> = this.movementsFacade.getAcountsForSelect();
+
+    public datePickerConfig: IDatePickerConfig = this.movementsFacade.getDatePickerConfig();
 
     public movementForm: FormGroup = this.createForm();
 
     public formErrors!: ValidationError;
 
-    public conf: IDatePickerConfig = {
-        format: 'DD-MM-YYYY',
-        firstDayOfWeek: 'mo',
-    };
-
-    public selectedDate = '';
-
     constructor(
-        private readonly store: Store<MovementsState>,
-        private readonly datesService: DatesService
+        private readonly datesService: DatesService,
+        private readonly movementsFacade: MovementsPresentationFacade
     ) {}
 
     /**
@@ -66,7 +56,7 @@ export class MovementsFormComponent {
 	 * On form submit
 	 */
     public onSubmit(): void {
-        this.store.dispatch(SubmitMovementForm({ formValues: this.movementForm.value }));
+        this.movementsFacade.submitForm(this.movementForm.value);
     }
 
     /**

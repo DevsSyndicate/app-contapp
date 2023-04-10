@@ -5,6 +5,7 @@ import { ROUTER_NAVIGATED, RouterNavigationAction } from '@ngrx/router-store';
 import { of } from 'rxjs';
 import { catchError, filter, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 
+import { MovementsTranformer } from '../../application/transformers/movements.transformer';
 import { MovementsEffectsInterface } from '../../domain/interfaces/movements-effects.interface';
 import { ApiMovements } from '../../domain/models/movement-api.model';
 import { Movement, MovementFormData, Movements } from '../../domain/models/movement.model';
@@ -20,8 +21,7 @@ import {
     SubmitMovementForm,
     SubmitMovementFormSuccess,
 } from '../../domain/state/movements.actions';
-import { MovementsService } from '../services/movements.service';
-import { MovementsTranformer } from '../transformers/movements.transformer';
+import { MovementsAdapter } from '../adapters/movements.adapter';
 
 import { AccountsPublicActions } from '@features/accounts/public.api';
 import { CategoriesPublicActions } from '@features/categories/public.api';
@@ -35,7 +35,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly movementsService: MovementsService,
+        private readonly movementsAdapter: MovementsAdapter,
         private readonly movementsTranformer: MovementsTranformer
     ) {}
 
@@ -79,7 +79,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
         this.actions$.pipe(
             ofType(LoadMovements),
             switchMap(({ page, perPage }) =>
-                this.movementsService.getList(page, perPage).pipe(
+                this.movementsAdapter.getList(page, perPage).pipe(
                     map((apiMovements: ApiMovements) => this.movementsTranformer.getListFromApi(apiMovements)),
                     map((movements: Movements) =>
                         LoadMovementsSuccess({
@@ -95,7 +95,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
         this.actions$.pipe(
             ofType(LoadMovement),
             switchMap(({ id }) =>
-                this.movementsService.get(id).pipe(
+                this.movementsAdapter.get(id).pipe(
                     map((movement: Movement) => this.movementsTranformer.getFormFromApi(movement)),
                     map((movement: MovementFormData) => LoadMovementSuccess({ movement })),
                     catchError(() => of(LoadMovementError()))
@@ -105,7 +105,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
     public deleteMovement$ = createEffect(() =>
         this.actions$.pipe(
             ofType(DeleteMovement),
-            mergeMap(({ id }) => this.movementsService.delete(id).pipe(
+            mergeMap(({ id }) => this.movementsAdapter.delete(id).pipe(
                 map(() => DeleteMovementSuccess())
             ))
         ));
@@ -126,7 +126,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
         this.actions$.pipe(
             ofType(SubmitMovementForm),
             filter(() => /\/movements\/edit\/\d+/.exec(this.router.url) === null),
-            switchMap(({ formValues }) => this.movementsService.add(formValues)),
+            switchMap(({ formValues }) => this.movementsAdapter.create(formValues)),
             map(() => SubmitMovementFormSuccess())
         ));
 
@@ -135,7 +135,7 @@ export class MovementsEffects implements MovementsEffectsInterface {
             ofType(SubmitMovementForm),
             filter(() => /\/movements\/edit\/\d+/.exec(this.router.url) !== null),
             concatLatestFrom(() => of(this.router.url.split('/')[3])),
-            switchMap(([{ formValues }, id]) => this.movementsService.update(formValues, id)),
+            switchMap(([{ formValues }, id]) => this.movementsAdapter.update(formValues, id)),
             map(() => SubmitMovementFormSuccess())
         ));
 
