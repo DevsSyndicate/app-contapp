@@ -5,15 +5,15 @@ import { CreateCategoryUseCase } from '../../application/use-cases/create.use-ca
 import { DeleteCategoryUseCase } from '../../application/use-cases/delete.use-case';
 import { GetCategoriesUseCase } from '../../application/use-cases/get.use-case';
 import { UpdateCategoryUseCase } from '../../application/use-cases/update.use-case';
-import { CategoriesAdapterInterface } from '../../domain/interfaces/categories-adapter.interface';
+import { CategoriesPortInterface } from '../../domain/interfaces/categories-port.interface';
 import { Category } from '../../domain/models/category.model';
 
 @Injectable()
 
 /**
- * Categories adapter to intercat bewteen infrastructrue and application layer
+ * Categories port to intercat bewteen infrastructrue and application layer
  */
-export class CategoriesAdapter implements CategoriesAdapterInterface {
+export class CategoriesPort implements CategoriesPortInterface {
     constructor(
         private readonly createCategoryUseCase: CreateCategoryUseCase,
         private readonly updateCategoryUseCase: UpdateCategoryUseCase,

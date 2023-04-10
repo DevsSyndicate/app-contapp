@@ -8,7 +8,7 @@ import { AuthenticationEffectsInterface } from '../../domain/interfaces/authenti
 import { AuthenticationResponse } from '../../domain/models/authentication.models';
 import { Logout } from '../../domain/state/authentication-public.actions';
 import { Login, LoginError, LoginSuccess, LogoutError, LogoutSuccess } from '../../domain/state/authentication.actions';
-import { AuthenticationAdapter } from '../adapters/authentication.adapter';
+import { AuthenticationPort } from '../ports/authentication.port';
 
 import { TokenService } from '@core/application/services/token.service';
 
@@ -17,7 +17,7 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly authenticationAdapter: AuthenticationAdapter,
+        private readonly authenticationPort: AuthenticationPort,
         private readonly tokenService: TokenService
     ) {}
 
@@ -25,7 +25,7 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
         this.actions$.pipe(
             ofType(Login),
             switchMap(({ data }) => {
-                return this.authenticationAdapter.login(data).pipe(
+                return this.authenticationPort.login(data).pipe(
                     map((authResponse: AuthenticationResponse) =>
                         LoginSuccess({ authToken: authResponse.access_token })),
                     catchError(() => of(LoginError()))
@@ -59,7 +59,7 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
         this.actions$.pipe(
             ofType(Logout),
             switchMap(() =>
-                this.authenticationAdapter.logout().pipe(
+                this.authenticationPort.logout().pipe(
                     map(() => LogoutSuccess()),
                     catchError(() => of(LogoutError()))
                 ))

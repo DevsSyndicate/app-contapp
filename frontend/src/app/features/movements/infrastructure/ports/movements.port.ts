@@ -5,16 +5,16 @@ import { CreateMovementsUseCase } from '../../application/use-cases/create.use-c
 import { DeleteMovementsUseCase } from '../../application/use-cases/delete.use-case';
 import { GetMovementsUseCase } from '../../application/use-cases/get.use-case';
 import { UpdateMovementsUseCase } from '../../application/use-cases/update.use-case';
-import { MovementsAdapterInterface } from '../../domain/interfaces/movements-adapter.interface';
+import { MovementsPortInterface } from '../../domain/interfaces/movements-port.interface';
 import { ApiMovements } from '../../domain/models/movement-api.model';
 import { Movement, MovementFormData } from '../../domain/models/movement.model';
 
 @Injectable()
 
 /**
- * Movements adapter to intercat bewteen infrastructrue and application layer
+ * Movements port to intercat bewteen infrastructrue and application layer
  */
-export class MovementsAdapter implements MovementsAdapterInterface {
+export class MovementsPort implements MovementsPortInterface {
     constructor(
         private readonly createMovementsUseCase: CreateMovementsUseCase,
         private readonly updateMovementsUseCase: UpdateMovementsUseCase,

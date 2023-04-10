@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { AuthenticationData, AuthenticationResponse } from '../models/authentication.models';
 
 /**
- * Authentication adapter interface
+ * Authentication port interface
  */
-export interface AuthenticationAdapterInterface {
+export interface AuthenticationPortInterface {
     /**
      * Call get CSRF Cookie Use Case
      */

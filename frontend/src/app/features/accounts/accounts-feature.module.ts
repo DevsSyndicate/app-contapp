@@ -7,7 +7,7 @@ import { CreateAccountUseCase } from './application/use-cases/create.use-case';
 import { DeleteAccountUseCase } from './application/use-cases/delete.use-case';
 import { GetAccountsUseCase } from './application/use-cases/get.use-case';
 import { UpdateAccountUseCase } from './application/use-cases/update.use-case';
-import { AccountsAdapter } from './infrastructure/adapters/accounts.adapter';
+import { AccountsPort } from './infrastructure/ports/accounts.port';
 import { AccountsRepository } from './infrastructure/repositories/accounts.repository';
 import { AccountsEffects } from './infrastructure/state/accounts.effects';
 
@@ -17,7 +17,7 @@ import { AccountsEffects } from './infrastructure/state/accounts.effects';
         EffectsModule.forFeature([AccountsEffects]),
     ],
     providers: [
-        AccountsAdapter,
+        AccountsPort,
         CreateAccountUseCase,
         DeleteAccountUseCase,
         GetAccountsUseCase,

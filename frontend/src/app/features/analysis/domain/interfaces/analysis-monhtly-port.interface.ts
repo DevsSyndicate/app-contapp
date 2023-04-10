@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { AnalysisMonthly } from '../models/monthly';
 
 /**
- * Monthly analysis adapter interface
+ * Monthly analysis port interface
  */
-export interface AnalysisMonthlyAdapterInterface {
+export interface AnalysisMonthlyPortInterface {
     /**
      * Call monthly account balances
      */

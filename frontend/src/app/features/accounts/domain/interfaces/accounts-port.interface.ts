@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { Account } from '../models/account.model';
 
 /**
- * Accounts adapter interface
+ * Accounts port interface
  */
-export interface AccountsAdapterInterface {
+export interface AccountsPortInterface {
     /**
      * Call get accounts list Use Case
      */

@@ -5,15 +5,15 @@ import { CreateAccountUseCase } from '../../application/use-cases/create.use-cas
 import { DeleteAccountUseCase } from '../../application/use-cases/delete.use-case';
 import { GetAccountsUseCase } from '../../application/use-cases/get.use-case';
 import { UpdateAccountUseCase } from '../../application/use-cases/update.use-case';
-import { AccountsAdapterInterface } from '../../domain/interfaces/accounts-adapter.interface';
+import { AccountsPortInterface } from '../../domain/interfaces/accounts-port.interface';
 import { Account } from '../../domain/models/account.model';
 
 @Injectable()
 
 /**
- * Accounts adapter to intercat bewteen infrastructrue and application layer
+ * Accounts port to intercat bewteen infrastructrue and application layer
  */
-export class AccountsAdapter implements AccountsAdapterInterface {
+export class AccountsPort implements AccountsPortInterface {
     constructor(
         private readonly createAccountUseCase: CreateAccountUseCase,
         private readonly updateAccountUseCase: UpdateAccountUseCase,

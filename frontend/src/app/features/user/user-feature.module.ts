@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { userReducer } from './application/state/user.reducers';
 import { UserTranformer } from './application/transformers/user.transformer';
 import { GetUserUseCase } from './application/use-cases/get.use-case';
-import { UserAdapter } from './infrastructure/adapters/user.adapter';
+import { UserPort } from './infrastructure/ports/user.port';
 import { UserRepository } from './infrastructure/repositories/user.repository';
 import { UserEffects } from './infrastructure/state/user.effects';
 
@@ -16,7 +16,7 @@ import { UserEffects } from './infrastructure/state/user.effects';
     ],
     providers: [
         GetUserUseCase,
-        UserAdapter,
+        UserPort,
         UserTranformer,
         { provide: 'UserRepositoryInterface', useClass: UserRepository },
     ],

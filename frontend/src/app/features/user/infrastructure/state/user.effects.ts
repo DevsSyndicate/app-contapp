@@ -10,7 +10,7 @@ import { UserTranformer } from '../../application/transformers/user.transformer'
 import { UserEffectsInterface } from '../../domain/interfaces/user-effects.interface';
 import { ApiUser, User } from '../../domain/models/user.model';
 import { LoadUser, LoadUserError, LoadUserSuccess } from '../../domain/state/user.actions';
-import { UserAdapter } from '../adapters/user.adapter';
+import { UserPort } from '../ports/user.port';
 
 @Injectable()
 
@@ -21,7 +21,7 @@ export class UserEffects implements UserEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly store: Store,
-        private readonly userAdapter: UserAdapter,
+        private readonly userPort: UserPort,
         private readonly userTranformer: UserTranformer
     ) {}
 
@@ -38,7 +38,7 @@ export class UserEffects implements UserEffectsInterface {
         this.actions$.pipe(
             ofType(LoadUser),
             switchMap(() => {
-                return this.userAdapter.getUser().pipe(
+                return this.userPort.getUser().pipe(
                     map((apiUser: ApiUser) => this.userTranformer.getUserFromApi(apiUser)),
                     map((user: User) => LoadUserSuccess({ user })),
                     catchError(() => of(LoadUserError()))

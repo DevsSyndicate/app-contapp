@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { ApiUser } from '../models/user.model';
 
 /**
- * User adapter interface
+ * User port interface
  */
-export interface UserAdapterInterface {
+export interface UserPortInterface {
 
     /**
      * Call get user Use Case

@@ -4,7 +4,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GetCsrfCookieUseCase } from './application/use-cases/csrf-cookie.use-case';
 import { LoginUseCase } from './application/use-cases/login.use-case';
 import { LogoutUseCase } from './application/use-cases/logout.use-case';
-import { AuthenticationAdapter } from './infrastructure/adapters/authentication.adapter';
+import { AuthenticationPort } from './infrastructure/ports/authentication.port';
 import { AuthenticationRepository } from './infrastructure/repositories/authentication.repository';
 import { AuthenticationEffects } from './infrastructure/state/authentication.effects';
 
@@ -13,7 +13,7 @@ import { AuthenticationEffects } from './infrastructure/state/authentication.eff
         EffectsModule.forFeature([AuthenticationEffects]),
     ],
     providers: [
-        AuthenticationAdapter,
+        AuthenticationPort,
         GetCsrfCookieUseCase,
         LoginUseCase,
         LogoutUseCase,

@@ -19,7 +19,7 @@ import {
     SubmitAccountForm,
     SubmitAccountFormSuccess,
 } from '../../domain/state/accounts.actions';
-import { AccountsAdapter } from '../adapters/accounts.adapter';
+import { AccountsPort } from '../ports/accounts.port';
 
 @Injectable()
 
@@ -30,7 +30,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly accountsAdapter: AccountsAdapter
+        private readonly accountsPort: AccountsPort
     ) {}
 
     public loadAccountsFromPublicApi$ = createEffect(() =>
@@ -58,7 +58,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
         this.actions$.pipe(
             ofType(LoadAccounts),
             switchMap(() =>
-                this.accountsAdapter.getList().pipe(
+                this.accountsPort.getList().pipe(
                     map((accounts: Account[]) => LoadAccountsSuccess({ accounts })),
                     catchError(() => of(LoadAccountsError()))
                 ))
@@ -68,7 +68,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
         this.actions$.pipe(
             ofType(LoadAccount),
             switchMap(({ id }) =>
-                this.accountsAdapter.get(id).pipe(
+                this.accountsPort.get(id).pipe(
                     map((account: Account) => LoadAccountSuccess({ account })),
                     catchError(() => of(LoadAccountError()))
                 ))
@@ -77,7 +77,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
     public deleteAccount$ = createEffect(() =>
         this.actions$.pipe(
             ofType(DeleteAccount),
-            mergeMap(({ id }) => this.accountsAdapter.delete(id)),
+            mergeMap(({ id }) => this.accountsPort.delete(id)),
             map(() => LoadAccounts())
         ));
 
@@ -85,7 +85,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
         this.actions$.pipe(
             ofType(SubmitAccountForm),
             filter(() => /\/accounts\/edit\/\d+/.exec(this.router.url) === null),
-            switchMap(({ formValues }) => this.accountsAdapter.create(formValues)),
+            switchMap(({ formValues }) => this.accountsPort.create(formValues)),
             map(() => SubmitAccountFormSuccess())
         ));
 
@@ -94,7 +94,7 @@ export class AccountsEffects implements AccountsEffectsInterface {
             ofType(SubmitAccountForm),
             filter(() => /\/accounts\/edit\/\d+/.exec(this.router.url) !== null),
             concatLatestFrom(() => of(this.router.url.split('/')[3])),
-            switchMap(([{ formValues }, id]) => this.accountsAdapter.update(formValues, id)),
+            switchMap(([{ formValues }, id]) => this.accountsPort.update(formValues, id)),
             map(() => SubmitAccountFormSuccess())
         ));
 

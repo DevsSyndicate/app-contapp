@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { GetAccountBalancesUseCase } from '../../application/use-cases/get-account-balances.use-case';
-import { AnalysisMonthlyAdapterInterface } from '../../domain/interfaces/analysis-monhtly-adapter.interface';
+import { AnalysisMonthlyPortInterface } from '../../domain/interfaces/analysis-monhtly-port.interface';
 import { AnalysisMonthly } from '../../domain/models/monthly';
 
 @Injectable()
 
 /**
- * Monthly analysis adapter to intercat bewteen infrastructrue and application layer
+ * Monthly analysis port to intercat bewteen infrastructrue and application layer
  */
-export class AnalysisMonthlyAdapter implements AnalysisMonthlyAdapterInterface {
+export class AnalysisMonthlyPort implements AnalysisMonthlyPortInterface {
     constructor(
         private readonly getAccountBalancesUseCase: GetAccountBalancesUseCase
     ) {}

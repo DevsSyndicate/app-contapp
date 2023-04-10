@@ -3,9 +3,9 @@ import { Observable } from 'rxjs';
 import { Category } from '../models/category.model';
 
 /**
- * Categories adapter interface
+ * Categories port interface
  */
-export interface CategoriesAdapterInterface {
+export interface CategoriesPortInterface {
     /**
      * Call get categories list Use Case
      */

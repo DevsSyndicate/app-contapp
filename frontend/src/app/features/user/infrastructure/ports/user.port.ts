@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { GetUserUseCase } from '../../application/use-cases/get.use-case';
-import { UserAdapterInterface } from '../../domain/interfaces/user-adapter.interface';
+import { UserPortInterface } from '../../domain/interfaces/user-port.interface';
 import { ApiUser } from '../../domain/models/user.model';
 
 @Injectable()
 
 /**
- * User adapter to intercat bewteen infrastructrue and application layer
+ * User port to intercat bewteen infrastructrue and application layer
  */
-export class UserAdapter implements UserAdapterInterface {
+export class UserPort implements UserPortInterface {
     constructor(
         private readonly getUserUseCase: GetUserUseCase
     ) {}

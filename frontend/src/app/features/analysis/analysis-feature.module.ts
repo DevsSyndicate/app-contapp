@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { analysisReducer } from './application/state/analysis.reducers';
 import { GetAccountBalancesUseCase } from './application/use-cases/get-account-balances.use-case';
-import { AnalysisMonthlyAdapter } from './infrastructure/adapters/analysis-monhtly.adapter';
+import { AnalysisMonthlyPort } from './infrastructure/ports/analysis-monhtly.port';
 import { AnalysisMonthlyRepository } from './infrastructure/repositories/analysis-monthly.repository';
 import { MonthlyAnalysisEffects } from './infrastructure/state/analysis-monthly.effects';
 
@@ -14,7 +14,7 @@ import { MonthlyAnalysisEffects } from './infrastructure/state/analysis-monthly.
         EffectsModule.forFeature([MonthlyAnalysisEffects]),
     ],
     providers: [
-        AnalysisMonthlyAdapter,
+        AnalysisMonthlyPort,
         GetAccountBalancesUseCase,
         // eslint-disable-next-line no-secrets/no-secrets
         { provide: 'AnalysisMonthlyRepositoryInterface', useClass: AnalysisMonthlyRepository },

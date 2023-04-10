@@ -4,9 +4,9 @@ import { ApiMovements } from '../models/movement-api.model';
 import { Movement, MovementFormData } from '../models/movement.model';
 
 /**
- * Movements adapter interface
+ * Movements port interface
  */
-export interface MovementsAdapterInterface {
+export interface MovementsPortInterface {
     /**
      * Call get movements list Use Case
      */

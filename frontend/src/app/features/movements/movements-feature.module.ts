@@ -8,7 +8,7 @@ import { CreateMovementsUseCase } from './application/use-cases/create.use-case'
 import { DeleteMovementsUseCase } from './application/use-cases/delete.use-case';
 import { GetMovementsUseCase } from './application/use-cases/get.use-case';
 import { UpdateMovementsUseCase } from './application/use-cases/update.use-case';
-import { MovementsAdapter } from './infrastructure/adapters/movements.adapter';
+import { MovementsPort } from './infrastructure/ports/movements.port';
 import { MovementsRepository } from './infrastructure/repositories/movements.repository';
 import { MovementsEffects } from './infrastructure/state/momenents.effects';
 
@@ -26,7 +26,7 @@ import { CategoriesFeatureModule } from '@features/categories/categories-feature
         CreateMovementsUseCase,
         DeleteMovementsUseCase,
         GetMovementsUseCase,
-        MovementsAdapter,
+        MovementsPort,
         MovementsTranformer,
         UpdateMovementsUseCase,
         { provide: 'MovementsRepositoryInterface', useClass: MovementsRepository },

@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { GetCsrfCookieUseCase } from '../../application/use-cases/csrf-cookie.use-case';
 import { LoginUseCase } from '../../application/use-cases/login.use-case';
-import { AuthenticationAdapterInterface } from '../../domain/interfaces/authentication-adapter.interface';
+import { AuthenticationPortInterface } from '../../domain/interfaces/authentication-port.interface';
 import { AuthenticationData, AuthenticationResponse } from '../../domain/models/authentication.models';
 
 import { LogoutUseCase } from '@features/authentication/application/use-cases/logout.use-case';
@@ -11,9 +11,9 @@ import { LogoutUseCase } from '@features/authentication/application/use-cases/lo
 @Injectable()
 
 /**
- * Authentication adapter to intercat bewteen infrastructrue and application layer
+ * Authentication port to intercat bewteen infrastructrue and application layer
  */
-export class AuthenticationAdapter implements AuthenticationAdapterInterface {
+export class AuthenticationPort implements AuthenticationPortInterface {
     constructor(
         private readonly getCsrfCookieUseCase: GetCsrfCookieUseCase,
         private readonly loginUseCase: LoginUseCase,
