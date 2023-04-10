@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getMonthlyAccountBalanceMovements } from '../../../application/state/analysis.selectors';
-import { AnalysisState } from '../../../domain/state/analysis.state';
+import { MonthlyAnalysisPresentationFacade } from '../../facades/analysis-monthly.facade';
 
 import { MovementsPublicModels } from '@features/movements/public.api';
 
@@ -17,13 +15,11 @@ import { MovementsPublicModels } from '@features/movements/public.api';
  * Analysys monthly movements component
  */
 export class AnalysisMonthlyMovementsComponent {
-    public monthyMovements$: Observable<MovementsPublicModels.MovementPublic[]> = this.store.select(
-        getMonthlyAccountBalanceMovements
-    );
+    public monthyMovements$: Observable<MovementsPublicModels.MovementPublic[]> = this.monthlyAnalysisFacade.getMovements();
 
     public movementsCollapsed = false;
 
-    constructor(private readonly store: Store<AnalysisState>) {
+    constructor(private readonly monthlyAnalysisFacade: MonthlyAnalysisPresentationFacade) {
 
     }
 }

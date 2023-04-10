@@ -8,6 +8,7 @@ import { AnalysisMonthlyComponent } from './presentation/components/monthly/mont
 import { AnalysisMonthlyBalancesComponent } from './presentation/components/monthly-balances/monthly-balances.component';
 import { AnalysisMonthlyForecastsComponent } from './presentation/components/monthly-forecasts/monthly-forecasts.component';
 import { AnalysisMonthlyMovementsComponent } from './presentation/components/monthly-movements/monthly-movements.component';
+import { MonthlyAnalysisPresentationFacade } from './presentation/facades/analysis-monthly.facade';
 
 import { CurrencyPipe } from '@shared/pipes/currency.pipe';
 
@@ -28,6 +29,9 @@ import { CurrencyPipe } from '@shared/pipes/currency.pipe';
         CommonModule,
         CurrencyPipe,
         NgbCollapseModule,
+    ],
+    providers: [
+        MonthlyAnalysisPresentationFacade,
     ],
 })
 
