@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, concatMap, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 import { AuthenticationEffectsInterface } from '../../domain/interfaces/authentication-effects.interface';
 import { AuthenticationResponse } from '../../domain/models/authentication.models';
 import { Logout } from '../../domain/state/authentication-public.actions';
 import { Login, LoginError, LoginSuccess, LogoutError, LogoutSuccess } from '../../domain/state/authentication.actions';
-import { AuthenticationService } from '../services/authentication.service';
+import { AuthenticationAdapter } from '../adapters/authentication.adapter';
 
 import { TokenService } from '@core/application/services/token.service';
 
@@ -17,7 +17,7 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
     constructor(
         private readonly actions$: Actions,
         private readonly router: Router,
-        private readonly authenticationService: AuthenticationService,
+        private readonly authenticationAdapter: AuthenticationAdapter,
         private readonly tokenService: TokenService
     ) {}
 
@@ -25,15 +25,10 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
         this.actions$.pipe(
             ofType(Login),
             switchMap(({ data }) => {
-                return this.authenticationService.csrfCookie().pipe(
-                    concatMap(() => {
-                        return this.authenticationService.login(data).pipe(
-                            map((authResponse: AuthenticationResponse) =>
-                                LoginSuccess({ authToken: authResponse.access_token })),
-                            catchError(() => of(LoginError()))
-                        );
-                    })
-
+                return this.authenticationAdapter.login(data).pipe(
+                    map((authResponse: AuthenticationResponse) =>
+                        LoginSuccess({ authToken: authResponse.access_token })),
+                    catchError(() => of(LoginError()))
                 );
             })
         ));
@@ -64,7 +59,7 @@ export class AuthenticationEffects implements AuthenticationEffectsInterface {
         this.actions$.pipe(
             ofType(Logout),
             switchMap(() =>
-                this.authenticationService.logout().pipe(
+                this.authenticationAdapter.logout().pipe(
                     map(() => LogoutSuccess()),
                     catchError(() => of(LogoutError()))
                 ))

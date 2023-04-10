@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 
-import { AuthenticationService } from './application/services/authentication.service';
-import { AuthenticationEffects } from './application/state/authentication.effects';
+import { GetCsrfCookieUseCase } from './application/use-cases/csrf-cookie.use-case';
+import { LoginUseCase } from './application/use-cases/login.use-case';
+import { LogoutUseCase } from './application/use-cases/logout.use-case';
+import { AuthenticationAdapter } from './infrastructure/adapters/authentication.adapter';
+import { AuthenticationRepository } from './infrastructure/repositories/authentication.repository';
+import { AuthenticationEffects } from './infrastructure/state/authentication.effects';
 
 @NgModule({
     imports: [
         EffectsModule.forFeature([AuthenticationEffects]),
     ],
     providers: [
-        AuthenticationService,
+        AuthenticationAdapter,
+        GetCsrfCookieUseCase,
+        LoginUseCase,
+        LogoutUseCase,
+        { provide: 'AuthenticationRepositoryInterface', useClass: AuthenticationRepository },
     ],
 })
 

@@ -5,11 +5,13 @@ import { RouterModule } from '@angular/router';
 
 import { AuthenticationFeatureModule } from './authentication-feature.module';
 import { AuthenticationFormComponent } from './presentation/components/form/form.component';
+import { AuthenticationPresentationFacade } from './presentation/facades/authentication.facade';
 
 @NgModule({
     declarations: [AuthenticationFormComponent],
     exports: [AuthenticationFormComponent],
     imports: [AuthenticationFeatureModule, CommonModule, ReactiveFormsModule, RouterModule],
+    providers: [AuthenticationPresentationFacade],
 })
 
 /**
