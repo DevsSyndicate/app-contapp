@@ -8,6 +8,7 @@
 							<tr>
 								<th class="border-top-0">#</th>
 								<th class="border-top-0">Name</th>
+								<th class="border-top-0">Amount</th>
 								<th class="border-top-0"></th>
 							</tr>
 						</thead>
@@ -15,6 +16,7 @@
 							<tr *ngFor="let account of accounts$ | async">
 								<td>{{ account.id }}</td>
 								<td>{{ account.name }}</td>
+								<td>{{ account.amount | currency }}</td>
 								<td class="text-end">
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-light" routerLink="/accounts/edit/{{ account.id }}">

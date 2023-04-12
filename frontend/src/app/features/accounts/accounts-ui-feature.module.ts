@@ -9,6 +9,7 @@ import { AccountsFormComponent } from './presentation/components/form/form.compo
 import { AccountsTableComponent } from './presentation/components/table/table.component';
 
 import { ValidationErrorsComponent } from '@shared/components/validation-errors/validation-errors.component';
+import { CurrencyPipe } from '@shared/pipes/currency.pipe';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { ValidationErrorsComponent } from '@shared/components/validation-errors/
     imports: [
         AccountsFeatureModule,
         CommonModule,
+        CurrencyPipe,
         ReactiveFormsModule,
         RouterModule,
         ValidationErrorsComponent,

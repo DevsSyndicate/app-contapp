@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
@@ -52,7 +52,8 @@ export class AccountsFormComponent {
 	 */
     private createForm() {
         return new FormGroup({
-            name: new FormControl('', { nonNullable: true }),
+            name: new FormControl('', [Validators.required]),
+            amount: new FormControl('', [Validators.required]),
         });
     }
 }
