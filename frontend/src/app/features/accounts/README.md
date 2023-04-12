@@ -62,7 +62,7 @@ export const SubmitAccountForm = createAction(AccountsActionTypes.SUBMIT_ACCOUNT
 export const SubmitAccountFormSuccess = createAction(AccountsActionTypes.SUBMIT_ACCOUNT_FORM_SUCCESS);
 ```
 
-Cuando la fachadael adaptador dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un puerto.
+Cuando el adaptador dispara la acción de Redux, ésta es capturada por los efectos de la Store definidos en la capa de infraestructura. Dichos efectos, se encargarán de llamar a los casos de uso concretos a través de un puerto.
 
 ```typescript
 // .../infrastructure/state/accounts.effects.ts

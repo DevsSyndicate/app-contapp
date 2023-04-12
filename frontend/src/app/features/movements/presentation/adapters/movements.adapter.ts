@@ -3,11 +3,11 @@ import { Store } from '@ngrx/store';
 import { IDatePickerConfig } from 'ng2-date-picker';
 import { Observable } from 'rxjs';
 
-import { getEditingMovement, getIsEditingMovement, getMovements, getSubmittedFormStatus, getTotalMovementsValue } from '../../application/state/momenents.selectors';
 import { MovementsPresentationAdapterInterface } from '../../domain/interfaces/movements-presentation-adapter.interface';
 import { Movement, MovementFormData } from '../../domain/models/movement.model';
 import { DeleteMovement, LoadMovements, SubmitMovementForm } from '../../domain/state/movements.actions';
 import { MovementsState } from '../../domain/state/movements.state';
+import { getEditingMovement, getIsEditingMovement, getMovements, getSubmittedFormStatus, getTotalMovementsValue } from '../../infrastructure/state/momenents.selectors';
 
 import { AccountsPublicModels, AccountsPublicSelectors } from '@features/accounts/public.api';
 import { CategoriesPublicSelectors } from '@features/categories/public.api';

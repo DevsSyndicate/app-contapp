@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getCategories, getEditingCategory, getIsEditingCategory, getSubmittedFormStatus } from '../../application/state/categories.selectors';
 import { CategoriesPresentationAdapterInterface } from '../../domain/interfaces/categories-presentation-adapter.interface';
 import { Category } from '../../domain/models/category.model';
 import { DeleteCategory, SubmitCategoryForm } from '../../domain/state/categories.actions';
 import { CategoriesState } from '../../domain/state/categories.state';
+import { getCategories, getEditingCategory, getIsEditingCategory, getSubmittedFormStatus } from '../../infrastructure/state/categories.selectors';
 
 @Injectable()
 

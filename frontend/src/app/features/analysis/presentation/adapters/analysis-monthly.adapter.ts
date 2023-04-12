@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getAccountBalances, getMonthlyAccountBalanceMovements, getMonthlyForecastExpenses } from '../../application/state/analysis.selectors';
 import { MonthlyAnalysisPresentationAdapterInterface } from '../../domain/interfaces/analysis-monthly-presentation-adapter.interface';
 import { AnalysisMonthly, AnalysisMonthlyForecastCategory } from '../../domain/models/monthly';
 import { AnalysisState } from '../../domain/state/analysis.state';
+import { getAccountBalances, getMonthlyAccountBalanceMovements, getMonthlyForecastExpenses } from '../../infrastructure/state/analysis.selectors';
 
 import { MovementsPublicModels } from '@features/movements/public.api';
 

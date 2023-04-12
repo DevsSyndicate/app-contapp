@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, filter, map, switchMap } from 'rxjs/operators';
 
-import { getUser } from '../../application/state/user.selectors';
+import { getUser } from './user.selectors';
 import { UserTranformer } from '../../application/transformers/user.transformer';
 import { UserEffectsInterface } from '../../domain/interfaces/user-effects.interface';
 import { ApiUser, User } from '../../domain/models/user.model';

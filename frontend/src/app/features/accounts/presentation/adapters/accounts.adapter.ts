@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { getAccounts, getEditingAccount, getIsEditingAccount, getSubmittedFormStatus } from '../../application/state/accounts.selectors';
 import { AccountsPresentationAdapterInterface } from '../../domain/interfaces/accounts-presentation-adapter.interface';
 import { Account } from '../../domain/models/account.model';
 import { DeleteAccount, SubmitAccountForm } from '../../domain/state/accounts.actions';
 import { AccountsState } from '../../domain/state/accounts.state';
+import { getAccounts, getEditingAccount, getIsEditingAccount, getSubmittedFormStatus } from '../../infrastructure/state/accounts.selectors';
 
 @Injectable()
 
