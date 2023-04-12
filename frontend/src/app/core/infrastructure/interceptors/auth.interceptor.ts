@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { TokenService } from '../services/token.service';
+import { TokenService } from '../../application/services/token.service';
 
 @Injectable()
 

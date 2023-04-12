@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { AuthInterceptor } from './application/interceptors/auth.interceptor';
+import { AuthInterceptor } from './infrastructure/interceptors/auth.interceptor';
 import { DatesService } from './application/services/dates.service';
 import { TokenService } from './application/services/token.service';
 import { CoreEffects } from './application/state/core..effects';

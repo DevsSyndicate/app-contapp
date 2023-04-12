@@ -4,8 +4,7 @@ import { Observable } from 'rxjs';
 import { MovementsRepositoryInterface } from '../../domain/interfaces/movements-repository.interface';
 import { ApiMovements } from '../../domain/models/movement-api.model';
 import { Movement } from '../../domain/models/movement.model';
-
-import { environment } from '@env/environment';
+import { MOVEMENTS_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -13,17 +12,15 @@ import { environment } from '@env/environment';
  * Get movements use case
  */
 export class GetMovementsUseCase {
-    public ApiUrl = `${environment.ApiUrl}/movements`;
-
     constructor(@Inject('MovementsRepositoryInterface') private readonly movementsRepository: MovementsRepositoryInterface) {
 
     }
 
     public getList(page: string, perPage: string): Observable<ApiMovements> {
-        return this.movementsRepository.getList(this.ApiUrl, page, perPage);
+        return this.movementsRepository.getList(MOVEMENTS_API_URL, page, perPage);
     }
 
     public get(id: string): Observable<Movement> {
-        return this.movementsRepository.get(this.ApiUrl, id);
+        return this.movementsRepository.get(MOVEMENTS_API_URL, id);
     }
 }

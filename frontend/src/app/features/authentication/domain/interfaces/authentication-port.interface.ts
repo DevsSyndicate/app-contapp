@@ -7,11 +7,6 @@ import { AuthenticationData, AuthenticationResponse } from '../models/authentica
  */
 export interface AuthenticationPortInterface {
     /**
-     * Call get CSRF Cookie Use Case
-     */
-    csrfCookie: () => Observable<any>;
-
-    /**
      * Call login Use Case
      */
     login: (data: AuthenticationData) => Observable<AuthenticationResponse>;

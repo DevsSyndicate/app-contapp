@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 
 import { AccountsRepositoryInterface } from '../../domain/interfaces/accounts-repository.interface';
 import { Account } from '../../domain/models/account.model';
-
-import { environment } from '@env/environment';
+import { ACCOUNTS_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -12,17 +11,15 @@ import { environment } from '@env/environment';
  * Create account use case
  */
 export class GetAccountsUseCase {
-    public ApiUrl = `${environment.ApiUrl}/accounts`;
-
     constructor(@Inject('AccountsRepositoryInterface') private readonly accountsRepository: AccountsRepositoryInterface) {
 
     }
 
     public getList(): Observable<Account[]> {
-        return this.accountsRepository.getList(this.ApiUrl);
+        return this.accountsRepository.getList(ACCOUNTS_API_URL);
     }
 
     public get(id: string): Observable<Account> {
-        return this.accountsRepository.get(this.ApiUrl, id);
+        return this.accountsRepository.get(ACCOUNTS_API_URL, id);
     }
 }

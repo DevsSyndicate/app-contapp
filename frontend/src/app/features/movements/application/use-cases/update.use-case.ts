@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 
 import { MovementsRepositoryInterface } from '../../domain/interfaces/movements-repository.interface';
 import { Movement, MovementFormData } from '../../domain/models/movement.model';
-
-import { environment } from '@env/environment';
+import { MOVEMENTS_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -12,13 +11,11 @@ import { environment } from '@env/environment';
  * Update movements use case
  */
 export class UpdateMovementsUseCase {
-    public ApiUrl = `${environment.ApiUrl}/accounts`;
-
     constructor(@Inject('AccountsRepositoryInterface') private readonly movementsRepository: MovementsRepositoryInterface) {
 
     }
 
     public update(movement: MovementFormData, id: string): Observable<Movement> {
-        return this.movementsRepository.update<Movement>(this.ApiUrl, movement, id);
+        return this.movementsRepository.update<Movement>(MOVEMENTS_API_URL, movement, id);
     }
 }

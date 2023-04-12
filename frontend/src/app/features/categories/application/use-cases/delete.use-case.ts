@@ -2,8 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { CategoriesRepositoryInterface } from '../../domain/interfaces/categories-repository.interface';
-
-import { environment } from '@env/environment';
+import { CATEGORIES_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -11,13 +10,11 @@ import { environment } from '@env/environment';
  * Create category use case
  */
 export class DeleteCategoryUseCase {
-    public ApiUrl = `${environment.ApiUrl}/categories`;
-
     constructor(@Inject('CategoriesRepositoryInterface') private readonly categoriesRepository: CategoriesRepositoryInterface) {
 
     }
 
     public delete(id: string): Observable<boolean> {
-        return this.categoriesRepository.delete(this.ApiUrl, id);
+        return this.categoriesRepository.delete(CATEGORIES_API_URL, id);
     }
 }

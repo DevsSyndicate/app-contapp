@@ -3,8 +3,7 @@ import { Observable } from 'rxjs';
 
 import { CategoriesRepositoryInterface } from '../../domain/interfaces/categories-repository.interface';
 import { Category } from '../../domain/models/category.model';
-
-import { environment } from '@env/environment';
+import { CATEGORIES_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -12,17 +11,15 @@ import { environment } from '@env/environment';
  * Create category use case
  */
 export class GetCategoriesUseCase {
-    public ApiUrl = `${environment.ApiUrl}/categories`;
-
     constructor(@Inject('CategoriesRepositoryInterface') private readonly categoriesRepository: CategoriesRepositoryInterface) {
 
     }
 
     public getList(): Observable<Category[]> {
-        return this.categoriesRepository.getList(this.ApiUrl);
+        return this.categoriesRepository.getList(CATEGORIES_API_URL);
     }
 
     public get(id: string): Observable<Category> {
-        return this.categoriesRepository.get(this.ApiUrl, id);
+        return this.categoriesRepository.get(CATEGORIES_API_URL, id);
     }
 }

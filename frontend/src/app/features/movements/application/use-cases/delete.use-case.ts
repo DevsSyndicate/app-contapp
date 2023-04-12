@@ -2,8 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { MovementsRepositoryInterface } from '../../domain/interfaces/movements-repository.interface';
-
-import { environment } from '@env/environment';
+import { MOVEMENTS_API_URL } from '../constants/api.const';
 
 @Injectable()
 
@@ -11,13 +10,11 @@ import { environment } from '@env/environment';
  * Create movements use case
  */
 export class DeleteMovementsUseCase {
-    public ApiUrl = `${environment.ApiUrl}/movements`;
-
     constructor(@Inject('MovementsRepositoryInterface') private readonly movementsRepository: MovementsRepositoryInterface) {
 
     }
 
     public delete(id: string): Observable<boolean> {
-        return this.movementsRepository.delete(this.ApiUrl, id);
+        return this.movementsRepository.delete(MOVEMENTS_API_URL, id);
     }
 }
