@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { DatesService } from './application/services/dates.service';
+import { DatesUseCases } from './application/services/dates.use-cases';
 import { TokenService } from './application/services/token.service';
 import { CoreEffects } from './application/state/core..effects';
 import { coreReducer } from './application/state/core.reducers';
@@ -29,7 +29,7 @@ import { ApiRepository } from './infrastructure/repositories/api.repository';
             multi: true,
         },
         ApiRepository,
-        DatesService,
+        DatesUseCases,
         TokenService,
     ],
 })

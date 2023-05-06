@@ -6,7 +6,6 @@ module.exports = {
 		'@angular-eslint/template/accessibility-label-for': 'off',
 		'@angular-eslint/template/accessibility-label-has-associated-control': 'off',
 		'@angular-eslint/template/accessibility-table-scope': 'off',
-		'@angular-eslint/template/accessibility-valid-aria': 'error',
 		'@angular-eslint/template/banana-in-box': 'error',
 		'@angular-eslint/template/click-events-have-key-events': 'off',
 		'@angular-eslint/template/conditional-complexity': 'error',

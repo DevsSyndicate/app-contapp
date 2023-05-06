@@ -5,22 +5,18 @@ import { AnalysisMonthly, AnalysisMonthlyForecastCategory } from '../models/mont
 import { MovementsPublicModels } from '@features/movements/public.api';
 
 /**
- * Monthly analysis presentation adapter interface
+ * Monthly analysis presentation adapter
  */
-export interface MonthlyAnalysisPresentationAdapterInterface {
-    /**
-     * Get monthly account balances
-     */
+export interface MonthlyAnalysisPort {
+
     getAccountBalances: () => Observable<AnalysisMonthly>;
 
-    /**
-     * Get monthly forecast expenses
-     */
     getForecastExpenses: () => Observable<AnalysisMonthlyForecastCategory[]>;
 
-    /**
-     * Get monthly movements
-     */
     getMovements: () => Observable<MovementsPublicModels.MovementPublic[]>;
 
+    /**
+     * Call monthly account balances
+     */
+    getMonthlyAccountBalances: () => Observable<AnalysisMonthly>;
 }

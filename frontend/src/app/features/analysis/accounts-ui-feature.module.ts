@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AnalysisFeatureModule } from './analysis-feature.module';
-import { MonthlyAnalysisPresentationAdapter } from './presentation/adapters/analysis-monthly.adapter';
-import { AnalysisMenuComponent } from './presentation/components/menu/menu.component';
-import { AnalysisMonthlyComponent } from './presentation/components/monthly/monthly.component';
-import { AnalysisMonthlyBalancesComponent } from './presentation/components/monthly-balances/monthly-balances.component';
-import { AnalysisMonthlyForecastsComponent } from './presentation/components/monthly-forecasts/monthly-forecasts.component';
-import { AnalysisMonthlyMovementsComponent } from './presentation/components/monthly-movements/monthly-movements.component';
+import { MonthlyAnalysisStateAdapter } from './infrastructure/adapters/analysis-monthly-state.adapter';
+import { AnalysisMenuComponent } from './ui/components/menu/menu.component';
+import { AnalysisMonthlyComponent } from './ui/components/monthly/monthly.component';
+import { AnalysisMonthlyBalancesComponent } from './ui/components/monthly-balances/monthly-balances.component';
+import { AnalysisMonthlyForecastsComponent } from './ui/components/monthly-forecasts/monthly-forecasts.component';
+import { AnalysisMonthlyMovementsComponent } from './ui/components/monthly-movements/monthly-movements.component';
 
 import { CurrencyPipe } from '@shared/pipes/currency.pipe';
 
@@ -31,7 +31,9 @@ import { CurrencyPipe } from '@shared/pipes/currency.pipe';
         NgbCollapseModule,
     ],
     providers: [
-        MonthlyAnalysisPresentationAdapter,
+        {
+            provide: 'MonthlyAnalysisPort', useClass: MonthlyAnalysisStateAdapter,
+        },
     ],
 })
 

@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { AnalysisMonthlyForecastCategory } from '../../../domain/models/monthly';
-import { MonthlyAnalysisPresentationAdapter } from '../../adapters/analysis-monthly.adapter';
+import { MonthlyAnalysisPort } from '../../../domain/ports/analysis-monthly.port';
 
 @Component({
     selector: 'app-analysis-monthly-forecasts',
@@ -14,11 +14,11 @@ import { MonthlyAnalysisPresentationAdapter } from '../../adapters/analysis-mont
  */
 export class AnalysisMonthlyForecastsComponent {
     // eslint-disable-next-line max-len
-    public monthlyForecastExpenses$: Observable<AnalysisMonthlyForecastCategory[]> = this.monthlyAnalysisAdapter.getForecastExpenses();
+    public monthlyForecastExpenses$: Observable<AnalysisMonthlyForecastCategory[]> = this.monthlyAnalysisPort.getForecastExpenses();
 
     public forecastsCollapsed = false;
 
-    constructor(private readonly monthlyAnalysisAdapter: MonthlyAnalysisPresentationAdapter) {
+    constructor(@Inject('MonthlyAnalysisPort') private readonly monthlyAnalysisPort: MonthlyAnalysisPort) {
 
     }
 }

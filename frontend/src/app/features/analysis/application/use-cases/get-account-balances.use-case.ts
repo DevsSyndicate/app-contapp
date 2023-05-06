@@ -1,9 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AnalysisMonthlyRepositoryInterface } from '../../domain/interfaces/analysis-monthly-repository.interface';
+import { MONTHLY_ANALYSIS_API_URL } from '../../domain/constants/api.const';
+import { AnalysisMonthlyRepositoryInterface } from '../../domain/repositories/analysis-monthly-repository.interface';
 import { AnalysisMonthly } from '../../domain/models/monthly';
-import { MONTHLY_ANALYSIS_API_URL } from '../constants/api.const';
 
 @Injectable()
 

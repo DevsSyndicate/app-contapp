@@ -7,7 +7,7 @@ import { filter, tap } from 'rxjs/operators';
 import { MovementFormData } from '../../../domain/models/movement.model';
 import { MovementsPresentationAdapter } from '../../adapters/movements.adapter';
 
-import { DatesService } from '@core/application/services/dates.service';
+import { DatesUseCases } from '@core/application/services/dates.use-cases';
 import { ValidationError } from '@shared/components/validation-errors/validation.model';
 
 @Component({
@@ -41,7 +41,7 @@ export class MovementsFormComponent {
     public formErrors!: ValidationError;
 
     constructor(
-        private readonly datesService: DatesService,
+        private readonly datesUseCases: DatesUseCases,
         private readonly movementsAdapter: MovementsPresentationAdapter
     ) {}
 
@@ -65,7 +65,7 @@ export class MovementsFormComponent {
     private createForm() {
         return new FormGroup({
             name: new FormControl('', { nonNullable: true }),
-            date: new FormControl(this.datesService.getCurrentDtae(), { nonNullable: true }),
+            date: new FormControl(this.datesUseCases.getCurrentDtae(), { nonNullable: true }),
             type: new FormControl('', { nonNullable: true }),
             amount: new FormControl('', { nonNullable: true }),
             category: new FormControl('', { nonNullable: true }),

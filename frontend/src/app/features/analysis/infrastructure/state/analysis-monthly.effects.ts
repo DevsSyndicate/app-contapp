@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATED, RouterNavigationAction } from '@ngrx/router-store';
 import { of } from 'rxjs';
@@ -7,7 +7,8 @@ import { catchError, filter, map, switchMap } from 'rxjs/operators';
 import { MonthlyAnalysisEffectsInterface } from '../../domain/interfaces/analysis-monthly-effects.interface';
 import { AnalysisMonthly } from '../../domain/models/monthly';
 import { LoadMonthlyAnalysisAccountBalances, LoadMonthlyAnalysisAccountBalancesError, LoadMonthlyAnalysisAccountBalancesSuccess } from '../../domain/state/analysis.actions';
-import { AnalysisMonthlyPort } from '../ports/analysis-monhtly.port';
+
+import { MonthlyAnalysisPort } from '@features/analysis/domain/ports/analysis-monthly.port';
 
 @Injectable()
 
@@ -17,7 +18,7 @@ import { AnalysisMonthlyPort } from '../ports/analysis-monhtly.port';
 export class MonthlyAnalysisEffects implements MonthlyAnalysisEffectsInterface {
     constructor(
         private readonly actions$: Actions,
-        private readonly analysisMonthlyPort: AnalysisMonthlyPort
+        @Inject('MonthlyAnalysisPort') private readonly monthlyAnalysisPort: MonthlyAnalysisPort
     ) {}
 
     public loadMonthlyAccountBalancesOnRouteEnter$ = createEffect(() =>
@@ -31,7 +32,7 @@ export class MonthlyAnalysisEffects implements MonthlyAnalysisEffectsInterface {
         this.actions$.pipe(
             ofType(LoadMonthlyAnalysisAccountBalances),
             switchMap(() =>
-                this.analysisMonthlyPort.getMonthlyAccountBalances().pipe(
+                this.monthlyAnalysisPort.getMonthlyAccountBalances().pipe(
                     map((monthlyAccountBalances: AnalysisMonthly) =>
                         LoadMonthlyAnalysisAccountBalancesSuccess({ monthlyAccountBalances })),
                     catchError(() => of(LoadMonthlyAnalysisAccountBalancesError()))
