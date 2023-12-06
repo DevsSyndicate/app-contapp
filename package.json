@@ -1,0 +1,23 @@
+{
+  "name": "contapp",
+  "version": "1.0.0",
+  "description": "Personal accounting application",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcfdez/ContApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcfdez/ContApp/issues"
+  },
+  "homepage": "https://github.com/mcfdez/ContApp#readme",
+  "devDependencies": {
+    "@commitlint/cli": "18.4.3",
+    "@commitlint/config-conventional": "18.4.3",
+    "husky": "8.0.3"
+  }
+}

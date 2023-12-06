@@ -1,5 +1,5 @@
 {
-  "name": "@contapp/frontend",
+  "name": "@ontapp/frontend",
   "version": "1.0.0",
   "scripts": {
     "start": "npx ng serve",
