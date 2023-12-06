@@ -5,9 +5,9 @@ namespace App\Movements\Infrastructure\Controllers;
 use Illuminate\Http\Request;
 use App\Core\Infrastructure\Controllers\Controller;
 use App\Moveements\Infrastructure\Requests\MovementsRequest;
-use App\Models\Movement;
-use App\Events\MovementCreated;
-use App\Events\MovementDeleted;
+use App\Movements\Domain\Models\Movement;
+use App\Movements\Infrastructure\Events\MovementCreated;
+use App\Movements\Infrastructure\Events\MovementDeleted;
 
 class MovementsController extends Controller
 {

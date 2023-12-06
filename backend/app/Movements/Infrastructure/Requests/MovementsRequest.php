@@ -3,8 +3,8 @@
 namespace App\Movements\Infrastructure\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\Category;
-use App\Models\Account;
+use App\Categories\Domain\Models\Category;
+use App\Accounts\Domain\Models\Account;
 
 class MovementsRequest extends FormRequest
 {

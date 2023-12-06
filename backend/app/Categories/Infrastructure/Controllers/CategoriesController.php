@@ -4,7 +4,7 @@ namespace App\Categories\Infrastructure\Controllers;
 
 use App\Core\Infrastructure\Controllers\Controller;
 use App\Categories\Infrastructure\Requests\CategoriesRequest;
-use App\Models\Category;
+use App\Categories\Domain\Models\Category;
 
 class CategoriesController extends Controller
 {

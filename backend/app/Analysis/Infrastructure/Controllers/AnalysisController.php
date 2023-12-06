@@ -5,9 +5,9 @@ namespace App\Analysis\Infrastructure\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Core\Infrastructure\Controllers\Controller;
-use App\Models\Account;
-use App\Models\Movement;
-use App\Models\Category;
+use App\Accounts\Domain\Models\Account;
+use App\Movements\Domain\Models\Movement;
+use App\Categories\Domain\Models\Category;
 
 class AnalysisController extends Controller
 {

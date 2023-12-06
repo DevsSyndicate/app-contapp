@@ -4,7 +4,7 @@ namespace App\Accounts\Infrastructure\Controllers;
 
 use App\Core\Infrastructure\Controllers\Controller;
 use App\Accounts\Infrastructure\Requests\AccountsRequest;
-use App\Models\Account;
+use App\Accounts\Domain\Models\Account;
 
 /**
  * Accounts controller
