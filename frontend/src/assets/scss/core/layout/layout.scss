@@ -92,11 +92,6 @@
                 margin-left: $sidebar-width-full;
             }
         }
-        &[data-sidebar-position="fixed"][data-sidebartype="mini-sidebar"] {
-            .topbar .top-navbar .navbar-collapse {
-                margin-left: $sidebar-width-mini;
-            }
-        }
        
         /*Vertical with mini-sidebar*/
         &[data-sidebartype="mini-sidebar"] {
@@ -115,14 +110,6 @@
             .left-sidebar .upgrade-btn {
                 display: none;
             }
-        }
-        /*Fixed sidebar with minisidebar*/
-        &[data-sidebar-position="fixed"][data-sidebartype="mini-sidebar"] {
-            .topbar .top-navbar .navbar-collapse {
-                margin-left: $sidebar-width-mini;
-            }
-        }
-        &[data-sidebartype="mini-sidebar"] {
             .page-wrapper {
                 margin-left: $sidebar-width-mini;
             }
@@ -149,6 +136,12 @@
                 //         }
                 //     }
                 // }
+            }
+        }
+        /*Fixed sidebar with minisidebar*/
+        &[data-sidebar-position="fixed"][data-sidebartype="mini-sidebar"] {
+            .topbar .top-navbar .navbar-collapse {
+                margin-left: $sidebar-width-mini;
             }
         }
     }
