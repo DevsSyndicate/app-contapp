@@ -116,7 +116,7 @@ $info: #2cabe3 !default;
 $red: #f33155 !default;
 $green: #7ace4c !default;
 $theme-colors: () !default;
-$theme-colors: map-merge(
+$theme-colors: map.merge(
   (
     'primary': #707cd2,
     'secondary': $gray-600,
@@ -135,7 +135,7 @@ $theme-colors: map-merge(
 );
 
 $brand-colors: () !default;
-$brand-colors: map-merge(
+$brand-colors: map.merge(
   (
     'facebook': #3b5999,
     'twitter': #1da1f2,
@@ -197,7 +197,7 @@ $h3-font-size: 24px !default;
 $h4-font-size: 18px !default;
 $h5-font-size: 16px !default;
 $h6-font-size: 14px !default;
-$headings-margin-bottom: (1rem / 2) !default;
+$headings-margin-bottom: calc(1rem / 2) !default;
 $headings-font-weight: 400 !default;
 $headings-color: inherit !default;
 

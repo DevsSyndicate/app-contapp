@@ -15,10 +15,6 @@ html {
     min-height: 100%;
 }
 
-a {
-    color: $themecolor;
-}
-
 a:hover,
 a:focus {
     text-decoration: none;
@@ -158,15 +154,7 @@ html body {
     .display-7 {
         font-size: 2rem;
     }
-}
 
-
-
-/*******************
-Background colors
-*******************/
-
-html body {
     .bg-megna {
         background-color: $cyan;
     }
@@ -187,14 +175,11 @@ html body {
     }
 }
 
-
-
 /*******************
 Rounds
 *******************/
 
 .round {
-    line-height: 48px;
     color: $white;
     width: 50px;
     height: 50px;
@@ -274,29 +259,6 @@ Labels
 }
 
 
-
-/*******************
-List-style-none
-******************/
-
-ul.list-style-none {
-    margin: 0px;
-    padding: 0px;
-    li {
-        list-style: none;
-        a {
-            color: $body-color;
-            padding: 8px 0px;
-            display: block;
-            text-decoration: none;
-            &:hover {
-                color: $themecolor;
-            }
-        }
-    }
-}
-
-
 /*******************
 Card
 ******************/
@@ -356,12 +318,7 @@ Card
     -moz-transition: all .25s ease;
     transition: all .25s ease;
     &:hover{
-        webkit-transform: translateY(-4px) scale(1.01);
-        -moz-transform: translateY(-4px) scale(1.01);
-        -ms-transform: translateY(-4px) scale(1.01);
-        -o-transform: translateY(-4px) scale(1.01);
         transform: translateY(-4px) scale(1.01);
-        -webkit-box-shadow: 0 14px 24px rgba(62,57,107,.1);
         box-shadow: 0 14px 24px rgba(62,57,107,.1);
     }
 }
@@ -372,6 +329,28 @@ Card
     background: $info;
     color:$white;
 }
+
+/*******************
+List-style-none
+******************/
+
+ul.list-style-none {
+    margin: 0px;
+    padding: 0px;
+    li {
+        list-style: none;
+        a {
+            color: $body-color;
+            padding: 8px 0px;
+            display: block;
+            text-decoration: none;
+            &:hover {
+                color: $themecolor;
+            }
+        }
+    }
+}
+
 /*******************
 Labels
 *******************/
@@ -383,10 +362,6 @@ Labels
     font-weight: 400;
     border-radius: $border-radius;
     font-size: 75%;
-}
-
-.label-rounded {
-    border-radius: 60px;
 }
 
 .label-custom {
@@ -433,21 +408,13 @@ Labels
     background-color: $gray-100;
 }
 
-
-
-
-
-
-
-// 
 // 5-feb-2021
-// 
-
 .card-body {
     padding: 1.25rem;
 }
 
 a {
+    color: $themecolor;
     text-decoration: none;
 }
 

@@ -29,7 +29,10 @@
               "src/assets/icons/themify-icons/themify-icons.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "dayjs"
+            ]
           },
           "configurations": {
             "production": {

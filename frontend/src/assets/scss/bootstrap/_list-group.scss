@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Base class
 //
 // Easily usable on <ul>, <ol>, or <div>.
@@ -154,10 +156,10 @@
 @each $state, $value in $theme-colors {
   $background: shift-color($value, $list-group-item-bg-scale);
   $color: shift-color($value, $list-group-item-color-scale);
+
   @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
-    $color: mix($value, color-contrast($background), abs($alert-color-scale));
+    $color: mix($value, color-contrast($background), math.abs($alert-color-scale));
   }
 
   @include list-group-item-variant($state, $background, $color);
 }
-// scss-docs-end list-group-modifiers

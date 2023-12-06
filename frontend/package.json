@@ -6,7 +6,8 @@
     "build": "npx ng build --configuration=production",
     "build-analayzer": "npx ng build --stats-json",
     "test": "npx ng test",
-    "lint": "npx eslint src/"
+    "lint": "npx eslint src/",
+    "stylelint": "npx stylelint src/**/*.scss"
   },
   "private": true,
   "dependencies": {
@@ -64,6 +65,8 @@
     "eslint-plugin-unused-imports": "3.0.0",
     "jest": "29.7.0",
     "prettier": "3.1.0",
+    "stylelint": "15.11.0",
+    "stylelint-config-recommended-scss": "13.1.0",
     "ts-node": "10.9.1",
     "typescript": "5.2.2",
     "webpack-bundle-analyzer": "4.10.1"

@@ -723,6 +723,10 @@
   &.from-360-deg {@include wind-rotate(180deg);}
 }
 
+%wi-wind-towards-0-deg {
+  /* Estilos de wi-wind.towards-0-deg */
+}
+
 .wi-wind-towards-n    {
-  @extend .wi-wind.towards-0-deg;
+  @extend %wi-wind-towards-0-deg;
 }

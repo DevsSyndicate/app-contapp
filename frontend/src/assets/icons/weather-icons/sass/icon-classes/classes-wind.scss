@@ -1,4 +1,5 @@
 // Wind Variables 2.0
+@import "classes-wind-degrees";
 
 $wind: "\f0b1";
 
@@ -11,5 +12,3 @@ $wind: "\f0b1";
   -o-transform: rotate($val);
   transform: rotate($val);
 }
-
-@import "classes-wind-degrees.scss";

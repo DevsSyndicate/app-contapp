@@ -1,9 +1,9 @@
+@use 'sass:math';
+
 // stylelint-disable property-blacklist, scss/dollar-variable-default
 
 // SCSS RFS mixin
-//
 // Automated responsive values for font sizes, paddings, margins and much more
-//
 // Licensed under MIT (https://github.com/twbs/rfs/blob/master/LICENSE)
 
 // Configuration
@@ -11,6 +11,14 @@
 // Base value
 $rfs-base-value: 1.25rem !default;
 $rfs-unit: rem !default;
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return ($number / ($number * 0 + 1));
+  }
+
+  @return $number;
+}
 
 @if $rfs-unit != rem and $rfs-unit != px {
   @error "`#{$rfs-unit}` is not a valid unit for $rfs-unit. Use `px` or `rem`.";
@@ -50,22 +58,22 @@ $rfs-safari-iframe-resize-bug-fix: false !default;
 $enable-rfs: true !default;
 
 // Cache $rfs-base-value unit
-$rfs-base-value-unit: unit($rfs-base-value);
+$rfs-base-value-unit: math.unit($rfs-base-value);
 
 // Remove px-unit from $rfs-base-value for calculations
 @if $rfs-base-value-unit == px {
   $rfs-base-value: $rfs-base-value / ($rfs-base-value * 0 + 1);
 }
 @else if $rfs-base-value-unit == rem {
-  $rfs-base-value: $rfs-base-value / ($rfs-base-value * 0 + 1 / $rfs-rem-value);
+  $rfs-base-value: $rfs-base-value / ($rfs-base-value * 0 + calc(1 / $rfs-rem-value));
 }
 
 // Cache $rfs-breakpoint unit to prevent multiple calls
-$rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
+$rfs-breakpoint-unit-cache: math.unit($rfs-breakpoint);
 
 // Remove unit from $rfs-breakpoint for calculations
 @if $rfs-breakpoint-unit-cache == px {
-  $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1);
+  $rfs-breakpoint: ($rfs-breakpoint / ($rfs-breakpoint * 0 + 1));
 }
 @else if $rfs-breakpoint-unit-cache == rem or $rfs-breakpoint-unit-cache == "em" {
   $rfs-breakpoint: $rfs-breakpoint / ($rfs-breakpoint * 0 + 1 / $rfs-rem-value);
@@ -146,6 +154,8 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
   }
 }
 
+
+
 // Helper function to get the formatted non-responsive value
 @function rfs-value($values) {
   // Convert to list
@@ -164,7 +174,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
 
       @if $unit == px {
         // Convert to rem if needed
-        $val: $val + ' ' + if($rfs-unit == rem, #{$value / ($value * 0 + $rfs-rem-value)}rem, $value);
+        $val: $val + ' ' + if($rfs-unit == rem, #{calc($value / (strip-unit($value) + $rfs-rem-value))}rem, $value);
       }
       @else if $unit == rem {
         // Convert to px if needed
@@ -205,11 +215,11 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
 
       @else {
         // Remove unit from $value for calculations
-        $value: $value / ($value * 0 + if($unit == px, 1, 1 / $rfs-rem-value));
+        $value: $value / ($value * 0 + if($unit == px, 1, calc(1 / $rfs-rem-value)));
 
         // Only add the media query if the value is greater than the minimum value
         @if abs($value) <= $rfs-base-value or not $enable-rfs {
-          $val: $val + ' ' +  if($rfs-unit == rem, #{$value / $rfs-rem-value}rem, #{$value}px);
+          $val: $val + ' ' +  if($rfs-unit == rem, #{calc($value / $rfs-rem-value)}rem, #{$value}px);
         }
         @else {
           // Calculate the minimum value
