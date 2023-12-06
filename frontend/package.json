@@ -9,8 +9,7 @@
     "watch": "ng build --watch --configuration=development",
     "test": "ng test",
     "lint": "eslint src/",
-    "depgraph": "npx ts-depgraph",
-    "compodoc": "npx compodoc -p tsconfig.doc.json"
+    "depgraph": "npx ts-depgraph"
   },
   "private": true,
   "dependencies": {
@@ -45,7 +44,6 @@
     "@angular-eslint/template-parser": "17.1.1",
     "@angular/cli": "17.0.5",
     "@angular/compiler-cli": "17.0.5",
-    "@compodoc/compodoc": "1.1.23",
     "@schematics/angular": "17.0.5",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
