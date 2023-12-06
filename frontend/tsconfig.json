@@ -17,6 +17,7 @@
 		"module": "es2020",
 		"strictNullChecks": false,
 		"lib": ["es2018", "dom"],
+		"types": ["jest"],
 		"paths": {
 			"@core/*": ["src/app/core/*"],
 			"@env/*": ["src/environments/*"],
