@@ -3,7 +3,7 @@ module.exports = {
 		// Base
 		{
 			files: ['*.ts'],
-			extends: ['./eslint/base', './eslint/typescript/prefer-arrow', './eslint/typescript/regex'],
+			extends: ['./linter/base', './linter/typescript/prefer-arrow', './linter/typescript/regex'],
 		},
 		// Typescript
 		{
@@ -13,15 +13,15 @@ module.exports = {
 				project: ['tsconfig.json'],
 			},
 			extends: [
-				'./eslint/typescript/typescript',
-				'./eslint/angular/angular',
-				'./eslint/typescript/import',
-				'./eslint/documentation/jsdoc',
-				'./eslint/typescript/rxjs',
-				'./eslint/angular/ngrx',
-				'./eslint/typescript/deprecations',
-				'./eslint/security/security',
-				'./eslint/typescript/sonar',
+				'./linter/typescript/typescript',
+				'./linter/angular/angular',
+				'./linter/typescript/import',
+				'./linter/documentation/jsdoc',
+				'./linter/typescript/rxjs',
+				'./linter/angular/ngrx',
+				'./linter/typescript/deprecations',
+				'./linter/security/security',
+				'./linter/typescript/sonar',
 			],
 		},
 		// Mocks and stubs
@@ -35,26 +35,26 @@ module.exports = {
 		// Jest
 		{
 			files: ['*.spec.ts', '*.test.module.ts'],
-			extends: ['./eslint/testing/jest'],
+			extends: ['./linter/testing/jest'],
 		},
 		// Tempplates
 		{
 			files: ['*.html'],
 			parser: '@angular-eslint/template-parser',
-			extends: ['./eslint/templates/templates'],
+			extends: ['./linter/templates/templates'],
 		},
 		{
 			files: ['*.html'],
-			extends: ['plugin:prettier/recommended', './eslint/templates/html'],
+			extends: ['plugin:prettier/recommended', './linter/templates/html'],
 		},
 		// Specific rules for specific files
 		{
 			files: ['*.actions.ts', '*.action.ts'],
-			extends: ['./eslint/angular/actions'],
+			extends: ['./linter/angular/actions'],
 		},
 		{
 			files: ['*.selectors.ts', '*.selector.ts'],
-			extends: ['./eslint/angular/selectors'],
+			extends: ['./linter/angular/selectors'],
 		},
 	],
 };

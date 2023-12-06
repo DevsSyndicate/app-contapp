@@ -2,8 +2,8 @@ import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AnalysisMonthlyRepositoryInterface } from '../../domain/repositories/analysis-monthly-repository.interface';
 import { AnalysisMonthly } from '../../domain/models/monthly';
+import { AnalysisMonthlyRepositoryInterface } from '../../domain/repositories/analysis-monthly-repository.interface';
 
 import { ApiRepository } from '@core/infrastructure/repositories/api.repository';
 

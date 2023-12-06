@@ -17,7 +17,7 @@ import { CoreModule } from '@core/core.module';
         BrowserModule,
         CoreModule,
         StoreModule.forRoot(),
-        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() , connectInZone: true}),
+        StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode(), connectInZone: true }),
         EffectsModule.forRoot([]),
         StoreRouterConnectingModule.forRoot(),
     ],
