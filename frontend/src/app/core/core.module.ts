@@ -8,8 +8,8 @@ import { DatesUseCases } from './application/services/dates.use-cases';
 import { TokenService } from './application/services/token.service';
 import { CoreEffects } from './application/state/core..effects';
 import { coreReducer } from './application/state/core.reducers';
-import { AuthInterceptor } from './infrastructure/interceptors/auth.interceptor';
 import { ApiRepository } from './infrastructure/repositories/api.repository';
+import { AuthInterceptor } from './ui/interceptors/auth.interceptor';
 
 @NgModule({
     imports: [

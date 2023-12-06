@@ -2,12 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AccountsController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\MovementsController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AnalysisController;
+use App\Authentication\Infrastructure\Controllers\AuthController;
+use App\Accounts\Infrastructure\Controllers\AccountsController;
+use App\Categories\Infrastructure\Controllers\CategoriesController;
+use App\Movements\Infrastructure\Controllers\MovementsController;
+use App\Users\Infrastructure\Controllers\UserController;
+use App\Analysis\Infrastructure\Controllers\AnalysisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ use App\Http\Controllers\AnalysisController;
 */
 
 Route::get('/', function (Request $request) {
-    return 'ngBiblio API';
+    return 'ContApp API';
 });
 
 // Auhthentication process
