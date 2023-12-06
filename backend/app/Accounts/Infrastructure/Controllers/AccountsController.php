@@ -6,6 +6,9 @@ use App\Core\Infrastructure\Controllers\Controller;
 use App\Accounts\Infrastructure\Requests\AccountsRequest;
 use App\Models\Account;
 
+/**
+ * Accounts controller
+ */
 class AccountsController extends Controller
 {
     /**
