@@ -1,9 +1,0 @@
-# Frontend project label
-project/frontend:
-- changed-files:
-  - any-glob-to-any-file: 'frontend/*'
-
-# Backend project label
-project/backend:
-- changed-files:
-  - any-glob-to-any-file: 'backend/*'

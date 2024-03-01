@@ -1,24 +1,24 @@
 {
-  "name": "contapp",
+  "name": "@devsyndicate/app-contapp",
   "version": "1.0.0",
   "description": "Personal accounting application",
-  "scripts": {
-    "prepare": "husky install"
-  },
+  "license": "MIT",
+  "private": true,
+  "author": "Devs Syndicate",
+  "homepage": "https://contapp.mcfdez87.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mcfdez/ContApp.git"
+    "url": "git+https://github.com/DevsSyndicate/app-contapp.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mcfdez/ContApp/issues"
+    "url": "https://github.com/DevsSyndicate/app-contapp/issues"
   },
-  "homepage": "https://github.com/mcfdez/ContApp#readme",
+  "scripts": {},
+  "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "18.4.3",
-    "@commitlint/config-conventional": "18.4.3",
-    "husky": "8.0.3",
-    "validate-branch-name": "1.3.0"
-  }
+    "nx": "18.0.6"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
