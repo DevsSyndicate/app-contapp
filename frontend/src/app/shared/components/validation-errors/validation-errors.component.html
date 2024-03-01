@@ -1,9 +1,0 @@
-<div class="alert alert-danger" *ngIf="showAlert">
-	{{ genericMessage }}
-
-	<ul>
-		<li *ngFor="let error of parsedErrors">
-			<span *ngFor="let message of error.errors">{{ message }}</span>
-		</li>
-	</ul>
-</div>
