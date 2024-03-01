@@ -6,6 +6,7 @@
   "private": true,
   "author": "Devs Syndicate",
   "homepage": "https://contapp.mcfdez87.com",
+  "template": "template-spa-angular-nest",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DevsSyndicate/app-contapp.git"
